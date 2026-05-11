@@ -47,24 +47,24 @@ export default function ChemicosCTA() {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ filter: "brightness(0.45)" }}
+          style={{ filter: "brightness(1.05) saturate(1.1)" }}
         >
-          <source src="/manus-storage/cta-bg-video_4d18d741.mp4" type="video/mp4" />
+          <source src="/manus-storage/cta-partnership-bg_3afed4d8.mp4" type="video/mp4" />
         </video>
-        {/* 오버레이 그라디언트 */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
+        {/* 오버레이 — 밝은 분위기 유지하면서 텍스트 가독성 확보 */}
+        <div className="absolute inset-0 bg-[#f5f0e8]/30" />
 
         <div className="relative max-w-2xl mx-auto text-center">
-          <div className="w-full h-px bg-[#f5f0e8]/15 mb-20"></div>
+          <div className="w-full h-px bg-[#2c2c2c]/15 mb-20"></div>
 
           <h2
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-light leading-[1.3] text-[#f5f0e8] mb-10"
+            className="font-serif text-4xl md:text-5xl lg:text-6xl font-light leading-[1.3] text-[#2c2c2c] mb-10"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
             長く、深く、<br />共に歩むパートナーへ
           </h2>
 
-          <p className="text-[#f5f0e8]/75 leading-[2.0] text-lg mb-14 max-w-xl mx-auto font-light" style={JP_BODY}>
+          <p className="text-[#4a4035] leading-[2.0] text-lg mb-14 max-w-xl mx-auto font-light" style={JP_BODY}>
             私たちは、ブランドとともに積み重ねていく価値を大切にしています。<br />
             その価値を、確かなものづくりで支えていきます。<br />
             ぜひご相談ください。
@@ -72,14 +72,14 @@ export default function ChemicosCTA() {
 
           <button
             onClick={() => setOpen(true)}
-            className="inline-flex items-center gap-3 text-sm tracking-[0.2em] uppercase border border-[#f5f0e8]/70 px-8 py-3.5 text-[#f5f0e8] hover:bg-[#f5f0e8] hover:text-[#2c2c2c] transition-all duration-300 font-light cursor-pointer whitespace-nowrap"
+            className="inline-flex items-center gap-3 text-sm tracking-[0.2em] uppercase border border-[#2c2c2c] px-8 py-3.5 text-[#2c2c2c] hover:bg-[#2c2c2c] hover:text-[#f5f0e8] transition-all duration-300 font-light cursor-pointer whitespace-nowrap"
             style={JP_BODY}
           >
             お問い合わせ
             <i className="ri-arrow-right-line text-sm"></i>
           </button>
 
-          <div className="w-full h-px bg-[#f5f0e8]/15 mt-20"></div>
+          <div className="w-full h-px bg-[#2c2c2c]/15 mt-20"></div>
         </div>
       </section>
 
