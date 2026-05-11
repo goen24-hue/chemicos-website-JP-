@@ -59,7 +59,7 @@ export default function ChemicosFAQ() {
                 openIdx === idx ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
               }`}
             >
-              <div className="pb-8 pl-0 md:pl-0" style={{display: 'none'}}>
+              <div className="pb-8 pl-0 md:pl-0">
                 <div className="border-l-2 border-[#c8b99a] pl-6">
                   <p
                     className="text-[#4a4035] text-base leading-[2.1] font-light"
