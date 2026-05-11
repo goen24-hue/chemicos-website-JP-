@@ -101,7 +101,7 @@ export const specsData = [
     icon: "ri-award-line",
     items: [
       { label: "ISO 22716", value: "GMP認証取得" },
-      { label: "CGMP", value: "韓国食品医薬品安全処" },
+      { label: "ISO 9001", value: "品質マネジメントシステム認証取得" },
       { label: "クルエルティフリー", value: "対応可能" },
       { label: "ヴィーガン処方", value: "対応可能" },
     ],
