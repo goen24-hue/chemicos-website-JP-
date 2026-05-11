@@ -59,7 +59,7 @@ export default function ChemicosFAQ() {
                 openIdx === idx ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
               }`}
             >
-              <div className="pb-8 pl-0 md:pl-0">
+              <div className="pb-8 pl-0 md:pl-0" style={{display: 'none'}}>
                 <div className="border-l-2 border-[#c8b99a] pl-6">
                   <p
                     className="text-[#4a4035] text-base leading-[2.1] font-light"
@@ -80,7 +80,7 @@ export default function ChemicosFAQ() {
       </div>
 
       {/* Bottom CTA */}
-      <div className="mt-16 pt-12 border-t border-[#2c2c2c]/10">
+      <div className="mt-16 pt-12 border-t border-[#2c2c2c]/10" style={{borderStyle: 'none'}}>
         <p className="text-[#6b6055] text-base font-light leading-[1.9]" style={JP_BODY}>
           他にご不明な点がございましたら、<br />
           お気軽にご連絡ください。
