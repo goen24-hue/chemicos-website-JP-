@@ -15,52 +15,101 @@ import ChemicosFAQ from "./components/ChemicosFAQ";
 import ChemicosContact from "./components/ChemicosContact";
 import ChemicosCTA from "./components/ChemicosCTA";
 import ChemicosFooter from "./components/ChemicosFooter";
+import FadeIn from "@/components/FadeIn";
 
 export default function ChemicosPage() {
   return (
     <div className="min-h-screen bg-[#f5f0e8] text-[#2c2c2c]">
       <ChemicosNavbar />
       <main>
-        {/* 브랜드 스토리 */}
+        {/* Hero: 애니메이션 없이 즉시 표시 */}
         <ChemicosHero />
-        <ChemicosIntro />
-        <ChemicosHeritage />
 
-        {/* 회사 소개 — 신뢰 지표 */}
-        <ChemicosAbout />
+        {/* 브랜드 스토리 */}
+        <FadeIn threshold={0.08}>
+          <ChemicosIntro />
+        </FadeIn>
+
+        <FadeIn threshold={0.08} delay={60}>
+          <ChemicosHeritage />
+        </FadeIn>
+
+        {/* 회사 소개 */}
+        <FadeIn threshold={0.08}>
+          <ChemicosAbout />
+        </FadeIn>
 
         {/* 제품 전문성 */}
-        <ChemicosExpertise />
-        <ChemicosExpansion />
+        <FadeIn threshold={0.08}>
+          <ChemicosExpertise />
+        </FadeIn>
 
-        {/* 제품 포트폴리오 — "어떤 제품을 만들 수 있나요?" */}
-        <div className="w-full h-px bg-[#2c2c2c]/10"></div>
-        <ChemicosPortfolio />
+        <FadeIn threshold={0.08} delay={60}>
+          <ChemicosExpansion />
+        </FadeIn>
+
+        {/* 제품 포트폴리오 */}
+        <FadeIn threshold={0.04}>
+          <div className="w-full h-px bg-[#2c2c2c]/10" />
+        </FadeIn>
+
+        <FadeIn threshold={0.05}>
+          <ChemicosPortfolio />
+        </FadeIn>
 
         {/* 고객 실무 정보 */}
-        <div className="w-full h-px bg-[#2c2c2c]/10"></div>
-        <ChemicosProcess />
-        <ChemicosSpecs />
+        <FadeIn threshold={0.04}>
+          <div className="w-full h-px bg-[#2c2c2c]/10" />
+        </FadeIn>
+
+        <FadeIn threshold={0.06}>
+          <ChemicosProcess />
+        </FadeIn>
+
+        <FadeIn threshold={0.06} delay={60}>
+          <ChemicosSpecs />
+        </FadeIn>
 
         {/* 클라이언트 실적 */}
-        <div className="w-full h-px bg-[#2c2c2c]/10"></div>
-        <ChemicosClients />
+        <FadeIn threshold={0.04}>
+          <div className="w-full h-px bg-[#2c2c2c]/10" />
+        </FadeIn>
+
+        <FadeIn threshold={0.06}>
+          <ChemicosClients />
+        </FadeIn>
 
         {/* 파트너십 철학 */}
-        <ChemicosPartnership />
-        <ChemicosImprovement />
+        <FadeIn threshold={0.06}>
+          <ChemicosPartnership />
+        </FadeIn>
+
+        <FadeIn threshold={0.06} delay={60}>
+          <ChemicosImprovement />
+        </FadeIn>
 
         {/* FAQ */}
-        <div className="w-full h-px bg-[#2c2c2c]/10"></div>
-        <ChemicosFAQ />
+        <FadeIn threshold={0.04}>
+          <div className="w-full h-px bg-[#2c2c2c]/10" />
+        </FadeIn>
 
-        {/* 연락처 & 위치 */}
-        <ChemicosContact />
+        <FadeIn threshold={0.06}>
+          <ChemicosFAQ />
+        </FadeIn>
 
-        {/* CTA */}
-        <ChemicosCTA />
+        {/* 연락처 & CTA */}
+        <FadeIn threshold={0.05}>
+          <ChemicosContact />
+        </FadeIn>
+
+        <FadeIn threshold={0.08}>
+          <ChemicosCTA />
+        </FadeIn>
       </main>
-      <ChemicosFooter />
+
+      <FadeIn threshold={0.1}>
+        <ChemicosFooter />
+      </FadeIn>
     </div>
   );
 }
