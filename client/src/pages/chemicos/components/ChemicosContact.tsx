@@ -1,13 +1,6 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { contactInfo } from "@/mocks/chemicos";
 import { trpc } from "@/lib/trpc";
-
-/** 봇 방지용 간단한 수학 문제 생성 */
-function generateMathChallenge() {
-  const a = Math.floor(Math.random() * 9) + 1;
-  const b = Math.floor(Math.random() * 9) + 1;
-  return { a, b, answer: a + b };
-}
 
 const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
 const JP_TITLE = { fontFamily: "'Cormorant Garamond', serif" };
@@ -16,7 +9,6 @@ type FormErrors = {
   name?: string;
   email?: string;
   message?: string;
-  captcha?: string;
 };
 
 export default function ChemicosContact() {
@@ -34,14 +26,6 @@ export default function ChemicosContact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
-
-  // ── 봇 방지 ──────────────────────────────────────────
-  // 수학 퀴즈: 컴포넌트 마운트 시 1회 생성
-  const challenge = useMemo(() => generateMathChallenge(), []);
-  const [captchaInput, setCaptchaInput] = useState("");
-  // 허니팟: 봇만 채우는 숨겨진 필드
-  const [honeypot, setHoneypot] = useState("");
-  // ─────────────────────────────────────────────────────
 
   const contactMutation = trpc.contact.submit.useMutation({
     onSuccess: () => {
@@ -71,10 +55,6 @@ export default function ChemicosContact() {
       errs.email = "正しいメールアドレスを入力してください";
     }
     if (!values.message.trim()) errs.message = "ご相談内容を入力してください";
-    // 수학 퀴즈 검증
-    if (parseInt(captchaInput, 10) !== challenge.answer) {
-      errs.captcha = "答えが正しくありません";
-    }
     return errs;
   };
 
@@ -103,14 +83,7 @@ export default function ChemicosContact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // 全フィールドをtouched扱いにして検証
-    setTouched({ name: true, email: true, message: true, captcha: true });
-
-    // 허니팟 필드가 채워져 있으면 봇으로 판단하고 조용히 차단
-    if (honeypot) {
-      setIsSubmitting(false);
-      setSubmitted(true); // 봇에게는 성공처럼 보이게
-      return;
-    }
+    setTouched({ name: true, email: true, message: true });
     const errs = validate(form);
     setErrors(errs);
     if (Object.keys(errs).length > 0) return;
@@ -492,73 +465,6 @@ export default function ChemicosContact() {
                 <p className="text-xs text-[#8a7e6e]/70 font-light -mt-2" style={JP_BODY}>
                   <span className="text-[#c8b99a]">*</span> は必須入力項目です
                 </p>
-
-                {/* ── 봇 방지 영역 ── */}
-                {/* 허니팟: CSS로 완전히 숨김 (봇만 채움) */}
-                <div style={{ position: "absolute", left: "-9999px", opacity: 0, pointerEvents: "none" }} aria-hidden="true">
-                  <input
-                    type="text"
-                    name="website"
-                    value={honeypot}
-                    onChange={(e) => setHoneypot(e.target.value)}
-                    tabIndex={-1}
-                    autoComplete="off"
-                  />
-                </div>
-
-                {/* 수학 퀴즈 */}
-                <div className="border border-[#2c2c2c]/12 p-5 bg-[#ede8df]/40">
-                  <div className="flex items-center gap-3 mb-3">
-                    <i className="ri-shield-check-line text-[#c8b99a] text-base"></i>
-                    <span className="text-xs tracking-[0.2em] uppercase text-[#6b6055] font-light" style={JP_BODY}>
-                      ボット確認
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-4 flex-wrap">
-                    <p className="text-[#2c2c2c] text-base font-light" style={JP_BODY}>
-                      {challenge.a} + {challenge.b} = ?
-                    </p>
-                    <div className="flex flex-col gap-1">
-                      <input
-                        type="number"
-                        inputMode="numeric"
-                        value={captchaInput}
-                        onChange={(e) => {
-                          setCaptchaInput(e.target.value);
-                          if (touched.captcha) {
-                            const newErrors = { ...errors };
-                            if (parseInt(e.target.value, 10) === challenge.answer) {
-                              delete newErrors.captcha;
-                            } else {
-                              newErrors.captcha = "答えが正しくありません";
-                            }
-                            setErrors(newErrors);
-                          }
-                        }}
-                        onBlur={() => setTouched((prev) => ({ ...prev, captcha: true }))}
-                        placeholder="答えを入力"
-                        className={`w-32 bg-transparent border-b pb-1.5 text-base text-[#2c2c2c] font-light outline-none transition-colors duration-200 placeholder-[#8a7e6e]/50 ${
-                          errors.captcha && touched.captcha
-                            ? "border-red-400 hover:border-red-400 focus:border-red-400"
-                            : captchaInput && parseInt(captchaInput, 10) === challenge.answer
-                            ? "border-[#c8b99a] focus:border-[#c8b99a]"
-                            : "border-[#2c2c2c]/25 hover:border-[#c8b99a] focus:border-[#2c2c2c]"
-                        }`}
-                        style={JP_BODY}
-                      />
-                      {errors.captcha && touched.captcha && (
-                        <p className="text-red-400 text-xs font-light" style={JP_BODY}>
-                          {errors.captcha}
-                        </p>
-                      )}
-                    </div>
-                    {captchaInput && parseInt(captchaInput, 10) === challenge.answer && (
-                      <span className="text-[#c8b99a] text-sm" style={{ transition: "opacity 0.3s" }}>
-                        <i className="ri-check-line"></i>
-                      </span>
-                    )}
-                  </div>
-                </div>
 
                 {/* 送信ボタン */}
                 <button
