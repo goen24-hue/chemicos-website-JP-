@@ -444,20 +444,61 @@ export default function ChemicosContact() {
                     style={JP_BODY}
                     placeholder="製品のコンセプト、数量、スケジュールなど、お気軽にご記入ください"
                   />
-                  <div className="flex justify-between items-center mt-1">
-                    {errors.message && touched.message ? (
-                      <p className="text-red-400 text-xs font-light" style={JP_BODY}>
-                        {errors.message}
-                      </p>
-                    ) : (
-                      <span />
-                    )}
-                    <p
-                      className={`text-sm font-light ${charCount >= 500 ? "text-red-400" : "text-[#8a7e6e]/60"}`}
-                      style={JP_BODY}
-                    >
-                      {charCount}/500
-                    </p>
+                  {/* 글자 수 카운터 영역 */}
+                  <div className="mt-2 space-y-1.5">
+                    {/* 진행 바 */}
+                    <div className="w-full h-px bg-[#2c2c2c]/10 overflow-hidden">
+                      <div
+                        className="h-full transition-all duration-300"
+                        style={{
+                          width: `${Math.min((charCount / 500) * 100, 100)}%`,
+                          backgroundColor:
+                            charCount >= 500 ? "#ef4444"
+                            : charCount >= 400 ? "#f59e0b"
+                            : "#c8b99a",
+                        }}
+                      />
+                    </div>
+
+                    {/* 에러 메시지 + 카운터 */}
+                    <div className="flex justify-between items-center">
+                      {errors.message && touched.message ? (
+                        <p className="text-red-400 text-xs font-light" style={JP_BODY}>
+                          {errors.message}
+                        </p>
+                      ) : (
+                        <span />
+                      )}
+                      <div className="flex items-center gap-2 ml-auto">
+                        {/* 남은 글자 수 */}
+                        {charCount > 0 && (
+                          <span
+                            className="text-xs font-light transition-colors duration-200"
+                            style={{
+                              ...JP_BODY,
+                              color:
+                                charCount >= 500 ? "#ef4444"
+                                : charCount >= 400 ? "#d97706"
+                                : "#8a7e6e",
+                            }}
+                          >
+                            {charCount >= 500
+                              ? "上限に達しました"
+                              : `残り ${500 - charCount}文字`}
+                          </span>
+                        )}
+                        {/* 현재/최대 */}
+                        <p
+                          className="text-xs font-light"
+                          style={{
+                            ...JP_BODY,
+                            color: charCount >= 500 ? "#ef4444" : charCount >= 400 ? "#d97706" : "#8a7e6e99",
+                          }}
+                        >
+                          {charCount} / 500
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
