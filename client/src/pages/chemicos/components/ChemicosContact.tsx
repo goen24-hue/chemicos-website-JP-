@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { contactInfo } from "@/mocks/chemicos";
 
 const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
 const JP_TITLE = { fontFamily: "'Cormorant Garamond', serif" };
+
+type FormErrors = {
+  name?: string;
+  email?: string;
+  message?: string;
+};
 
 export default function ChemicosContact() {
   const [form, setForm] = useState({
@@ -14,6 +20,30 @@ export default function ChemicosContact() {
   });
   const [charCount, setCharCount] = useState(0);
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  // 성공 메시지 등장 애니메이션 트리거
+  useEffect(() => {
+    if (submitted) {
+      const t = setTimeout(() => setShowSuccess(true), 50);
+      return () => clearTimeout(t);
+    }
+  }, [submitted]);
+
+  const validate = (values: typeof form): FormErrors => {
+    const errs: FormErrors = {};
+    if (!values.name.trim()) errs.name = "お名前を入力してください";
+    if (!values.email.trim()) {
+      errs.email = "メールアドレスを入力してください";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
+      errs.email = "正しいメールアドレスを入力してください";
+    }
+    if (!values.message.trim()) errs.message = "ご相談内容を入力してください";
+    return errs;
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -23,12 +53,29 @@ export default function ChemicosContact() {
       if (value.length > 500) return;
       setCharCount(value.length);
     }
-    setForm((prev) => ({ ...prev, [name]: value }));
+    const updated = { ...form, [name]: value };
+    setForm(updated);
+    // リアルタイム検証（一度触れたフィールドのみ）
+    if (touched[name]) {
+      setErrors(validate(updated));
+    }
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name } = e.target;
+    setTouched((prev) => ({ ...prev, [name]: true }));
+    setErrors(validate(form));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (form.message.length > 500) return;
+    // 全フィールドをtouched扱いにして検証
+    setTouched({ name: true, email: true, message: true });
+    const errs = validate(form);
+    setErrors(errs);
+    if (Object.keys(errs).length > 0) return;
+
+    setIsSubmitting(true);
     const body = new URLSearchParams();
     Object.entries(form).forEach(([k, v]) => body.append(k, v));
     try {
@@ -40,16 +87,24 @@ export default function ChemicosContact() {
     } catch {
       // silent
     }
+    setIsSubmitting(false);
     setSubmitted(true);
   };
 
   return (
-    <section id="contact" className="bg-[#f5f0e8] min-h-screen flex flex-col justify-center py-20 px-8 md:px-14 lg:px-20" style={{ scrollMarginTop: "64px" }}>
+    <section
+      id="contact"
+      className="bg-[#f5f0e8] min-h-screen flex flex-col justify-center py-20 px-8 md:px-14 lg:px-20"
+      style={{ scrollMarginTop: "64px" }}
+    >
       {/* Header */}
       <div className="mb-16">
         <div className="flex items-center gap-4 mb-10">
           <div className="w-8 h-px bg-[#2c2c2c]/35"></div>
-          <span className="text-sm tracking-[0.28em] uppercase font-light text-[#6b6055]" style={JP_BODY}>
+          <span
+            className="text-sm tracking-[0.28em] uppercase font-light text-[#6b6055]"
+            style={JP_BODY}
+          >
             アクセス・お問い合わせ
           </span>
         </div>
@@ -65,7 +120,6 @@ export default function ChemicosContact() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
         {/* Left: Info + Map */}
         <div>
-          {/* Contact details */}
           <div className="space-y-8 mb-14">
             <div className="flex items-start gap-5">
               <div className="w-10 h-10 flex items-center justify-center text-[#c8b99a] flex-shrink-0">
@@ -153,22 +207,92 @@ export default function ChemicosContact() {
           </a>
         </div>
 
-        {/* Right: Form */}
+        {/* Right: Form / Success */}
         <div>
           {submitted ? (
-            <div className="flex flex-col items-center justify-center h-full py-20 text-center">
-              <div className="w-12 h-12 flex items-center justify-center text-[#c8b99a] mb-6">
-                <i className="ri-check-line text-3xl"></i>
+            /* ── 成功メッセージ（フェードイン＋スライドアップ） ── */
+            <div
+              className="flex flex-col items-center justify-center h-full py-20 text-center"
+              style={{
+                opacity: showSuccess ? 1 : 0,
+                transform: showSuccess ? "translateY(0)" : "translateY(24px)",
+                transition: "opacity 0.7s ease, transform 0.7s ease",
+              }}
+            >
+              {/* チェックサークル */}
+              <div
+                className="relative w-20 h-20 mb-10"
+                style={{
+                  opacity: showSuccess ? 1 : 0,
+                  transform: showSuccess ? "scale(1)" : "scale(0.6)",
+                  transition: "opacity 0.5s ease 0.2s, transform 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.2s",
+                }}
+              >
+                <svg viewBox="0 0 80 80" fill="none" className="w-full h-full">
+                  <circle
+                    cx="40" cy="40" r="38"
+                    stroke="#c8b99a"
+                    strokeWidth="1.5"
+                    strokeDasharray="239"
+                    strokeDashoffset={showSuccess ? 0 : 239}
+                    style={{ transition: "stroke-dashoffset 0.8s ease 0.3s" }}
+                  />
+                  <polyline
+                    points="24,42 35,53 56,30"
+                    stroke="#c8b99a"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeDasharray="50"
+                    strokeDashoffset={showSuccess ? 0 : 50}
+                    style={{ transition: "stroke-dashoffset 0.5s ease 0.9s" }}
+                  />
+                </svg>
               </div>
+
               <p
-                className="font-serif text-2xl text-[#2c2c2c] font-light mb-4"
-                style={JP_TITLE}
+                className="font-serif text-3xl text-[#2c2c2c] font-light mb-5"
+                style={{
+                  ...JP_TITLE,
+                  opacity: showSuccess ? 1 : 0,
+                  transform: showSuccess ? "translateY(0)" : "translateY(12px)",
+                  transition: "opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s",
+                }}
               >
                 ありがとうございます
               </p>
-              <p className="text-[#6b6055] text-lg font-light leading-[1.9]" style={JP_BODY}>
+
+              <p
+                className="text-[#6b6055] text-base font-light leading-[2.1]"
+                style={{
+                  ...JP_BODY,
+                  opacity: showSuccess ? 1 : 0,
+                  transform: showSuccess ? "translateY(0)" : "translateY(10px)",
+                  transition: "opacity 0.6s ease 0.7s, transform 0.6s ease 0.7s",
+                }}
+              >
                 お問い合わせを受け付けました。<br />
                 2営業日以内にご連絡いたします。
+              </p>
+
+              {/* 区切り線 */}
+              <div
+                className="w-12 h-px bg-[#c8b99a]/50 my-8"
+                style={{
+                  opacity: showSuccess ? 1 : 0,
+                  transition: "opacity 0.6s ease 0.9s",
+                }}
+              />
+
+              <p
+                className="text-xs tracking-[0.25em] uppercase text-[#8a7e6e] font-light"
+                style={{
+                  ...JP_BODY,
+                  opacity: showSuccess ? 1 : 0,
+                  transition: "opacity 0.6s ease 1.1s",
+                }}
+              >
+                {contactInfo.email}
               </p>
             </div>
           ) : (
@@ -182,9 +306,12 @@ export default function ChemicosContact() {
               <form
                 data-readdy-form
                 onSubmit={handleSubmit}
+                noValidate
                 className="space-y-8"
               >
+                {/* 会社名 / お名前 */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                  {/* 会社名（任意） */}
                   <div>
                     <label
                       className="block text-sm tracking-[0.2em] uppercase text-[#6b6055] mb-2 font-light"
@@ -197,49 +324,73 @@ export default function ChemicosContact() {
                       name="company"
                       value={form.company}
                       onChange={handleChange}
+                      onBlur={handleBlur}
                       className="w-full bg-transparent border-b border-[#2c2c2c]/25 pb-2 text-base text-[#2c2c2c] font-light outline-none focus:border-[#2c2c2c] transition-colors placeholder-[#8a7e6e]/50"
                       style={JP_BODY}
                       placeholder="株式会社〇〇"
                     />
                   </div>
+
+                  {/* お名前（必須） */}
                   <div>
                     <label
                       className="block text-sm tracking-[0.2em] uppercase text-[#6b6055] mb-2 font-light"
                       style={JP_BODY}
                     >
-                      お名前 *
+                      お名前 <span className="text-[#c8b99a]">*</span>
                     </label>
                     <input
                       type="text"
                       name="name"
                       value={form.name}
                       onChange={handleChange}
-                      required
-                      className="w-full bg-transparent border-b border-[#2c2c2c]/25 pb-2 text-base text-[#2c2c2c] font-light outline-none focus:border-[#2c2c2c] transition-colors placeholder-[#8a7e6e]/50"
+                      onBlur={handleBlur}
+                      className={`w-full bg-transparent border-b pb-2 text-base text-[#2c2c2c] font-light outline-none transition-colors placeholder-[#8a7e6e]/50 ${
+                        errors.name && touched.name
+                          ? "border-red-400 focus:border-red-400"
+                          : "border-[#2c2c2c]/25 focus:border-[#2c2c2c]"
+                      }`}
                       style={JP_BODY}
                       placeholder="山田 太郎"
                     />
+                    {errors.name && touched.name && (
+                      <p className="text-red-400 text-xs mt-1.5 font-light" style={JP_BODY}>
+                        {errors.name}
+                      </p>
+                    )}
                   </div>
                 </div>
 
+                {/* メールアドレス（必須） */}
                 <div>
                   <label
                     className="block text-sm tracking-[0.2em] uppercase text-[#6b6055] mb-2 font-light"
                     style={JP_BODY}
                   >
-                    メールアドレス *
+                    メールアドレス <span className="text-[#c8b99a]">*</span>
                   </label>
                   <input
                     type="email"
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    required
-                    className="w-full bg-transparent border-b border-[#2c2c2c]/25 pb-2 text-base text-[#2c2c2c] font-light outline-none focus:border-[#2c2c2c] transition-colors placeholder-[#8a7e6e]/50"
+                    onBlur={handleBlur}
+                    className={`w-full bg-transparent border-b pb-2 text-base text-[#2c2c2c] font-light outline-none transition-colors placeholder-[#8a7e6e]/50 ${
+                      errors.email && touched.email
+                        ? "border-red-400 focus:border-red-400"
+                        : "border-[#2c2c2c]/25 focus:border-[#2c2c2c]"
+                    }`}
+                    style={JP_BODY}
                     placeholder="your@email.com"
                   />
+                  {errors.email && touched.email && (
+                    <p className="text-red-400 text-xs mt-1.5 font-light" style={JP_BODY}>
+                      {errors.email}
+                    </p>
+                  )}
                 </div>
 
+                {/* 製品カテゴリ（任意） */}
                 <div>
                   <label
                     className="block text-sm tracking-[0.2em] uppercase text-[#6b6055] mb-2 font-light"
@@ -263,40 +414,79 @@ export default function ChemicosContact() {
                   </select>
                 </div>
 
+                {/* ご相談内容（必須） */}
                 <div>
                   <label
                     className="block text-sm tracking-[0.2em] uppercase text-[#6b6055] mb-2 font-light"
                     style={JP_BODY}
                   >
-                    ご相談内容 *
+                    ご相談内容 <span className="text-[#c8b99a]">*</span>
                   </label>
                   <textarea
                     name="message"
                     value={form.message}
                     onChange={handleChange}
-                    required
+                    onBlur={handleBlur}
                     rows={5}
-                    className="w-full bg-transparent border-b border-[#2c2c2c]/25 pb-2 text-base text-[#2c2c2c] font-light outline-none focus:border-[#2c2c2c] transition-colors resize-none placeholder-[#8a7e6e]/50"
+                    className={`w-full bg-transparent border-b pb-2 text-base text-[#2c2c2c] font-light outline-none transition-colors resize-none placeholder-[#8a7e6e]/50 ${
+                      errors.message && touched.message
+                        ? "border-red-400 focus:border-red-400"
+                        : "border-[#2c2c2c]/25 focus:border-[#2c2c2c]"
+                    }`}
                     style={JP_BODY}
                     placeholder="製品のコンセプト、数量、スケジュールなど、お気軽にご記入ください"
                   />
-                  <p
-                    className={`text-right text-sm mt-1 font-light ${charCount >= 500 ? "text-red-400" : "text-[#8a7e6e]/60"}`}
-                    style={JP_BODY}
-                  >
-                    {charCount}/500
-                  </p>
+                  <div className="flex justify-between items-center mt-1">
+                    {errors.message && touched.message ? (
+                      <p className="text-red-400 text-xs font-light" style={JP_BODY}>
+                        {errors.message}
+                      </p>
+                    ) : (
+                      <span />
+                    )}
+                    <p
+                      className={`text-sm font-light ${charCount >= 500 ? "text-red-400" : "text-[#8a7e6e]/60"}`}
+                      style={JP_BODY}
+                    >
+                      {charCount}/500
+                    </p>
+                  </div>
                 </div>
 
+                {/* 必須項目の注記 */}
+                <p className="text-xs text-[#8a7e6e]/70 font-light -mt-2" style={JP_BODY}>
+                  <span className="text-[#c8b99a]">*</span> は必須入力項目です
+                </p>
+
+                {/* 送信ボタン */}
                 <button
                   type="submit"
-                  className="w-full py-4 text-sm tracking-[0.2em] uppercase border border-[#2c2c2c] text-[#2c2c2c] hover:bg-[#2c2c2c] hover:text-[#f5f0e8] transition-all duration-300 font-light cursor-pointer whitespace-nowrap"
+                  disabled={isSubmitting}
+                  className="w-full py-4 text-sm tracking-[0.2em] uppercase border border-[#2c2c2c] text-[#2c2c2c] hover:bg-[#2c2c2c] hover:text-[#f5f0e8] transition-all duration-300 font-light cursor-pointer whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
                   style={JP_BODY}
                 >
-                  送信する
-                  <i className="ri-arrow-right-line ml-3 text-sm"></i>
+                  {isSubmitting ? (
+                    <>
+                      <span
+                        className="inline-block w-4 h-4 border border-current border-t-transparent rounded-full"
+                        style={{ animation: "spin 0.8s linear infinite" }}
+                      />
+                      送信中...
+                    </>
+                  ) : (
+                    <>
+                      送信する
+                      <i className="ri-arrow-right-line text-sm"></i>
+                    </>
+                  )}
                 </button>
               </form>
+
+              <style>{`
+                @keyframes spin {
+                  to { transform: rotate(360deg); }
+                }
+              `}</style>
             </>
           )}
         </div>
