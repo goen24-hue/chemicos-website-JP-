@@ -39,23 +39,9 @@ export default function ChemicosCTA() {
   return (
     <>
       <div className="w-full h-px bg-[#2c2c2c]/10"></div>
-      <section className="relative min-h-screen flex flex-col justify-center py-20 px-8 md:px-14 lg:px-20 overflow-hidden">
-        {/* 배경 영상 */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ filter: "brightness(1.05) saturate(1.1)" }}
-        >
-          <source src="/manus-storage/cta-partnership-bg_3afed4d8.mp4" type="video/mp4" />
-        </video>
-        {/* 오버레이 — 밝은 분위기 유지하면서 텍스트 가독성 확보 */}
-        <div className="absolute inset-0 bg-[#f5f0e8]/30" />
-
-        <div className="relative max-w-2xl mx-auto text-center">
-          <div className="w-full h-px bg-[#2c2c2c]/15 mb-20"></div>
+      <section className="bg-[#f5f0e8] min-h-screen flex flex-col justify-center py-20 px-8 md:px-14 lg:px-20">
+        <div className="max-w-2xl mx-auto text-center">
+          <div className="w-full h-px bg-[#2c2c2c]/10 mb-20"></div>
 
           <h2
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-light leading-[1.3] text-[#2c2c2c] mb-10"
@@ -79,7 +65,7 @@ export default function ChemicosCTA() {
             <i className="ri-arrow-right-line text-sm"></i>
           </button>
 
-          <div className="w-full h-px bg-[#2c2c2c]/15 mt-20"></div>
+          <div className="w-full h-px bg-[#2c2c2c]/10 mt-20"></div>
         </div>
       </section>
 
