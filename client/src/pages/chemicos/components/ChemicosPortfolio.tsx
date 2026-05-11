@@ -105,7 +105,7 @@ export default function ChemicosPortfolio() {
           <div className="mt-12">
             <a
               href="#contact"
-              className="inline-flex items-center gap-3 text-sm tracking-[0.2em] uppercase border border-[#2c2c2c] px-7 py-3.5 text-[#2c2c2c] hover:bg-[#2c2c2c] hover:text-[#f5f0e8] transition-all duration-300 font-light cursor-pointer whitespace-nowrap"
+              className="btn-chemicos inline-flex items-center gap-3 text-sm tracking-[0.2em] uppercase border border-[#2c2c2c] px-7 py-3.5 text-[#2c2c2c] hover:bg-[#2c2c2c] hover:text-[#f5f0e8] font-light cursor-pointer whitespace-nowrap"
               style={JP_BODY}
             >
               この製品について相談する

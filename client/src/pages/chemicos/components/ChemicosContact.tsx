@@ -158,7 +158,7 @@ export default function ChemicosContact() {
                 </p>
                 <a
                   href={`tel:${contactInfo.phone}`}
-                  className="text-[#2c2c2c] text-lg font-light hover:text-[#c8b99a] transition-colors cursor-pointer"
+                  className="link-chemicos text-[#2c2c2c] text-lg font-light hover:text-[#c8b99a] cursor-pointer"
                   style={JP_BODY}
                 >
                   {contactInfo.phone}
@@ -176,7 +176,7 @@ export default function ChemicosContact() {
                 </p>
                 <a
                   href={`mailto:${contactInfo.email}`}
-                  className="text-[#2c2c2c] text-lg font-light hover:text-[#c8b99a] transition-colors cursor-pointer"
+                  className="link-chemicos text-[#2c2c2c] text-lg font-light hover:text-[#c8b99a] cursor-pointer"
                   style={JP_BODY}
                 >
                   {contactInfo.email}
@@ -511,10 +511,10 @@ export default function ChemicosContact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full py-4 text-sm tracking-[0.2em] uppercase border font-light cursor-pointer whitespace-nowrap flex items-center justify-center gap-3 transition-all duration-300 ${
+                  className={`${!isSubmitting ? 'btn-chemicos' : ''} w-full py-4 text-sm tracking-[0.2em] uppercase border font-light whitespace-nowrap flex items-center justify-center gap-3 ${
                     isSubmitting
                       ? "border-[#c8b99a] bg-[#2c2c2c] text-[#f5f0e8] cursor-not-allowed"
-                      : "border-[#2c2c2c] text-[#2c2c2c] hover:bg-[#2c2c2c] hover:text-[#f5f0e8] hover:tracking-[0.3em] hover:shadow-[0_4px_20px_rgba(44,44,44,0.15)] active:scale-[0.99]"
+                      : "border-[#2c2c2c] text-[#2c2c2c] hover:bg-[#2c2c2c] hover:text-[#f5f0e8] hover:tracking-[0.3em] cursor-pointer"
                   }`}
                   style={JP_BODY}
                 >

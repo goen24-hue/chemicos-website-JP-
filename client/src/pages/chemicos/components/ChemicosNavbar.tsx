@@ -93,7 +93,7 @@ function DropdownMenu({
           if (item.href) smoothScrollTo(item.href);
           onClose();
         }}
-        className={`text-sm tracking-[0.2em] uppercase font-light transition-colors duration-300 hover:opacity-50 whitespace-nowrap cursor-pointer ${
+        className={`nav-link-chemicos text-sm tracking-[0.2em] uppercase font-light transition-colors duration-300 whitespace-nowrap cursor-pointer ${
           scrolled ? "text-[#2c2c2c]" : "text-[#f5f0e8]"
         }`}
         style={JOST}
@@ -204,7 +204,7 @@ export default function ChemicosNavbar() {
               e.preventDefault();
               smoothScrollTo("#contact");
             }}
-            className={`hidden md:block text-sm tracking-[0.15em] uppercase border px-5 py-2.5 font-light transition-all duration-300 cursor-pointer whitespace-nowrap ${
+            className={`btn-chemicos hidden md:block text-sm tracking-[0.15em] uppercase border px-5 py-2.5 font-light cursor-pointer whitespace-nowrap ${
               scrolled
                 ? "border-[#2c2c2c] text-[#2c2c2c] hover:bg-[#2c2c2c] hover:text-[#f5f0e8]"
                 : "border-[#f5f0e8]/60 text-[#f5f0e8] hover:bg-[#f5f0e8] hover:text-[#2c2c2c]"

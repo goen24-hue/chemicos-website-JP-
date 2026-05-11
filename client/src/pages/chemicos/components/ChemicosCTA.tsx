@@ -71,7 +71,7 @@ export default function ChemicosCTA() {
 
           <button
             onClick={() => setOpen(true)}
-            className="inline-flex items-center gap-3 text-sm tracking-[0.2em] uppercase border border-[#f5f0e8]/70 px-8 py-3.5 text-[#f5f0e8] hover:bg-[#f5f0e8] hover:text-[#2c2c2c] transition-all duration-300 font-light cursor-pointer whitespace-nowrap"
+            className="btn-chemicos inline-flex items-center gap-3 text-sm tracking-[0.2em] uppercase border border-[#f5f0e8]/70 px-8 py-3.5 text-[#f5f0e8] hover:bg-[#f5f0e8] hover:text-[#2c2c2c] font-light cursor-pointer whitespace-nowrap"
             style={JP_BODY}
           >
             お問い合わせ

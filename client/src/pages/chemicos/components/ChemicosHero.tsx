@@ -29,7 +29,7 @@ export default function ChemicosHero() {
         <div>
           <a
             href="#heritage"
-            className="inline-flex items-center gap-3 text-sm tracking-[0.2em] uppercase border border-[#f5f0e8]/60 px-7 py-3.5 text-[#f5f0e8] hover:bg-[#f5f0e8] hover:text-[#2c2c2c] transition-all duration-300 font-light whitespace-nowrap"
+            className="btn-chemicos inline-flex items-center gap-3 text-sm tracking-[0.2em] uppercase border border-[#f5f0e8]/60 px-7 py-3.5 text-[#f5f0e8] hover:bg-[#f5f0e8] hover:text-[#2c2c2c] font-light whitespace-nowrap"
             style={{ fontFamily: "'Noto Serif JP', serif" }}
           >
             開始
