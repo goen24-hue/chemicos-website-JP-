@@ -325,7 +325,7 @@ export default function ChemicosContact() {
                       value={form.company}
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      className="w-full bg-transparent border-b border-[#2c2c2c]/25 pb-2 text-base text-[#2c2c2c] font-light outline-none focus:border-[#2c2c2c] transition-colors placeholder-[#8a7e6e]/50"
+                      className="w-full bg-transparent border-b border-[#2c2c2c]/25 pb-2 text-base text-[#2c2c2c] font-light outline-none hover:border-[#c8b99a] focus:border-[#2c2c2c] transition-colors duration-200 placeholder-[#8a7e6e]/50"
                       style={JP_BODY}
                       placeholder="株式会社〇〇"
                     />
@@ -345,10 +345,10 @@ export default function ChemicosContact() {
                       value={form.name}
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      className={`w-full bg-transparent border-b pb-2 text-base text-[#2c2c2c] font-light outline-none transition-colors placeholder-[#8a7e6e]/50 ${
+                      className={`w-full bg-transparent border-b pb-2 text-base text-[#2c2c2c] font-light outline-none transition-colors duration-200 placeholder-[#8a7e6e]/50 ${
                         errors.name && touched.name
-                          ? "border-red-400 focus:border-red-400"
-                          : "border-[#2c2c2c]/25 focus:border-[#2c2c2c]"
+                          ? "border-red-400 hover:border-red-400 focus:border-red-400"
+                          : "border-[#2c2c2c]/25 hover:border-[#c8b99a] focus:border-[#2c2c2c]"
                       }`}
                       style={JP_BODY}
                       placeholder="山田 太郎"
@@ -375,10 +375,10 @@ export default function ChemicosContact() {
                     value={form.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={`w-full bg-transparent border-b pb-2 text-base text-[#2c2c2c] font-light outline-none transition-colors placeholder-[#8a7e6e]/50 ${
+                    className={`w-full bg-transparent border-b pb-2 text-base text-[#2c2c2c] font-light outline-none transition-colors duration-200 placeholder-[#8a7e6e]/50 ${
                       errors.email && touched.email
-                        ? "border-red-400 focus:border-red-400"
-                        : "border-[#2c2c2c]/25 focus:border-[#2c2c2c]"
+                        ? "border-red-400 hover:border-red-400 focus:border-red-400"
+                        : "border-[#2c2c2c]/25 hover:border-[#c8b99a] focus:border-[#2c2c2c]"
                     }`}
                     style={JP_BODY}
                     placeholder="your@email.com"
@@ -402,7 +402,7 @@ export default function ChemicosContact() {
                     name="product"
                     value={form.product}
                     onChange={handleChange}
-                    className="w-full bg-transparent border-b border-[#2c2c2c]/25 pb-2 text-base text-[#2c2c2c] font-light outline-none focus:border-[#2c2c2c] transition-colors cursor-pointer appearance-none"
+                    className="w-full bg-transparent border-b border-[#2c2c2c]/25 pb-2 text-base text-[#2c2c2c] font-light outline-none hover:border-[#c8b99a] focus:border-[#2c2c2c] transition-colors duration-200 cursor-pointer appearance-none"
                     style={JP_BODY}
                   >
                     <option value="">選択してください</option>
@@ -428,10 +428,10 @@ export default function ChemicosContact() {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     rows={5}
-                    className={`w-full bg-transparent border-b pb-2 text-base text-[#2c2c2c] font-light outline-none transition-colors resize-none placeholder-[#8a7e6e]/50 ${
+                    className={`w-full bg-transparent border-b pb-2 text-base text-[#2c2c2c] font-light outline-none transition-colors duration-200 resize-none placeholder-[#8a7e6e]/50 ${
                       errors.message && touched.message
-                        ? "border-red-400 focus:border-red-400"
-                        : "border-[#2c2c2c]/25 focus:border-[#2c2c2c]"
+                        ? "border-red-400 hover:border-red-400 focus:border-red-400"
+                        : "border-[#2c2c2c]/25 hover:border-[#c8b99a] focus:border-[#2c2c2c]"
                     }`}
                     style={JP_BODY}
                     placeholder="製品のコンセプト、数量、スケジュールなど、お気軽にご記入ください"
@@ -462,7 +462,7 @@ export default function ChemicosContact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 text-sm tracking-[0.2em] uppercase border border-[#2c2c2c] text-[#2c2c2c] hover:bg-[#2c2c2c] hover:text-[#f5f0e8] transition-all duration-300 font-light cursor-pointer whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                  className="w-full py-4 text-sm tracking-[0.2em] uppercase border border-[#2c2c2c] text-[#2c2c2c] hover:bg-[#2c2c2c] hover:text-[#f5f0e8] hover:tracking-[0.3em] hover:shadow-[0_4px_20px_rgba(44,44,44,0.15)] active:scale-[0.99] transition-all duration-300 font-light cursor-pointer whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
                   style={JP_BODY}
                 >
                   {isSubmitting ? (
