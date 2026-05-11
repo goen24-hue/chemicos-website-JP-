@@ -470,16 +470,35 @@ export default function ChemicosContact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 text-sm tracking-[0.2em] uppercase border border-[#2c2c2c] text-[#2c2c2c] hover:bg-[#2c2c2c] hover:text-[#f5f0e8] hover:tracking-[0.3em] hover:shadow-[0_4px_20px_rgba(44,44,44,0.15)] active:scale-[0.99] transition-all duration-300 font-light cursor-pointer whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                  className={`w-full py-4 text-sm tracking-[0.2em] uppercase border font-light cursor-pointer whitespace-nowrap flex items-center justify-center gap-3 transition-all duration-300 ${
+                    isSubmitting
+                      ? "border-[#c8b99a] bg-[#2c2c2c] text-[#f5f0e8] cursor-not-allowed"
+                      : "border-[#2c2c2c] text-[#2c2c2c] hover:bg-[#2c2c2c] hover:text-[#f5f0e8] hover:tracking-[0.3em] hover:shadow-[0_4px_20px_rgba(44,44,44,0.15)] active:scale-[0.99]"
+                  }`}
                   style={JP_BODY}
                 >
                   {isSubmitting ? (
                     <>
-                      <span
-                        className="inline-block w-4 h-4 border border-current border-t-transparent rounded-full"
-                        style={{ animation: "spin 0.8s linear infinite" }}
-                      />
-                      送信中...
+                      {/* SVG 원형 진행 스피너 */}
+                      <svg
+                        width="18" height="18" viewBox="0 0 18 18"
+                        fill="none"
+                        style={{ flexShrink: 0, animation: "contact-spin 1s linear infinite" }}
+                      >
+                        <circle
+                          cx="9" cy="9" r="7"
+                          stroke="#c8b99a"
+                          strokeWidth="1.5"
+                          strokeOpacity="0.3"
+                        />
+                        <path
+                          d="M9 2 A7 7 0 0 1 16 9"
+                          stroke="#c8b99a"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                      <span style={{ letterSpacing: "0.2em" }}>送信中...</span>
                     </>
                   ) : (
                     <>
@@ -498,8 +517,9 @@ export default function ChemicosContact() {
               </form>
 
               <style>{`
-                @keyframes spin {
-                  to { transform: rotate(360deg); }
+                @keyframes contact-spin {
+                  from { transform: rotate(0deg); }
+                  to   { transform: rotate(360deg); }
                 }
               `}</style>
             </>
