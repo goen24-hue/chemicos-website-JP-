@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1778482141638,
+      "tag": "0000_moaning_phantom_reporter",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { contactInfo } from "@/mocks/chemicos";
+import { trpc } from "@/lib/trpc";
 
 const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
 const JP_TITLE = { fontFamily: "'Cormorant Garamond', serif" };
@@ -24,6 +25,18 @@ export default function ChemicosContact() {
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const contactMutation = trpc.contact.submit.useMutation({
+    onSuccess: () => {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    },
+    onError: () => {
+      setIsSubmitting(false);
+      setSubmitError("送信に失敗しました。時間をおいて再度お試しください。");
+    },
+  });
 
   // 성공 메시지 등장 애니메이션 트리거
   useEffect(() => {
@@ -75,20 +88,15 @@ export default function ChemicosContact() {
     setErrors(errs);
     if (Object.keys(errs).length > 0) return;
 
+    setSubmitError(null);
     setIsSubmitting(true);
-    const body = new URLSearchParams();
-    Object.entries(form).forEach(([k, v]) => body.append(k, v));
-    try {
-      await fetch("https://readdy.ai/api/form/d7g7t22gm6d735ptokvg", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: body.toString(),
-      });
-    } catch {
-      // silent
-    }
-    setIsSubmitting(false);
-    setSubmitted(true);
+    contactMutation.mutate({
+      company: form.company || undefined,
+      name: form.name,
+      email: form.email,
+      product: form.product || undefined,
+      message: form.message,
+    });
   };
 
   return (
@@ -480,6 +488,13 @@ export default function ChemicosContact() {
                     </>
                   )}
                 </button>
+
+                {/* 送信エラーメッセージ */}
+                {submitError && (
+                  <p className="text-red-400 text-sm font-light text-center mt-2" style={JP_BODY}>
+                    {submitError}
+                  </p>
+                )}
               </form>
 
               <style>{`
