@@ -1,20 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 
 interface UseFadeInOptions {
-  /** 뷰포트에 진입하는 비율 (0~1). 기본 0.12 */
   threshold?: number;
-  /** 한 번만 실행할지 여부. 기본 true */
   once?: boolean;
-  /** 딜레이(ms). 기본 0 */
   delay?: number;
 }
 
-/**
- * IntersectionObserver 기반 페이드인 훅.
- * 반환된 ref를 대상 요소에 붙이고, style 객체를 인라인 스타일로 적용합니다.
- */
 export function useFadeIn<T extends HTMLElement = HTMLElement>({
-  threshold = 0.12,
+  threshold = 0.1,
   once = true,
   delay = 0,
 }: UseFadeInOptions = {}) {
@@ -48,8 +41,10 @@ export function useFadeIn<T extends HTMLElement = HTMLElement>({
 
   const style: React.CSSProperties = {
     opacity: visible ? 1 : 0,
-    transform: visible ? "translateY(0)" : "translateY(28px)",
-    transition: `opacity 0.75s ease ${delay}ms, transform 0.75s ease ${delay}ms`,
+    // 미묘하게: 16px 슬라이드업 (기존 28px → 더 절제된 움직임)
+    transform: visible ? "translateY(0)" : "translateY(16px)",
+    // 빠르고 자연스러운 easing: 0.55s cubic-bezier (기존 0.75s ease)
+    transition: `opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1) ${delay}ms, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) ${delay}ms`,
     willChange: "opacity, transform",
   };
 
