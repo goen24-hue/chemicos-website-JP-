@@ -80,9 +80,9 @@ export const specsData = [
     category: "最小発注数量（MOQ）",
     icon: "ri-stack-line",
     items: [
-      { label: "アイライナー", value: "3,000本〜" },
-      { label: "マスカラ", value: "5,000本〜" },
-      { label: "リップ製品", value: "5,000本〜" },
+      { label: "アイライナー", value: "10,000本〜" },
+      { label: "マスカラ", value: "10,000本〜" },
+      { label: "リップ製品", value: "10,000本〜" },
       { label: "試作サンプル", value: "50〜100本" },
     ],
   },
@@ -151,7 +151,7 @@ export const portfolioCategories = [
     name: "アイライナー",
     sub: "Eyeliner",
     desc: "ペン先の精度にこだわった、滲まず長持ちするアイライナー。\nリキッド・ペンシルタイプに対応。",
-    specs: ["リキッドペンタイプ / リキッドターンタイプ / オートマチックペンシルタイプ", "耐水性・耐皮脂処方", "MOQ 3,000本〜"],
+    specs: ["リキッドペンタイプ / リキッドターンタイプ / オートマチックペンシルタイプ", "耐水性・耐皮脂処方", "MOQ 10,000本〜"],
     image: "https://static.readdy.ai/image/91482352f3970615f9df82ae24dd1865/e7e1bd83fec3208a370690329acee357.png",
   },
   {
@@ -159,7 +159,7 @@ export const portfolioCategories = [
     name: "マスカラ",
     sub: "Mascara",
     desc: "ボリューム・ロング・カールの三軸を自在に設計。\nブラシ形状から処方までカスタマイズ。",
-    specs: ["マスカラ", "マルチプルーフテクノロジー済み処方", "MOQ 5,000本〜"],
+    specs: ["マスカラ", "マルチプルーフテクノロジー済み処方", "MOQ 10,000本〜"],
     image: "https://static.readdy.ai/image/91482352f3970615f9df82ae24dd1865/65aaa63702f3e847d4ab48bd4309ea55.png",
   },
   {
@@ -167,7 +167,7 @@ export const portfolioCategories = [
     name: "アイブロウ",
     sub: "Eyebrow",
     desc: "自然な仕上がりと長時間の定着を両立。\nリキッド・ペンシル・ブロウカラタイプに対応。",
-    specs: ["リキッドペンタイプ / ブロウカラタイプ / オートマチックペンシルタイプ", "汗・皮脂に強い処方", "MOQ 3,000本〜"],
+    specs: ["リキッドペンタイプ / ブロウカラタイプ / オートマチックペンシルタイプ", "汗・皮脂に強い処方", "MOQ 10,000本〜"],
     image: "https://static.readdy.ai/image/91482352f3970615f9df82ae24dd1865/e8d7419f622c83342090b73548d2edc2.png",
   },
   {
@@ -175,7 +175,7 @@ export const portfolioCategories = [
     name: "リップ",
     sub: "Lip",
     desc: "発色・保湿・持続力を三位一体で実現。\nリップティント・グロス・スティックタイプに対応。",
-    specs: ["リップラッカー / リップティント / リップグロス / リップスティック", "高発色・保湿・長持ち処方", "MOQ 5,000本〜"],
+    specs: ["リップラッカー / リップティント / リップグロス / リップスティック", "高発色・保湿・長持ち処方", "MOQ 10,000本〜"],
     image: "https://static.readdy.ai/image/91482352f3970615f9df82ae24dd1865/7dfd94a25e97371007bc31b2b462b9da.png",
   },
 ];
