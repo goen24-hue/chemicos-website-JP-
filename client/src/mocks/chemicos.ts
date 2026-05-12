@@ -52,13 +52,13 @@ export const processSteps = [
   {
     num: "02",
     title: "処方提案・サンプル作成",
-    duration: "2〜4週間",
+    duration: "1〜2週間",
     desc: "ご要望に基づき処方を設計。\n複数のサンプルをご提供し、\nフィードバックをもとに調整します。",
   },
   {
     num: "03",
     title: "安定性・安全性テスト",
-    duration: "4〜8週間",
+    duration: "4〜13週間",
     desc: "温度・湿度・光照射など各種条件下での\n安定性試験を実施。\n皮膚刺激性テストも対応可能です。",
   },
   {
@@ -83,17 +83,15 @@ export const specsData = [
       { label: "アイライナー", value: "10,000本〜" },
       { label: "マスカラ", value: "10,000本〜" },
       { label: "リップ製品", value: "10,000本〜" },
-      { label: "試作サンプル", value: "50〜100本" },
     ],
   },
   {
     category: "標準リードタイム",
     icon: "ri-time-line",
     items: [
-      { label: "初回サンプル", value: "2〜4週間" },
-      { label: "安定性テスト", value: "4〜8週間" },
+      { label: "初回サンプル", value: "1〜2週間" },
+      { label: "安定性テスト", value: "4〜13週間" },
       { label: "量産（初回）", value: "8〜12週間" },
-      { label: "リピート生産", value: "4〜6週間" },
     ],
   },
   {
