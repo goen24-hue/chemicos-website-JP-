@@ -4,8 +4,24 @@ import { globalClients, domesticClients } from "@/mocks/chemicos";
 const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
 const JP_TITLE = { fontFamily: "'Cormorant Garamond', serif" };
 
+// 로고별 비율에 따른 크기 조정 맵
+// ratio > 5 (극단적 가로): maxHeight를 높여서 더 크게 표시
+// ratio ~1 (정사각형): maxWidth를 제한해서 너무 크지 않게
+const LOGO_SIZE_MAP: Record<string, { maxWidth?: string; maxHeight?: string }> = {
+  'r.e.m. beauty':       { maxWidth: '90%',  maxHeight: '90%' },  // 1:1 정사각형 → 크게
+  'KVD Vegan Beauty':    { maxWidth: '60%',  maxHeight: '60%' },  // 아이콘형
+  'Too Faced':           { maxWidth: '70%',  maxHeight: '55%' },  // 4.2:1 가로
+  'Physicians Formula':  { maxWidth: '70%',  maxHeight: '55%' },  // 3.4:1 가로
+  'Smashbox':            { maxWidth: '75%',  maxHeight: '45%' },  // 4.5:1 가로
+  'Guerlain':            { maxWidth: '90%',  maxHeight: '38%' },  // 7.9:1 극가로
+  'AMORE PACIFIC':       { maxWidth: '90%',  maxHeight: '30%' },  // 10:1 극가로
+  'CLIO':                { maxWidth: '90%',  maxHeight: '25%' },  // 11:1 극가로
+  'NATURE REPUBLIC':     { maxWidth: '90%',  maxHeight: '22%' },  // 12:1 극가로
+};
+
 function ClientLogo({ client }: { client: { name: string; image: string; wide: boolean } }) {
   const [imgError, setImgError] = useState(false);
+  const sizeOverride = LOGO_SIZE_MAP[client.name] ?? {};
 
   return (
     <div
@@ -18,11 +34,12 @@ function ClientLogo({ client }: { client: { name: string; image: string; wide: b
           alt={client.name}
           style={{
             display: 'block',
-            width: '100%',
-            height: '100%',
+            maxWidth: sizeOverride.maxWidth ?? '90%',
+            maxHeight: sizeOverride.maxHeight ?? '80%',
+            width: 'auto',
+            height: 'auto',
             objectFit: 'contain',
             filter: 'brightness(0) contrast(1.4)',
-            transform: client.name === 'r.e.m. beauty' ? 'scale(2.4)' : 'none',
           }}
           className="group-hover:opacity-75 transition-opacity duration-300"
           onError={() => setImgError(true)}
