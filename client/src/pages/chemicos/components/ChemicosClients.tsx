@@ -21,7 +21,7 @@ function ClientLogo({ client }: { client: { name: string; image: string; wide: b
             width: '100%',
             height: '100%',
             objectFit: 'contain',
-            filter: 'brightness(0) contrast(1.4)',
+            filter: 'none',
           }}
           className="group-hover:opacity-75 transition-opacity duration-300"
           onError={() => setImgError(true)}

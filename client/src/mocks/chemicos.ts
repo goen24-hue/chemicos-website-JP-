@@ -192,8 +192,8 @@ export const globalClients = [
   { name: "ARTDECO", image: "https://public.readdy.ai/ai/img_res/8120b642-d6e5-47eb-8ca9-e7ebbf7eaff5.png", wide: true },
   { name: "Urban Decay", image: "https://public.readdy.ai/ai/img_res/de9930a2-4ad9-4a94-8164-346358675ed8.png", wide: true },
   { name: "Physicians Formula", image: "https://images.squarespace-cdn.com/content/v1/5702b156f699bbaade5f6c2d/1586357789074-DEB2IWW1ZYS251A3KCKM/Physicians_Formula_Logo-01.png", wide: true },
-  { name: "r.e.m. beauty", image: "/manus-storage/rem-beauty-logo_0014ec3e.webp", wide: true },
-  { name: "Jeffree Star Cosmetics", image: "https://w7.pngwing.com/pngs/47/27/png-transparent-jeffree-star-cosmetics-logo-horizontal-cruelty-free-cosmetics-and-beauty-brands.png", wide: true },
+  { name: "r.e.m. beauty", image: "/manus-storage/rem-beauty-logo2_41dfcfa2.webp", wide: true },
+  { name: "Jeffree Star Cosmetics", image: "/manus-storage/jeffree-star-logo_d1d5c267.png", wide: true },
   { name: "Guerlain", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Guerlain_logo_%282015%E2%80%932022%29.svg/1280px-Guerlain_logo_%282015%E2%80%932022%29.svg.png", wide: true },
 ];
 
