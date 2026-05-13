@@ -22,7 +22,7 @@ function ClientLogo({ client }: { client: { name: string; image: string; wide: b
             height: '100%',
             objectFit: 'contain',
             filter: 'brightness(0) contrast(1.4)',
-            transform: client.name === 'r.e.m. beauty' ? 'scale(1.8)' : 'none',
+            transform: client.name === 'r.e.m. beauty' ? 'scale(2.4)' : 'none',
           }}
           className="group-hover:opacity-75 transition-opacity duration-300"
           onError={() => setImgError(true)}
