@@ -191,10 +191,10 @@ export const globalClients = [
   { name: "HOURGLASS", image: "https://public.readdy.ai/ai/img_res/6518ff02-b67d-4342-82f9-e3b018f11cb1.png", wide: true },
   { name: "ARTDECO", image: "https://public.readdy.ai/ai/img_res/8120b642-d6e5-47eb-8ca9-e7ebbf7eaff5.png", wide: true },
   { name: "Urban Decay", image: "https://public.readdy.ai/ai/img_res/de9930a2-4ad9-4a94-8164-346358675ed8.png", wide: true },
-  { name: "bareMinerals", image: "https://public.readdy.ai/ai/img_res/4ec88b08-b795-4a29-892e-8b98aaf61fad.png", wide: true },
-  { name: "NARS", image: "https://public.readdy.ai/ai/img_res/7375f4c9-73e0-4f56-b914-32a77d1fc1df.png", wide: false },
-  { name: "Charlotte Tilbury", image: "https://static.readdy.ai/image/91482352f3970615f9df82ae24dd1865/d8a85139de9644a596713c6763d070cb.png", wide: true },
-  { name: "Bobbi Brown", image: "https://logodix.com/logo/761907.png", wide: true },
+  { name: "Physicians Formula", image: "https://images.squarespace-cdn.com/content/v1/5702b156f699bbaade5f6c2d/1586357789074-DEB2IWW1ZYS251A3KCKM/Physicians_Formula_Logo-01.png", wide: true },
+  { name: "r.e.m. beauty", image: "/manus-storage/rem-beauty-logo_0014ec3e.webp", wide: true },
+  { name: "Jeffree Star Cosmetics", image: "https://w7.pngwing.com/pngs/47/27/png-transparent-jeffree-star-cosmetics-logo-horizontal-cruelty-free-cosmetics-and-beauty-brands.png", wide: true },
+  { name: "Guerlain", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Guerlain_logo_%282015%E2%80%932022%29.svg/1280px-Guerlain_logo_%282015%E2%80%932022%29.svg.png", wide: true },
 ];
 
 export const domesticClients = [
