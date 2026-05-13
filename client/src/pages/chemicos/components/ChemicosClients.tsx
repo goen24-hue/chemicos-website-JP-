@@ -8,7 +8,7 @@ const JP_TITLE = { fontFamily: "'Cormorant Garamond', serif" };
 // ratio > 5 (극단적 가로): maxHeight를 높여서 더 크게 표시
 // ratio ~1 (정사각형): maxWidth를 제한해서 너무 크지 않게
 const LOGO_SIZE_MAP: Record<string, { maxWidth?: string; maxHeight?: string }> = {
-  'r.e.m. beauty':       { maxWidth: '90%',  maxHeight: '90%' },  // 1:1 정사각형 → 크게
+  'r.e.m. beauty':       { maxWidth: '75%',  maxHeight: '40%' },  // 1:1 정사각형 → 크게
   'KVD Vegan Beauty':    { maxWidth: '60%',  maxHeight: '60%' },  // 아이콘형
   'Too Faced':           { maxWidth: '70%',  maxHeight: '55%' },  // 4.2:1 가로
   'Physicians Formula':  { maxWidth: '70%',  maxHeight: '55%' },  // 3.4:1 가로
