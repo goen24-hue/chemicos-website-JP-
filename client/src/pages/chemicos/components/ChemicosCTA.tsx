@@ -64,7 +64,7 @@ export default function ChemicosCTA() {
           </h2>
 
           <p className="text-[#f5f0e8]/80 leading-[2.0] text-lg mb-14 max-w-xl mx-auto font-light" style={JP_BODY}>
-            私たちは、ブランドとともに積み重ねていく価値を大切にしています。<br />
+            一つひとつの出会いを丁寧に育て、長期的な信頼関係を築いていく。<br />
             その価値を、確かなものづくりで支えていきます。<br />
             ぜひご相談ください。
           </p>
