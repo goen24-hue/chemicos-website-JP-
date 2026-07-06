@@ -178,7 +178,7 @@
 /* Chemicos custom font overrides */
 @layer base {
   body {
-    font-family: 'Noto Serif JP', serif;
+    font-family: 'Noto Serif KR', serif;
   }
   .font-serif {
     font-family: 'Cormorant Garamond', serif;

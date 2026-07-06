@@ -14,25 +14,25 @@ export default function ChemicosHero() {
       {/* Content */}
       <div className="relative flex-1 flex flex-col justify-end pb-28 pt-36 px-8 md:px-14 lg:px-20">
         <p className="text-sm tracking-[0.3em] uppercase text-[#f5f0e8]/75 mb-8 font-light"
-          style={{ fontFamily: "'Noto Serif JP', serif" }}>
-          精密製造 × 敏捷開発
+          style={{ fontFamily: "'Noto Serif KR', serif" }}>
+          정밀 제조 × 민첩한 개발
         </p>
         <h1
           className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#f5f0e8] font-light leading-[1.3] mb-12 tracking-[-0.01em]"
           style={{ fontFamily: "'Cormorant Garamond', serif" }}
         >
-          日本の匠の精神を受け継ぎ、<br />
-          韓国の俊敏な開発力と掛け合わせながら、<br />
-          ブランドとの出会いを大切にする<br />
-          <em className="not-italic text-[#d4c9b0]">長期的な価値創出を支えるパートナーへ。</em>
+          일본 제조 감각을 바탕으로,<br />
+          한국의 민첩한 개발 역량을 결합해,<br />
+          브랜드와의 만남을 장기적 가치로 연결하는<br />
+          <em className="not-italic text-[#d4c9b0]">파트너가 되겠습니다.</em>
         </h1>
         <div>
           <a
             href="#heritage"
             className="btn-chemicos inline-flex items-center gap-3 text-sm tracking-[0.2em] uppercase border border-[#f5f0e8]/60 px-7 py-3.5 text-[#f5f0e8] hover:bg-[#f5f0e8] hover:text-[#2c2c2c] font-light whitespace-nowrap"
-            style={{ fontFamily: "'Noto Serif JP', serif" }}
+            style={{ fontFamily: "'Noto Serif KR', serif" }}
           >
-            開始
+            시작하기
             <i className="ri-arrow-right-line text-sm"></i>
           </a>
         </div>

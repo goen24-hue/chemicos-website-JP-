@@ -1,6 +1,6 @@
 import { specsData } from "@/mocks/chemicos";
 
-const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
+const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
 
 export default function ChemicosSpecs() {
   return (
@@ -10,7 +10,7 @@ export default function ChemicosSpecs() {
         <div className="flex items-center gap-4 mb-12">
           <div className="w-8 h-px bg-[#f5f0e8]/40"></div>
           <span className="text-sm tracking-[0.28em] uppercase font-light text-[#d4c9b0]/80" style={JP_BODY}>
-            仕様・条件
+            사양·조건
           </span>
         </div>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
@@ -18,12 +18,12 @@ export default function ChemicosSpecs() {
             className="font-serif text-4xl md:text-5xl font-light leading-[1.3] text-[#f5f0e8]"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
-            MOQ・納期・認証、<br />
-            よくある確認事項
+            MOQ·납기·인증,<br />
+            자주 확인하는 항목
           </h2>
           <p className="text-[#c8bfb0] text-base font-light max-w-lg leading-[1.9]" style={JP_BODY}>
-            ご検討の際に必要な基本情報をまとめました。<br />
-            詳細はお気軽にお問い合わせください。
+            검토 시 필요한 기본 정보를 정리했습니다.<br />
+            자세한 내용은 편하게 문의해 주세요.
           </p>
         </div>
       </div>
@@ -70,8 +70,8 @@ export default function ChemicosSpecs() {
       {/* Bottom note */}
       <div className="mt-16 pt-10 border-t border-[#f5f0e8]/10">
         <p className="text-[#a09080] text-base font-light leading-[2.0]" style={JP_BODY}>
-          ※ 上記はあくまで目安です。製品の複雑さ・仕様・数量により変動します。<br />
-          正確なお見積もりは初回相談後にご提示いたします。
+          ※ 위 내용은 기준 예시이며, 제품 복잡도·사양·수량에 따라 달라질 수 있습니다.<br />
+          정확한 견적은 초기 상담 후 안내드립니다.
         </p>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import { expansionItems } from "@/mocks/chemicos";
 
-const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
+const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
 
 export default function ChemicosExpansion() {
   return (
@@ -13,27 +13,27 @@ export default function ChemicosExpansion() {
             <div className="flex items-center gap-4 mb-12">
               <div className="w-8 h-px bg-[#2c2c2c]/35"></div>
               <span className="text-sm tracking-[0.28em] uppercase font-light text-[#6b6055]" style={JP_BODY}>
-                拡がり
+                확장성
               </span>
             </div>
             <h2
               className="font-serif text-4xl md:text-5xl font-light leading-[1.3] text-[#2c2c2c] mb-10"
               style={{ fontFamily: "'Cormorant Garamond', serif" }}
             >
-              アイメイクを起点に、<br />色の領域を広げる。
+              아이메이크업을 기반으로,<br />색조 영역을 확장합니다.
             </h2>
             <div className="mb-12 space-y-4">
               <p className="text-[#4a4035] leading-[2.0] text-lg font-light max-w-lg" style={JP_BODY}>
-                マスカラ、眉、リップへの展開は、<br />
-                単なるラインアップの拡張ではありません。
+                마스카라, 브로우, 립으로의 확장은<br />
+                단순한 라인업 추가가 아닙니다.
               </p>
               <p className="text-[#4a4035] leading-[2.0] text-lg font-light max-w-lg" style={JP_BODY}>
-                アイメイクで培ってきた設計力と再現性を基盤に、<br />
-                各カテゴリーにおいても一貫した品質を実現しています。
+                아이메이크업에서 축적한 설계력과 재현성을 기반으로,<br />
+                각 카테고리에서도 일관된 품질을 구현합니다.
               </p>
               <p className="text-[#4a4035] leading-[2.0] text-lg font-light max-w-lg" style={JP_BODY}>
-                それは、技術を横断的に活かした、<br />
-                ものづくりの進化です。
+                이는 기술을 카테고리 간에 확장해 적용하는<br />
+                제조 역량의 진화입니다.
               </p>
             </div>
 
@@ -57,7 +57,7 @@ export default function ChemicosExpansion() {
             </div>
 
             <p className="mt-10 text-sm tracking-[0.2em] uppercase text-[#8a7e6e] font-light" style={JP_BODY}>
-              技術は、かたちを変えて活きていく。
+              기술은 형태를 바꾸어 계속 확장됩니다.
             </p>
           </div>
 

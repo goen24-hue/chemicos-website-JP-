@@ -1,6 +1,6 @@
 import { expertiseItems } from "@/mocks/chemicos";
 
-const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
+const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
 
 export default function ChemicosExpertise() {
   return (
@@ -10,14 +10,14 @@ export default function ChemicosExpertise() {
         <div className="flex items-center gap-4 mb-12">
           <div className="w-8 h-px bg-[#f5f0e8]/40"></div>
           <span className="text-sm tracking-[0.28em] uppercase font-light text-[#d4c9b0]/80" style={JP_BODY}>
-            技
+            기술
           </span>
         </div>
         <h2
           className="font-serif text-4xl md:text-5xl lg:text-6xl font-light leading-[1.3] text-[#f5f0e8]"
           style={{ fontFamily: "'Cormorant Garamond', serif" }}
         >
-          アイメイクの<br />技を極める
+          아이메이크업<br />기술을 정교화합니다
         </h2>
       </div>
 
@@ -54,7 +54,7 @@ export default function ChemicosExpertise() {
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="absolute bottom-6 left-8">
           <span className="text-sm tracking-[0.28em] uppercase font-light text-[#f5f0e8]/70" style={JP_BODY}>
-            技と美の融合
+            기술과 미감의 결합
           </span>
         </div>
       </div>
