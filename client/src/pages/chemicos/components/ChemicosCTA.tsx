@@ -47,10 +47,10 @@ export default function ChemicosCTA() {
           loop
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 z-0 w-full h-full object-cover"
           style={{ filter: "brightness(0.75)" }}
           >
-          <source src="/videos/nature.mp4" type="video/mp4" />
+          <source src={videoSRC} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/20" />
 
@@ -65,9 +65,14 @@ export default function ChemicosCTA() {
           </h2>
 
           <p className="text-[#f5f0e8]/80 leading-[2.0] text-lg mb-14 max-w-xl mx-auto font-light" style={JP_BODY}>
-            하나의 만남을 신중하게 발전시키며 장기적인 신뢰 관계를 만들어갑니다.<br />
+            한 번의 협업이 오래 이어지는 신뢰가 될 수 있도록,<br />
+            제품 개발의 모든 과정을 책임 있게 함께합니다.<br />
+            <br />
+            고객이 그려가는 비전을 이해하고,<br />
             그 가치를 안정적인 제조 역량으로 뒷받침하겠습니다.<br />
-            편하게 상담해 주세요.
+            <br />
+            새로운 제품 개발을 고민하고 계신다면<br />
+            케미코스와 함께 논의해 주세요.
           </p>
 
           <button
