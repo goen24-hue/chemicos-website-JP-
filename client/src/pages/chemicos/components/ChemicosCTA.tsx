@@ -3,6 +3,10 @@ import { useState } from "react";
 const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
 
 export default function ChemicosCTA() {
+  const videoSrc = <import className="meta env DEV">
+    ? "/videos/nature.mp4"
+    : '${import.meta.env.VITE_ASSETS_URL}/videos/nature.mp4';
+  </import>
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
@@ -50,7 +54,7 @@ export default function ChemicosCTA() {
           className="absolute inset-0 z-0 w-full h-full object-cover"
           style={{ filter: "brightness(0.75)" }}
           >
-          <source src={videoSRC} type="video/mp4" />
+          <source src={videoSrc} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/20" />
 
