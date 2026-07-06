@@ -3,10 +3,8 @@ import { useState } from "react";
 const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
 
 export default function ChemicosCTA() {
-  const videoSrc = <import className="meta env DEV">
-    ? "/videos/nature.mp4"
-    : '${import.meta.env.VITE_ASSETS_URL}/videos/nature.mp4';
-  </import>
+  const videoSrc = "https://goen24-hue.github.io/chemicos-website-JP-/videos/nature.mp4";
+  
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
