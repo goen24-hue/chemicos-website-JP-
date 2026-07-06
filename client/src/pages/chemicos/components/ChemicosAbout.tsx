@@ -1,6 +1,6 @@
 import { companyStats } from "@/mocks/chemicos";
 
-const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
+const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
 const JP_TITLE = { fontFamily: "'Cormorant Garamond', serif" };
 
 export default function ChemicosAbout() {
@@ -11,7 +11,7 @@ export default function ChemicosAbout() {
         <div className="flex items-center gap-4 mb-10">
           <div className="w-8 h-px bg-[#f5f0e8]/40"></div>
           <span className="text-sm tracking-[0.28em] uppercase font-light text-[#d4c9b0]/80" style={JP_BODY}>
-            会社概要
+            회사 개요
           </span>
         </div>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
@@ -19,12 +19,12 @@ export default function ChemicosAbout() {
             className="font-serif text-4xl md:text-5xl font-light leading-[1.3] text-[#f5f0e8]"
             style={JP_TITLE}
           >
-            ケミコスとは、<br />
-            どんな会社ですか？
+            케미코스는<br />
+            어떤 회사인가요?
           </h2>
           <p className="text-[#c8bfb0] text-lg font-light max-w-xl leading-[2.0]" style={JP_BODY}>
-            2002年の創業以来、プレミアムビューティーブランドの<br />
-            製造パートナーとして、品質と信頼を積み重ねてきました。
+            2002년 창업 이후 프리미엄 뷰티 브랜드의<br />
+            제조 파트너로 품질과 신뢰를 축적해 왔습니다.
           </p>
         </div>
       </div>
@@ -61,14 +61,14 @@ export default function ChemicosAbout() {
             className="font-serif text-2xl text-[#f5f0e8] font-light mb-6"
             style={JP_TITLE}
           >
-            製造拠点
+            제조 거점
           </h3>
           <p className="text-[#c8bfb0] text-lg leading-[2.0] font-light max-w-lg" style={JP_BODY}>
-            韓国・京畿道 安養市に自社工場を保有。<br />
-            ISO 22716（GMP）認証を取得した<br />
-            クリーンルーム環境で製造を行っています。<br />
-            東京にも営業拠点を設け、<br />
-            日本市場への迅速な対応が可能です。
+            한국 경기도 안양시에 자체 공장을 보유하고 있습니다.<br />
+            ISO 22716(GMP) 인증을 취득한<br />
+            클린룸 환경에서 제조를 진행합니다.<br />
+            도쿄에도 영업 거점을 두고 있어,<br />
+            일본 시장 대응도 가능합니다.
           </p>
         </div>
         <div>
@@ -76,17 +76,17 @@ export default function ChemicosAbout() {
             className="font-serif text-2xl text-[#f5f0e8] font-light mb-6"
             style={JP_TITLE}
           >
-            研究開発体制
+            연구개발 체계
           </h3>
           <blockquote>
             <p className="text-[#c8bfb0] text-lg leading-[2.0] font-light max-w-lg" style={JP_BODY}>
-              専任の処方開発チームを擁し、<br />
-              原料選定から安定性試験まで一貫して対応しています。
+              전담 처방 개발팀을 기반으로,<br />
+              원료 선정부터 안정성 시험까지 일관되게 대응합니다.
             </p>
             <p className="text-[#c8bfb0] text-lg leading-[2.0] font-light max-w-lg" style={JP_BODY}>
-              開発から検証までを連携させることで、<br />
-              トレンドや規制動向を踏まえながら、<br />
-              実用性と再現性を両立した開発を行っています。
+              개발과 검증을 연계해,<br />
+              트렌드와 규제 흐름을 고려하면서,<br />
+              실용성과 재현성을 함께 고려한 개발을 진행합니다.
             </p>
           </blockquote>
         </div>

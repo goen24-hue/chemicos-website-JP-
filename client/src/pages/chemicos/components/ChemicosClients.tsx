@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { globalClients, domesticClients } from "@/mocks/chemicos";
 
-const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
+const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
 const JP_TITLE = { fontFamily: "'Cormorant Garamond', serif" };
 
 // 로고별 비율에 따른 크기 조정 맵
@@ -74,7 +74,7 @@ export default function ChemicosClients() {
         <div className="flex items-center gap-4 mb-10">
           <div className="w-8 h-px bg-[#2c2c2c]/35"></div>
           <span className="text-sm tracking-[0.28em] uppercase font-light text-[#6b6055]" style={JP_BODY}>
-            取引実績
+            거래 실적
           </span>
         </div>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
@@ -82,13 +82,13 @@ export default function ChemicosClients() {
             className="font-serif text-4xl md:text-5xl font-light leading-[1.3] text-[#2c2c2c]"
             style={JP_TITLE}
           >
-            ブランドとともに、<br />
-            価値をかたちに。
+            브랜드와 함께,<br />
+            가치를 제품으로 구현합니다.
           </h2>
           <p className="text-[#4a4035] text-lg font-light max-w-sm leading-[1.9]" style={JP_BODY}>
-            グローバルブランドから国内大手まで、<br />
-            各国のブランドと協業し、<br />
-            プレミアム領域の製品開発を担っています。
+            글로벌 브랜드부터 국내 주요 브랜드까지,<br />
+            각국의 브랜드와 협업하며,<br />
+            프리미엄 영역의 제품 개발을 수행해 왔습니다.
           </p>
         </div>
       </div>

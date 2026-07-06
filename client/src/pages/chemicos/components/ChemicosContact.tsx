@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { contactInfo } from "@/mocks/chemicos";
 import { trpc } from "@/lib/trpc";
 
-const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
+const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
 const JP_TITLE = { fontFamily: "'Cormorant Garamond', serif" };
 
 type FormErrors = {
@@ -34,7 +34,7 @@ export default function ChemicosContact() {
     },
     onError: () => {
       setIsSubmitting(false);
-      setSubmitError("送信に失敗しました。時間をおいて再度お試しください。");
+      setSubmitError("전송에 실패했습니다. 잠시 후 다시 시도해 주세요.");
     },
   });
 
@@ -48,13 +48,13 @@ export default function ChemicosContact() {
 
   const validate = (values: typeof form): FormErrors => {
     const errs: FormErrors = {};
-    if (!values.name.trim()) errs.name = "お名前を入力してください";
+    if (!values.name.trim()) errs.name = "이름을 입력해 주세요";
     if (!values.email.trim()) {
-      errs.email = "メールアドレスを入力してください";
+      errs.email = "이메일 주소를 입력해 주세요";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
-      errs.email = "正しいメールアドレスを入力してください";
+      errs.email = "올바른 이메일 주소를 입력해 주세요";
     }
-    if (!values.message.trim()) errs.message = "ご相談内容を入力してください";
+    if (!values.message.trim()) errs.message = "문의 내용을 입력해 주세요";
     return errs;
   };
 
@@ -68,7 +68,7 @@ export default function ChemicosContact() {
     }
     const updated = { ...form, [name]: value };
     setForm(updated);
-    // リアルタイム検証（一度触れたフィールドのみ）
+    // 실시간 검증(한 번 입력한 필드만)
     if (touched[name]) {
       setErrors(validate(updated));
     }
@@ -82,7 +82,7 @@ export default function ChemicosContact() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // 全フィールドをtouched扱いにして検証
+    // 모든 필드를 touched로 처리하고 검증
     setTouched({ name: true, email: true, message: true });
     const errs = validate(form);
     setErrors(errs);
@@ -113,15 +113,15 @@ export default function ChemicosContact() {
             className="text-sm tracking-[0.28em] uppercase font-light text-[#6b6055]"
             style={JP_BODY}
           >
-            アクセス・お問い合わせ
+            오시는 길·문의
           </span>
         </div>
         <h2
           className="font-serif text-4xl md:text-5xl font-light leading-[1.3] text-[#2c2c2c]"
           style={JP_TITLE}
         >
-          どこにありますか？<br />
-          どう連絡しますか？
+          어디에 있나요?<br />
+          어떻게 문의하나요?
         </h2>
       </div>
 
@@ -135,7 +135,7 @@ export default function ChemicosContact() {
               </div>
               <div>
                 <p className="text-sm tracking-[0.2em] uppercase text-[#8a7e6e] mb-2 font-light" style={JP_BODY}>
-                  所在地
+                  주소
                 </p>
                 <p className="text-[#2c2c2c] text-lg font-light leading-[1.9]" style={JP_BODY}>
                   {contactInfo.addressJp.split('\n').map((line, i) => (
@@ -154,7 +154,7 @@ export default function ChemicosContact() {
               </div>
               <div>
                 <p className="text-sm tracking-[0.2em] uppercase text-[#8a7e6e] mb-2 font-light" style={JP_BODY}>
-                  電話番号
+                  전화번호
                 </p>
                 <a
                   href={`tel:${contactInfo.phone}`}
@@ -172,7 +172,7 @@ export default function ChemicosContact() {
               </div>
               <div>
                 <p className="text-sm tracking-[0.2em] uppercase text-[#8a7e6e] mb-2 font-light" style={JP_BODY}>
-                  メールアドレス
+                  이메일 주소
                 </p>
                 <a
                   href={`mailto:${contactInfo.email}`}
@@ -190,7 +190,7 @@ export default function ChemicosContact() {
               </div>
               <div>
                 <p className="text-sm tracking-[0.2em] uppercase text-[#8a7e6e] mb-2 font-light" style={JP_BODY}>
-                  営業時間
+                  영업시간
                 </p>
                 <p className="text-[#2c2c2c] text-lg font-light" style={JP_BODY}>
                   {contactInfo.hours}
@@ -209,7 +209,7 @@ export default function ChemicosContact() {
             <div className="w-full h-full flex flex-col items-center justify-center gap-4 text-[#2c2c2c] group-hover:text-[#c8b99a] transition-colors duration-300">
               <i className="ri-map-pin-line text-4xl"></i>
               <span className="text-sm tracking-[0.2em] uppercase font-light" style={JP_BODY}>
-                Google Mapsで表示
+                Google Maps에서 보기
               </span>
             </div>
           </a>
@@ -218,7 +218,7 @@ export default function ChemicosContact() {
         {/* Right: Form / Success */}
         <div>
           {submitted ? (
-            /* ── 成功メッセージ（フェードイン＋スライドアップ） ── */
+            /* ── 성공 메시지(페이드 인 + 슬라이드 업) ── */
             <div
               className="flex flex-col items-center justify-center h-full py-20 text-center"
               style={{
@@ -227,7 +227,7 @@ export default function ChemicosContact() {
                 transition: "opacity 0.7s ease, transform 0.7s ease",
               }}
             >
-              {/* チェックサークル */}
+              {/* 체크 서클 */}
               <div
                 className="relative w-20 h-20 mb-10"
                 style={{
@@ -267,7 +267,7 @@ export default function ChemicosContact() {
                   transition: "opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s",
                 }}
               >
-                ありがとうございます
+                감사합니다
               </p>
 
               <p
@@ -279,11 +279,11 @@ export default function ChemicosContact() {
                   transition: "opacity 0.6s ease 0.7s, transform 0.6s ease 0.7s",
                 }}
               >
-                お問い合わせを受け付けました。<br />
-                2営業日以内にご連絡いたします。
+                문의가 접수되었습니다.<br />
+                영업일 기준 2일 이내에 연락드리겠습니다.
               </p>
 
-              {/* 区切り線 */}
+              {/* 구분선 */}
               <div
                 className="w-12 h-px bg-[#c8b99a]/50 my-8"
                 style={{
@@ -309,7 +309,7 @@ export default function ChemicosContact() {
                 className="font-serif text-2xl text-[#2c2c2c] font-light mb-10"
                 style={JP_TITLE}
               >
-                お問い合わせフォーム
+                문의 양식
               </p>
               <form
                 data-readdy-form
@@ -317,15 +317,15 @@ export default function ChemicosContact() {
                 noValidate
                 className="space-y-8"
               >
-                {/* 会社名 / お名前 */}
+                {/* 회사명 / 이름 */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                  {/* 会社名（任意） */}
+                  {/* 회사명(선택) */}
                   <div>
                     <label
                       className="block text-sm tracking-[0.2em] uppercase text-[#6b6055] mb-2 font-light"
                       style={JP_BODY}
                     >
-                      会社名
+                      회사명
                     </label>
                     <input
                       type="text"
@@ -335,17 +335,17 @@ export default function ChemicosContact() {
                       onBlur={handleBlur}
                       className="w-full bg-transparent border-b border-[#2c2c2c]/25 pb-2 text-base text-[#2c2c2c] font-light outline-none hover:border-[#c8b99a] focus:border-[#2c2c2c] transition-colors duration-200 placeholder-[#8a7e6e]/50"
                       style={JP_BODY}
-                      placeholder="株式会社〇〇"
+                      placeholder="회사명을 입력하세요"
                     />
                   </div>
 
-                  {/* お名前（必須） */}
+                  {/* 이름(필수) */}
                   <div>
                     <label
                       className="block text-sm tracking-[0.2em] uppercase text-[#6b6055] mb-2 font-light"
                       style={JP_BODY}
                     >
-                      お名前 <span className="text-[#c8b99a]">*</span>
+                      이름 <span className="text-[#c8b99a]">*</span>
                     </label>
                     <input
                       type="text"
@@ -359,7 +359,7 @@ export default function ChemicosContact() {
                           : "border-[#2c2c2c]/25 hover:border-[#c8b99a] focus:border-[#2c2c2c]"
                       }`}
                       style={JP_BODY}
-                      placeholder="山田 太郎"
+                      placeholder="홍길동"
                     />
                     {errors.name && touched.name && (
                       <p className="text-red-400 text-xs mt-1.5 font-light" style={JP_BODY}>
@@ -369,13 +369,13 @@ export default function ChemicosContact() {
                   </div>
                 </div>
 
-                {/* メールアドレス（必須） */}
+                {/* 이메일 주소(필수) */}
                 <div>
                   <label
                     className="block text-sm tracking-[0.2em] uppercase text-[#6b6055] mb-2 font-light"
                     style={JP_BODY}
                   >
-                    メールアドレス <span className="text-[#c8b99a]">*</span>
+                    이메일 주소 <span className="text-[#c8b99a]">*</span>
                   </label>
                   <input
                     type="email"
@@ -398,13 +398,13 @@ export default function ChemicosContact() {
                   )}
                 </div>
 
-                {/* 製品カテゴリ（任意） */}
+                {/* 제품 카테고리(선택) */}
                 <div>
                   <label
                     className="block text-sm tracking-[0.2em] uppercase text-[#6b6055] mb-2 font-light"
                     style={JP_BODY}
                   >
-                    ご関心の製品カテゴリ
+                    관심 제품 카테고리
                   </label>
                   <select
                     name="product"
@@ -413,22 +413,22 @@ export default function ChemicosContact() {
                     className="w-full bg-transparent border-b border-[#2c2c2c]/25 pb-2 text-base text-[#2c2c2c] font-light outline-none hover:border-[#c8b99a] focus:border-[#2c2c2c] transition-colors duration-200 cursor-pointer appearance-none"
                     style={JP_BODY}
                   >
-                    <option value="">選択してください</option>
-                    <option value="eyeliner">アイライナー</option>
-                    <option value="mascara">マスカラ</option>
-                    <option value="brow">アイブロウ</option>
-                    <option value="lip">リップ</option>
-                    <option value="other">その他・複数</option>
+                    <option value="">선택해 주세요</option>
+                    <option value="eyeliner">아이라이너</option>
+                    <option value="mascara">마스카라</option>
+                    <option value="brow">아이브로우</option>
+                    <option value="lip">립</option>
+                    <option value="other">기타·복수 선택</option>
                   </select>
                 </div>
 
-                {/* ご相談内容（必須） */}
+                {/* 문의 내용(필수) */}
                 <div>
                   <label
                     className="block text-sm tracking-[0.2em] uppercase text-[#6b6055] mb-2 font-light"
                     style={JP_BODY}
                   >
-                    ご相談内容 <span className="text-[#c8b99a]">*</span>
+                    문의 내용 <span className="text-[#c8b99a]">*</span>
                   </label>
                   <textarea
                     name="message"
@@ -442,7 +442,7 @@ export default function ChemicosContact() {
                         : "border-[#2c2c2c]/25 hover:border-[#c8b99a] focus:border-[#2c2c2c]"
                     }`}
                     style={JP_BODY}
-                    placeholder="製品のコンセプト、数量、スケジュールなど、お気軽にご記入ください"
+                    placeholder="제품 컨셉, 수량, 일정 등 상담 내용을 편하게 입력해 주세요"
                   />
                   {/* 글자 수 카운터 영역 */}
                   <div className="mt-2 space-y-1.5">
@@ -483,8 +483,8 @@ export default function ChemicosContact() {
                             }}
                           >
                             {charCount >= 500
-                              ? "上限に達しました"
-                              : `残り ${500 - charCount}文字`}
+                              ? "입력 한도에 도달했습니다"
+                              : `남은 글자 수 ${500 - charCount}자`}
                           </span>
                         )}
                         {/* 현재/최대 */}
@@ -502,12 +502,12 @@ export default function ChemicosContact() {
                   </div>
                 </div>
 
-                {/* 必須項目の注記 */}
+                {/* 필수 항목 안내 */}
                 <p className="text-xs text-[#8a7e6e]/70 font-light -mt-2" style={JP_BODY}>
-                  <span className="text-[#c8b99a]">*</span> は必須入力項目です
+                  <span className="text-[#c8b99a]">*</span> 는 필수 입력 항목입니다
                 </p>
 
-                {/* 送信ボタン */}
+                {/* 전송 버튼 */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -539,17 +539,17 @@ export default function ChemicosContact() {
                           strokeLinecap="round"
                         />
                       </svg>
-                      <span style={{ letterSpacing: "0.2em" }}>送信中...</span>
+                      <span style={{ letterSpacing: "0.2em" }}>전송 중...</span>
                     </>
                   ) : (
                     <>
-                      送信する
+                      보내기
                       <i className="ri-arrow-right-line text-sm"></i>
                     </>
                   )}
                 </button>
 
-                {/* 送信エラーメッセージ */}
+                {/* 전송 오류 메시지 */}
                 {submitError && (
                   <p className="text-red-400 text-sm font-light text-center mt-2" style={JP_BODY}>
                     {submitError}

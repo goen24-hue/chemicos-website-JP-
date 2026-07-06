@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { faqItems } from "@/mocks/chemicos";
 
-const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
+const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
 
 /** 실제 높이를 측정해 부드럽게 펼치는 아코디언 아이템 */
 function FAQItem({
@@ -117,8 +117,8 @@ export default function ChemicosFAQ() {
             className="font-serif text-4xl md:text-5xl font-light leading-[1.3] text-[#2c2c2c]"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
-            ご検討中の方へ、<br />
-            よくいただくご質問
+            검토 중인 고객사를 위한<br />
+            자주 묻는 질문
           </h2>
         </div>
       </div>
@@ -141,8 +141,8 @@ export default function ChemicosFAQ() {
           className="text-[#6b6055] text-base font-light leading-[1.9]"
           style={JP_BODY}
         >
-          他にご不明な点がございましたら、<br />
-          お気軽にご連絡ください。
+          추가로 궁금한 점이 있다면<br />
+          편하게 문의해 주세요.
         </p>
       </div>
     </section>

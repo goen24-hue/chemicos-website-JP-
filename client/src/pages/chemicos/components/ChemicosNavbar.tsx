@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
+const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
 const JOST = { fontFamily: "'Jost', sans-serif" };
 
 interface NavChild {
@@ -16,34 +16,34 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   {
-    label: "Company",
+    label: "회사",
     children: [
-      { label: "Story", href: "#intro" },
-      { label: "Heritage", href: "#heritage" },
-      { label: "About Us", href: "#about" },
-      { label: "Expertise", href: "#competence" },
-      { label: "Expansion", href: "#expansion" },
+      { label: "스토리", href: "#intro" },
+      { label: "품질 기준", href: "#heritage" },
+      { label: "회사 개요", href: "#about" },
+      { label: "기술 역량", href: "#competence" },
+      { label: "확장성", href: "#expansion" },
     ],
   },
   {
-    label: "Products",
+    label: "제품",
     children: [
-      { label: "Eyeliner", href: "#portfolio" },
-      { label: "Mascara", href: "#portfolio" },
-      { label: "Eyebrow", href: "#portfolio" },
-      { label: "Lip", href: "#portfolio" },
+      { label: "아이라이너", href: "#portfolio" },
+      { label: "마스카라", href: "#portfolio" },
+      { label: "아이브로우", href: "#portfolio" },
+      { label: "립", href: "#portfolio" },
     ],
   },
   {
-    label: "Services",
+    label: "서비스",
     children: [
-      { label: "Process", href: "#process" },
-      { label: "MOQ & Lead Time", href: "#specs" },
-      { label: "Partnership", href: "#partnership" },
+      { label: "프로세스", href: "#process" },
+      { label: "MOQ·납기", href: "#specs" },
+      { label: "파트너십", href: "#partnership" },
     ],
   },
   {
-    label: "Clients",
+    label: "고객사",
     href: "#clients",
   },
   {
@@ -96,7 +96,7 @@ function DropdownMenu({
         className={`nav-link-chemicos text-sm tracking-[0.2em] uppercase font-light transition-colors duration-300 whitespace-nowrap cursor-pointer ${
           scrolled ? "text-[#2c2c2c]" : "text-[#f5f0e8]"
         }`}
-        style={JOST}
+        style={JP_BODY}
       >
         {item.label}
       </a>
@@ -109,7 +109,7 @@ function DropdownMenu({
         className={`flex items-center gap-1.5 text-sm tracking-[0.2em] uppercase font-light transition-colors duration-300 hover:opacity-50 whitespace-nowrap cursor-pointer ${
           scrolled ? "text-[#2c2c2c]" : "text-[#f5f0e8]"
         }`}
-        style={JOST}
+        style={JP_BODY}
         onClick={() => setOpen((v) => !v)}
         onMouseEnter={() => setOpen(true)}
       >
@@ -211,7 +211,7 @@ export default function ChemicosNavbar() {
             }`}
             style={JP_BODY}
           >
-            お問い合わせ
+            문의
           </a>
           <button
             className={`md:hidden w-5 h-5 flex items-center justify-center cursor-pointer ${
@@ -236,7 +236,7 @@ export default function ChemicosNavbar() {
                 <>
                   <button
                     className="w-full flex items-center justify-between py-3 text-sm tracking-[0.2em] uppercase font-light text-[#2c2c2c] cursor-pointer"
-                    style={JOST}
+                    style={JP_BODY}
                     onClick={() =>
                       setMobileExpanded(
                         mobileExpanded === item.label ? null : item.label
@@ -279,7 +279,7 @@ export default function ChemicosNavbar() {
                     setMenuOpen(false);
                   }}
                   className="block py-3 text-sm tracking-[0.2em] uppercase font-light text-[#2c2c2c] hover:opacity-50 transition-opacity cursor-pointer"
-                  style={JOST}
+                  style={JP_BODY}
                 >
                   {item.label}
                 </a>
@@ -297,7 +297,7 @@ export default function ChemicosNavbar() {
             className="mt-4 text-sm tracking-[0.15em] uppercase border border-[#2c2c2c] px-5 py-2.5 text-[#2c2c2c] font-light w-fit cursor-pointer whitespace-nowrap"
             style={JP_BODY}
           >
-            お問い合わせ
+            문의
           </a>
         </div>
       )}

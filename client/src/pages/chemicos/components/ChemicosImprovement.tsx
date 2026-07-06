@@ -1,6 +1,6 @@
 import { improvementColumns } from "@/mocks/chemicos";
 
-const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
+const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
 
 export default function ChemicosImprovement() {
   return (
@@ -12,14 +12,14 @@ export default function ChemicosImprovement() {
           <div className="flex items-center gap-4 mb-12">
             <div className="w-8 h-px bg-[#2c2c2c]/35"></div>
             <span className="text-sm tracking-[0.28em] uppercase font-light text-[#6b6055]" style={JP_BODY}>
-              姿勢
+              태도
             </span>
           </div>
           <h2
             className="font-serif text-4xl md:text-5xl font-light leading-[1.3] text-[#2c2c2c]"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
-            継続的な<br />改善と実行
+            지속적인<br />개선과 실행
           </h2>
         </div>
 

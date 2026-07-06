@@ -1,6 +1,6 @@
 import { footerLinks } from "@/mocks/chemicos";
 
-const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
+const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
 
 export default function ChemicosFooter() {
   return (

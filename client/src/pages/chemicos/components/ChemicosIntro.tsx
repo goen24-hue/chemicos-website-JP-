@@ -1,4 +1,4 @@
-const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
+const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
 
 export default function ChemicosIntro() {
   return (
@@ -16,7 +16,7 @@ export default function ChemicosIntro() {
           <div className="flex items-center gap-4 mb-12">
             <div className="w-8 h-px bg-[#f5f0e8]/50"></div>
             <span className="text-sm tracking-[0.28em] uppercase font-light text-[#f5f0e8]/70" style={JP_BODY}>
-              始まり
+              시작
             </span>
           </div>
 
@@ -24,23 +24,23 @@ export default function ChemicosIntro() {
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-light leading-[1.3] mb-8"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
-            ものづくりの<br />心を守る
+            제조의<br />본질을 지킵니다
           </h2>
 
           <p className="text-[#e0d8cc] leading-[2.0] mb-12 max-w-xl text-lg font-light" style={JP_BODY}>
-            2002年の創業以来、<br />
-            ペンタイプリキッドアイライナーという<br />
-            特に精度が求められる領域に取り組み続けてきました。<br />
-            精密な描き心地、安定した発色、快適な使用感。<br />
-            これら一つひとつを丁寧に積み重ねてきた経験が、<br />
-            現在の開発基盤となっています。
+            2002년 창업 이후,<br />
+            펜 타입 리퀴드 아이라이너라는<br />
+            정밀도가 중요한 영역에 지속적으로 집중해 왔습니다.<br />
+            정교한 드로잉, 안정적인 발색, 편안한 사용감.<br />
+            이 요소들을 하나씩 축적해 온 경험이<br />
+            현재의 개발 기반이 되었습니다.
           </p>
 
           <div className="grid grid-cols-3 gap-8 max-w-2xl">
             {[
-              { label: "創業", value: "2002年" },
-              { label: "専門", value: "カラーコスメ" },
-              { label: "理念", value: "共創による価値づくり" },
+              { label: "창업", value: "2002년" },
+              { label: "전문 분야", value: "색조 메이크업" },
+              { label: "지향점", value: "공동 개발을 통한 가치 창출" },
             ].map((stat) => (
               <div key={stat.label}>
                 <p className="text-[#f5f0e8]/60 text-sm tracking-widest uppercase mb-2 font-light" style={JP_BODY}>

@@ -1,4 +1,4 @@
-const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
+const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
 export default function ChemicosHeritage() {
   return (
     <>
@@ -10,26 +10,26 @@ export default function ChemicosHeritage() {
             <div className="flex items-center gap-4 mb-12">
               <div className="w-8 h-px bg-[#2c2c2c]/35"></div>
               <span className="text-sm tracking-[0.28em] uppercase font-light text-[#6b6055] whitespace-nowrap" style={JP_BODY}>
-                品質への考え方
+                품질을 바라보는 기준
               </span>
             </div>
             <h2
               className="font-serif text-4xl md:text-5xl font-light leading-[1.3] text-[#2c2c2c] mb-10"
               style={{ fontFamily: "'Cormorant Garamond', serif" }}
             >
-              品質に、<br />偶然はない。
+              품질은<br />우연에 맡기지 않습니다.
             </h2>
             <div className="border-l-2 border-[#c8b99a] pl-8 mb-10">
               <p className="text-[#2c2c2c]/85 leading-[1.9] italic font-serif text-xl" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                「精密さとは、<br />完璧さではなく<br />再現性である」
+                “정밀함은<br />완벽함보다<br />재현성에 가깝습니다.”
               </p>
             </div>
             <p className="text-[#4a4035] leading-[2.0] text-lg font-light max-w-lg" style={JP_BODY}>
-              私たちは、バッチ間の品質差を最小限に抑えることを前提に、<br />
-              処方設計と工程管理を行っています。
+              우리는 배치 간 품질 편차를 줄이는 것을 전제로,<br />
+              처방 설계와 공정 관리를 진행합니다.
             </p>
             <p className="text-[#4a4035] leading-[2.0] text-lg font-light max-w-lg mt-6" style={JP_BODY}>
-              その基準が、製品の安定性と信頼性を支えています。
+              이 기준이 제품의 안정성과 신뢰도를 뒷받침합니다.
             </p>
           </div>
           {/* Image */}
@@ -43,7 +43,7 @@ export default function ChemicosHeritage() {
             </div>
             <div className="absolute bottom-5 left-5">
               <span className="text-sm tracking-[0.28em] uppercase font-light text-[#f5f0e8]/80" style={JP_BODY}>
-                細部に宿る精神
+                디테일에 담긴 기준
               </span>
             </div>
           </div>

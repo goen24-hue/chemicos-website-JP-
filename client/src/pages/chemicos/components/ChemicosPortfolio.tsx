@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { portfolioCategories } from "@/mocks/chemicos";
 
-const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
+const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
 const JP_TITLE = { fontFamily: "'Cormorant Garamond', serif" };
 
 export default function ChemicosPortfolio() {
@@ -15,7 +15,7 @@ export default function ChemicosPortfolio() {
         <div className="flex items-center gap-4 mb-10">
           <div className="w-8 h-px bg-[#2c2c2c]/35"></div>
           <span className="text-sm tracking-[0.28em] uppercase font-light text-[#6b6055]" style={JP_BODY}>
-            製品ラインナップ
+            제품 라인업
           </span>
         </div>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
@@ -23,13 +23,13 @@ export default function ChemicosPortfolio() {
             className="font-serif text-4xl md:text-5xl font-light leading-[1.3] text-[#2c2c2c]"
             style={JP_TITLE}
           >
-            どんな製品を<br />
-            作れますか？
+            어떤 제품을<br />
+            만들 수 있나요?
           </h2>
           <p className="text-[#4a4035] text-lg font-light max-w-sm leading-[1.9]" style={JP_BODY}>
-            アイメイクを中心に、<br />
-            リップ・ブロウまで幅広く対応。<br />
-            OEM・ODMどちらも承ります。
+            아이메이크업을 중심으로,<br />
+            립과 브로우까지 폭넓게 대응합니다.<br />
+            OEM·ODM 모두 가능합니다.
           </p>
         </div>
       </div>
@@ -86,7 +86,7 @@ export default function ChemicosPortfolio() {
           {/* Specs */}
           <div className="border-t border-[#2c2c2c]/12 pt-10">
             <p className="text-sm tracking-[0.2em] uppercase text-[#8a7e6e] mb-6 font-light" style={JP_BODY}>
-              対応仕様
+              대응 사양
             </p>
             <ul className="space-y-4">
               {current.specs.map((spec) => (
@@ -108,7 +108,7 @@ export default function ChemicosPortfolio() {
               className="btn-chemicos inline-flex items-center gap-3 text-sm tracking-[0.2em] uppercase border border-[#2c2c2c] px-7 py-3.5 text-[#2c2c2c] hover:bg-[#2c2c2c] hover:text-[#f5f0e8] font-light cursor-pointer whitespace-nowrap"
               style={JP_BODY}
             >
-              この製品について相談する
+              이 제품 상담하기
               <i className="ri-arrow-right-line text-sm"></i>
             </a>
           </div>

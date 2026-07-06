@@ -1,6 +1,6 @@
 import { processSteps } from "@/mocks/chemicos";
 
-const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
+const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
 
 export default function ChemicosProcess() {
   return (
@@ -10,7 +10,7 @@ export default function ChemicosProcess() {
         <div className="flex items-center gap-4 mb-12">
           <div className="w-8 h-px bg-[#2c2c2c]/35"></div>
           <span className="text-sm tracking-[0.28em] uppercase font-light text-[#6b6055]" style={JP_BODY}>
-            製造の流れ
+            제조 프로세스
           </span>
         </div>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
@@ -18,12 +18,12 @@ export default function ChemicosProcess() {
             className="font-serif text-4xl md:text-5xl font-light leading-[1.3] text-[#2c2c2c]"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
-            ご依頼から納品まで、<br />
-            5つのステップ
+            의뢰부터 납품까지,<br />
+            5단계 프로세스
           </h2>
           <p className="text-[#6b6055] text-base font-light max-w-sm leading-[1.9]" style={JP_BODY}>
-            初回のご相談から量産・納品まで、<br />
-            一貫してサポートいたします。
+            초기 상담부터 양산·납품까지,<br />
+            일관되게 지원합니다.
           </p>
         </div>
       </div>
