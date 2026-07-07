@@ -22,9 +22,9 @@ export const expertiseItems = [
 ];
 
 export const expansionItems = [
-  { name: "마스카라", desc: "볼륨·컬·세퍼레이트를 함께 고려한 설계" },
-  { name: "브로우", desc: "그리기 쉬운 사용성과 자연스러운 마무리를 함께 고려한 설계" },
-  { name: "립", desc: "발색·질감·지속력을 조절하는 처방 설계" },
+  { name: "마스카라", desc: "속눈썹에 균일하게 도포되고 원하는 마무리감이 안정적으로 표현되도록 설계" },
+  { name: "브로우", desc: "손쉽게 그려지고 자연스럽게 마무리되도록 발색과 고정감을 조절하는 설계" },
+  { name: "립", desc: "컬러 표현, 텍스처, 밀착감, 지속력을 조절해 원하는 립 사용감을 구현하는 처방 설계" },
 ];
 
 export const improvementColumns = [
