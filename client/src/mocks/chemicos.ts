@@ -24,7 +24,7 @@ export const expertiseItems = [
 export const expansionItems = [
   { name: "마스카라", desc: "속눈썹에 균일하게 도포되고 원하는 마무리감이 안정적으로 표현되도록 설계" },
   { name: "브로우", desc: "손쉽게 그려지고 자연스럽게 마무리되도록 발색과 고정감을 조절하는 설계" },
-  { name: "립", desc: "원하는 컬러와 질감이 안정적으로 표현되도록 발색, 밀착감, 지속력을 조절하는 립 설계" },
+  { name: "립", desc: "원하는 컬러와 질감이 안정적으로 표현되도록\n발색, 밀착감, 지속력을 조절하는 립 설계" },
 ];
 
 export const improvementColumns = [
