@@ -17,7 +17,7 @@ export default function ChemicosHeritage() {
               className="font-serif text-4xl md:text-5xl font-light leading-[1.3] text-[#2c2c2c] mb-10"
               style={{ fontFamily: "'Cormorant Garamond', serif" }}
             >
-              좋은 품질은<br />우연히 만들어지지 않습니다.
+              품질은<br />우연에 맡기지 않습니다.
             </h2>
             <div className="border-l-2 border-[#c8b99a] pl-8 mb-10">
               <p className="text-[#2c2c2c]/85 leading-[1.9] italic font-serif text-xl" style={{ fontFamily: "'Cormorant Garamond', serif" }}>

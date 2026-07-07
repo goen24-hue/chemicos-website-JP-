@@ -21,9 +21,10 @@ export default function ChemicosHero() {
           className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#f5f0e8] font-light leading-[1.3] mb-12 tracking-[-0.01em]"
           style={{ fontFamily: "'Cormorant Garamond', serif" }}
         >
-          일본 제조의 신뢰를 기반으로,<br />
+          일본 제조 감각을 바탕으로,<br />
           한국의 민첩한 개발 역량을 결합해,<br />
-         <em className="not-italic text-[#d4c9b0]">브랜드의 다음 가능성을 오래 지속될 가치로 완성하겠습니다.</em>
+          브랜드와의 만남을 장기적 가치로 연결하는<br />
+          <em className="not-italic text-[#d4c9b0]">파트너가 되겠습니다.</em>
         </h1>
         <div>
           <a

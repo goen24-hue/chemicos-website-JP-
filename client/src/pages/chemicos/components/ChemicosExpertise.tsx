@@ -17,7 +17,7 @@ export default function ChemicosExpertise() {
           className="font-serif text-4xl md:text-5xl lg:text-6xl font-light leading-[1.3] text-[#f5f0e8]"
           style={{ fontFamily: "'Cormorant Garamond', serif" }}
         >
-          작은 차이가 중요한 눈가 제품에서<br />정밀한 기술 기준을 쌓아왔습니다
+          아이메이크업<br />기술을 정교화합니다
         </h2>
       </div>
 

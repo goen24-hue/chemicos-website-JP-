@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
 const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
-const MENU_FONT = { fontFamily: "'SUIT', 'Pretendard', 'Noto Sans KR', sans-serif" };
 const JOST = { fontFamily: "'Jost', sans-serif" };
 
 interface NavChild {
