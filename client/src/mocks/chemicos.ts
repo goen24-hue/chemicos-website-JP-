@@ -208,7 +208,7 @@ export const domesticClients = [
   { name: "AMORE PACIFIC", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/AMOREPACIFIC_logo.svg/3840px-AMOREPACIFIC_logo.svg.png", wide: true },
   { name: "ETUDE", image: "https://public.readdy.ai/ai/img_res/7ca47fde-4d47-491d-9dd8-f1a3e6ab79cc.png", wide: false },
   { name: "CLIO", image: "https://product-image.kurly.com/product/brand/4e2703d6-a528-4664-882e-04b6daede1b4.png", wide: false },
-  { name: "PERIPERA", image: "https://img.logodad.com/upload/m/z02/Peripera-icon.png", wide: false },
+  { name: "PERIPERA", image: "https://1000logos.net/wp-content/uploads/2023/11/PeriPera-Logo.png", wide: false },
   { name: "ESPOIR", image: "https://www.planeton.kr/planeton/resources/images/work/espoir/work_logo.png", wide: false },
   { name: "HEART PERCENT", image: "https://m.heartpercent.co.kr/web/img/logo_p.png", wide: false },
   { name: "LILYBYRED", image: "https://lilybyred.co.kr/web/upload/NNEditor/20220616/dce45e83e8b4ee5d6260ff502db4bc68.png", wide: true },
