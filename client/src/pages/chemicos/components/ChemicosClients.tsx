@@ -70,9 +70,9 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   opacity: 0.9,
 
   "WAKEMAKE": {
-  maxWidth: "100",
-  maxHeight: "100%",
-  scale: 0.5,
+  maxWidth: "80",
+  maxHeight: "80%",
+  scale: 1,
   clipPath: "inset(30% 4% 30% 4%)",
   filter: "none",
   mixBlendMode: "multiply",
