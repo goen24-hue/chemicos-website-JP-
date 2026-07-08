@@ -111,38 +111,48 @@ function ClientLogo({
           src={client.image}
           alt={client.name}
           style={{
-            display: "block",
+  display: "block",
 
-            width: !isGlobal && isWakemake ? "55%" : "auto",
-            height: "auto",
-            
-            maxWidth: !isGlobal && isWakemake
-              ? "none"
-                : isGlobal
-                  ? globalSize.maxWidth ?? "90%"
-                  : domesticStyle.maxWidth ?? "56%",
+  // WAKEMAKE만 width로 직접 조정
+  width: !isGlobal && isWakemake ? "60%" : "auto",
+  height: "auto",
 
-            maxHeight: !isGlobal && isWakemake
-              ? "none"
-              : isGlobal
-                ? globalSize.maxHeight ?? "80%"
-                  : domesticStyle.maxHeight ?? "46%",
+  // WAKEMAKE만 max 제한 해제
+  maxWidth: !isGlobal && isWakemake
+    ? "none"
+    : isGlobal
+      ? globalSize.maxWidth ?? "90%"
+      : domesticStyle.maxWidth ?? "56%",
 
-            clipPath: isGlobal ? "none" : domesticStyle.clipPath ?? "none",
+  maxHeight: !isGlobal && isWakemake
+    ? "none"
+    : isGlobal
+      ? globalSize.maxHeight ?? "80%"
+      : domesticStyle.maxHeight ?? "46%",
 
-            filter: isGlobal
-              ? "brightness(0) contrast(1.4)"
-              : domesticStyle.filter ?? "brightness(0) contrast(1.08)",
+  objectFit: "contain",
 
-            opacity: isGlobal ? 1 : domesticStyle.opacity ?? 0.92,
+  clipPath: isGlobal ? "none" : domesticStyle.clipPath ?? "none",
 
-            mixBlendMode: isGlobal
-              ? "normal"
-              : domesticStyle.mixBlendMode ?? "normal",
+  filter: isGlobal
+    ? "brightness(0) contrast(1.4)"
+    : domesticStyle.filter ?? "brightness(0) contrast(1.08)",
 
+  opacity: isGlobal ? 1 : domesticStyle.opacity ?? 0.92,
 
-            transformOrigin: "center",
-          }}
+  mixBlendMode: isGlobal
+    ? "normal"
+    : domesticStyle.mixBlendMode ?? "normal",
+
+  // 여기 중요: WAKEMAKE만 scale 고정, 나머지는 기존 scale 유지
+  transform: isGlobal
+    ? "scale(1)"
+    : isWakemake
+      ? "scale(1)"
+      : `scale(${domesticStyle.scale ?? 1})`,
+
+  transformOrigin: "center",
+}}
           className="transition-opacity duration-300"
           onError={() => setImgError(true)}
         />
