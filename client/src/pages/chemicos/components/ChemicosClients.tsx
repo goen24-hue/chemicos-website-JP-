@@ -73,7 +73,7 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   maxWidth: "100",
   maxHeight: "100%",
   scale: 0.5,
-  clipPath: "inset(36% 12% 36% 12%)",
+  clipPath: "inset(30% 4% 30% 4%)",
   filter: "none",
   mixBlendMode: "multiply",
   opacity: 0.92,
