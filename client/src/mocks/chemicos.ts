@@ -196,17 +196,25 @@ export const globalClients = [
   { name: "Guerlain", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Guerlain_logo_%282015%E2%80%932022%29.svg/1280px-Guerlain_logo_%282015%E2%80%932022%29.svg.png", wide: true },
 ];
 
+const LOGO_SIZE_MAP: Record<string, { maxWidth?: string; maxHeight?: string }> = {
+  // Domestic / Large corporate
+  'ESPOIR':              { maxWidth: '42%', maxHeight: '48%' },
+  'HEART PERCENT':       { maxWidth: '70%', maxHeight: '45%' },
+  'UNLEASHIA':           { maxWidth: '62%', maxHeight: '58%' },
+  'MERZY':               { maxWidth: '70%', maxHeight: '45%' },
+};
+
 export const domesticClients = [
   { name: "AMORE PACIFIC", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/AMOREPACIFIC_logo.svg/3840px-AMOREPACIFIC_logo.svg.png", wide: true },
   { name: "ETUDE", image: "https://public.readdy.ai/ai/img_res/7ca47fde-4d47-491d-9dd8-f1a3e6ab79cc.png", wide: false },
   { name: "CLIO", image: "https://product-image.kurly.com/product/brand/4e2703d6-a528-4664-882e-04b6daede1b4.png", wide: false },
-  { name: "PERIPERA", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiHuM3PL8ryWiE5dGwaWUUHjv_URSjKArrXPUvTB71FQyucxwiesQp0lU&s=10", wide: false },
+  { name: "PERIPERA", image: "https://img.logodad.com/upload/m/z02/Peripera-icon.png", wide: false },
   { name: "ESPOIR", image: "https://www.planeton.kr/planeton/resources/images/work/espoir/work_logo.png", wide: false },
   { name: "HEART PERCENT", image: "https://m.heartpercent.co.kr/web/img/logo_p.png", wide: false },
   { name: "LILYBYRED", image: "https://lilybyred.co.kr/web/upload/NNEditor/20220616/dce45e83e8b4ee5d6260ff502db4bc68.png", wide: true },
   { name: "UNLEASHIA", image: "https://unleashiacosmetics.com/web/upload/category/editor/2021/11/02/24de4a1e629d7502a66f266f480e3493.png", wide: false },
-  { name: "MERRYMOND", image: "https://merrymonde.com/web/season2_skin/skin7/images/merrymonde.jpg", wide: false },
-  { name: "GIVERNY", image: "https://cdn-pro-web-250-115.cdn-nhncommerce.com/bnh20202_godomall_com/data/skin/front/kaimen_bnh_1028/img/banner/slider_446814572/b89dba7a5fe2ba18f668c19c65482164_48796.png", wide: true },
+  { name: "MERRYMOND", image: "https://merrymonde.com/web/upload/logo/merrymonde.png", wide: false },
+  { name: "GIVERNY", image: "https://cdn-pro-web-250-115.cdn-nhncommerce.com/bnh20202_godomall_com/data/skin/front/kaimen_bnh_1028/img/banner/slider_446814572/6f714615ef85ebc82cee5c678dda8df6_12156.png", wide: true },
   { name: "MERZY", image: "https://m.merzy.co.kr/web_img/MERZY_BI_180717.png", wide: false },
   { name: "INNISFREE", image: "https://public.readdy.ai/ai/img_res/6158b6ac-5932-4e15-a6e9-45d6377f259b.png", wide: true },
   { name: "MISSHA", image: "https://public.readdy.ai/ai/img_res/36bb0243-4ae9-490d-88f4-7357a5950b53.png", wide: true },
