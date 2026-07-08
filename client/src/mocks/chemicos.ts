@@ -220,7 +220,7 @@ export const domesticClients = [
   { name: "THE FACE SHOP", image: "https://static.readdy.ai/image/91482352f3970615f9df82ae24dd1865/66d3a217b14e03bb7aca816a0a65f195.png", wide: true },
   { name: "VIDIVICI", image: "https://img.ssgdfs.com/upload/C00001/dspl/banner/batch/614301/614301_black.png", wide: true },
   { name: "COSNORI", image: "https://cosnori.cafe24.com/test/logo_mobile.png", wide: true },
-  { name: "TOO COOL FOR SCHOOL", image: "https://daoift3qrrnil.cloudfront.net/company_groups/images/000/003/473/original/hwbq93y6bf-2x600x600x0x0x0.png?1700450872", wide: true },
+  { name: "TOO COOL FOR SCHOOL", image: "https://toocoolforschool.com/web/upload/appfiles/ZaReJam3QiELznoZeGGkMG/3643a35b6a2fbe017d7bc955e4fee45c.png", wide: true },
   { name: "TIP TOE", image: "https://tiptoe.kr/web/upload/category/logo/v2_0315bc921e22f871181730ab1aca6ffd_nwXrnK2D75_top.jpg", wide: true },
   { name: "KEYBO", image: "https://keybocosmetic.com/web/upload/appfiles/AIFBrluHGdhkEsW6ewuLoA/0a70cd121a490061faf880b3b73a485c.png", wide: true },
   { name: "TOOQ", image: "https://tooq.co.kr/web/upload/category/editor/2026/01/19/3b608324e69c3e83efbbe2929191404a.png", wide: true },
