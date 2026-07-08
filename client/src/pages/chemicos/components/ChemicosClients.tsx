@@ -93,18 +93,19 @@ function ClientLogo({
   const normalizedName = client.name.trim().toLowerCase();
 
   const globalSize = GLOBAL_LOGO_SIZE_MAP[client.name] ?? {};
-  const domesticStyle = DOMESTIC_LOGO_STYLE_MAP[normalizedName] ?? {};
-  const textLogo = TEXT_LOGO_MAP[normalizedName];
+  const domesticStyle =
+    DOMESTIC_LOGO_STYLE_MAP[normalizedName] ??
+    DOMESTIC_LOGO_STYLE_MAP[client.name] ??
+    {};
 
   const isGlobal = type === "global";
-  const shouldUseTextLogo = !isGlobal && !!textLogo;
 
   return (
     <div
       className="border border-[#2c2c2c]/10 group hover:bg-[#ede8df] transition-colors duration-300 flex items-center justify-center overflow-hidden"
       style={{ height: "100px", padding: "10px 14px" }}
     >
-      {!imgError && !shouldUseTextLogo ? (
+      {!imgError ? (
         <img
           src={client.image}
           alt={client.name}
@@ -128,8 +129,10 @@ function ClientLogo({
               : domesticStyle.filter ?? "brightness(0) contrast(1.08)",
 
             opacity: isGlobal ? 1 : domesticStyle.opacity ?? 0.92,
-            
-            mixBlendMode: isGlobal ? "normal" : domesticStyle.mixBlendMode ?? "normal",
+
+            mixBlendMode: isGlobal
+              ? "normal"
+              : domesticStyle.mixBlendMode ?? "normal",
 
             transform: isGlobal
               ? "scale(1)"
@@ -142,16 +145,10 @@ function ClientLogo({
         />
       ) : (
         <span
-          className="text-[#2c2c2c] text-center leading-tight"
-          style={{
-            fontFamily: "'Jost', 'Pretendard', sans-serif",
-            fontSize: textLogo?.fontSize ?? "14px",
-            fontWeight: textLogo?.fontWeight ?? 600,
-            letterSpacing: textLogo?.letterSpacing ?? "0.08em",
-            opacity: textLogo?.opacity ?? 0.86,
-          }}
+          className="text-[#2c2c2c] text-sm font-semibold tracking-[0.08em] text-center leading-tight uppercase"
+          style={JP_BODY}
         >
-          {textLogo?.label ?? client.name}
+          {client.name}
         </span>
       )}
     </div>
