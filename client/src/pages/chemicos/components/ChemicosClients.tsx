@@ -72,8 +72,8 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   "WAKEMAKE": {
   maxWidth: "100",
   maxHeight: "100%",
-  scale: 6,
-  clipPath: "inset(32% 18% 32% 18%)",
+  scale: 8,
+  clipPath: "inset(36% 12% 36% 12%)",
   filter: "none",
   mixBlendMode: "multiply",
   opacity: 0.92,
