@@ -34,7 +34,7 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   "AMORE PACIFIC": { maxWidth: "64%", maxHeight: "42%" },
   "ETUDE": { maxWidth: "62%", maxHeight: "48%", scale: 1.35 },
   "CLIO": { maxWidth: "46%", maxHeight: "40%" },
-  "peripera": { maxWidth: "56%", maxHeight: "46%", scale: 1.75, opacity: 0.92 },
+  "PERIPERA": { maxWidth: "56%", maxHeight: "46%", scale: 1.75, opacity: 0.92 },
 
   // 굵고 강한 로고
   "espoir": { maxWidth: "42%", maxHeight: "44%", opacity: 0.86, scale: 1.12 },
@@ -63,8 +63,7 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   "TOOQ": { maxWidth: "54%", maxHeight: "68%", scale: 1.35, opacity: 0.88 },
 
   // 하트 아이콘
-  "Heart": { maxWidth: "20%", maxHeight: "46%", opacity: 0.72, scale: 1.08 },
-  "heart": { maxWidth: "20%", maxHeight: "46%", opacity: 0.72, scale: 1.08 },
+  "ODDTYPE": { maxWidth: "20%", maxHeight: "46%", opacity: 0.72, scale: 1.08 },
 };
 
 function ClientLogo({

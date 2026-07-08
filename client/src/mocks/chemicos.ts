@@ -205,7 +205,6 @@ const LOGO_SIZE_MAP: Record<string, { maxWidth?: string; maxHeight?: string }> =
 };
 
 export const domesticClients = [
-  { name: "AMORE PACIFIC", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/AMOREPACIFIC_logo.svg/3840px-AMOREPACIFIC_logo.svg.png", wide: true },
   { name: "ETUDE", image: "https://public.readdy.ai/ai/img_res/7ca47fde-4d47-491d-9dd8-f1a3e6ab79cc.png", wide: false },
   { name: "CLIO", image: "https://product-image.kurly.com/product/brand/4e2703d6-a528-4664-882e-04b6daede1b4.png", wide: false },
   { name: "PERIPERA", image: "https://1000logos.net/wp-content/uploads/2023/11/PeriPera-Logo.png", wide: false },
@@ -213,7 +212,7 @@ export const domesticClients = [
   { name: "HEART PERCENT", image: "https://m.heartpercent.co.kr/web/img/logo_p.png", wide: false },
   { name: "LILYBYRED", image: "https://lilybyred.co.kr/web/upload/NNEditor/20220616/dce45e83e8b4ee5d6260ff502db4bc68.png", wide: true },
   { name: "UNLEASHIA", image: "https://unleashiacosmetics.com/web/upload/category/editor/2021/11/02/24de4a1e629d7502a66f266f480e3493.png", wide: false },
-  { name: "MERRYMOND", image: "https://merrymonde.com/web/upload/logo/merrymonde.png", wide: false },
+  { name: "ODDTYPE", image: "https://theoddtype.com/wp-content/uploads/2025/10/logo.png", wide: false },
   { name: "GIVERNY", image: "https://cdn-pro-web-250-115.cdn-nhncommerce.com/bnh20202_godomall_com/data/skin/front/kaimen_bnh_1028/img/banner/slider_446814572/6f714615ef85ebc82cee5c678dda8df6_12156.png", wide: true },
   { name: "MERZY", image: "https://m.merzy.co.kr/web_img/MERZY_BI_180717.png", wide: false },
   { name: "INNISFREE", image: "https://public.readdy.ai/ai/img_res/6158b6ac-5932-4e15-a6e9-45d6377f259b.png", wide: true },
@@ -225,6 +224,8 @@ export const domesticClients = [
   { name: "TIP TOE", image: "https://tiptoe.kr/web/upload/category/logo/v2_0315bc921e22f871181730ab1aca6ffd_nwXrnK2D75_top.jpg", wide: true },
   { name: "KEYBO", image: "https://keybocosmetic.com/web/upload/appfiles/AIFBrluHGdhkEsW6ewuLoA/0a70cd121a490061faf880b3b73a485c.png", wide: true },
   { name: "TOOQ", image: "https://tooq.co.kr/web/upload/category/editor/2026/01/19/3b608324e69c3e83efbbe2929191404a.png", wide: true },
+  { name: "MERRYMOND", image: "https://pbs.twimg.com/profile_images/1793991044155232256/fJXnVJEE_400x400.jpg", wide: true },
+
 ];
 
 export const contactInfo = {
