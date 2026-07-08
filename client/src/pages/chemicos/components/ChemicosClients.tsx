@@ -62,7 +62,7 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   "ODDTYPE": {
   maxWidth: "100%",
   maxHeight: "100%",
-  scale: 2.0,
+  scale: 10.0,
   filter: "none",
   mixBlendMode: "multiply",
   opacity: 0.9,
@@ -71,8 +71,8 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   "WAKEMAKE": {
   maxWidth: "100",
   maxHeight: "100%",
-  scale: 0.2,
-  clipPath: "inset(30% 2% 30% 2%)",
+  scale: 1,
+  clipPath: "inset(28% 0% 28% 0%)",
   filter: "none",
   mixBlendMode: "multiply",
   opacity: 0.92,
@@ -112,18 +112,17 @@ function ClientLogo({
   display: "block",
 
   // WAKEMAKE만 width로 직접 조정
-  width: !isGlobal && isWakemake ? "60%" : "auto",
+  width: !isGlobal && isWakemake ? "55%" : "auto",
   height: "auto",
 
-  // WAKEMAKE만 max 제한 해제
   maxWidth: !isGlobal && isWakemake
-    ? "none"
+    ? "100%"
     : isGlobal
       ? globalSize.maxWidth ?? "90%"
       : domesticStyle.maxWidth ?? "56%",
 
   maxHeight: !isGlobal && isWakemake
-    ? "none"
+    ? "80%"
     : isGlobal
       ? globalSize.maxHeight ?? "80%"
       : domesticStyle.maxHeight ?? "46%",
