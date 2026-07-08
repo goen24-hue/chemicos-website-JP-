@@ -59,19 +59,19 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   // 여기부터 크기 조정 대상
   "PERIPERA": { maxWidth: "72%", maxHeight: "56%", scale: 1.9, opacity: 0.92 },
   "INNISFREE": { maxWidth: "72%", maxHeight: "54%", scale: 2.1 },
-  "TOOCOOLFORSCHOOL": { maxWidth: "100%", maxHeight: "100%", scale: 10.0 },
+  "TOOCOOLFORSCHOOL": { maxWidth: "100%", maxHeight: "100%", scale: 5.6 },
   "KEYBO": { maxWidth: "42%", maxHeight: "52%", scale: 1.25 },
   "TOOQ": { maxWidth: "46%", maxHeight: "60%", scale: 1.12, opacity: 0.88 },
-  "oddtype": {
+  "ODDTYPE": {
   maxWidth: "100%",
   maxHeight: "100%",
-  scale: 2.5,
+  scale: 1.25,
   filter: "none",
   mixBlendMode: "multiply",
   opacity: 0.9,
 },
 
-"merrymond": {
+"MERRYMOND": {
   maxWidth: "100%",
   maxHeight: "100%",
   scale: 8.0,
