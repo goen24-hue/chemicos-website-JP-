@@ -41,7 +41,7 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   "espoir": { maxWidth: "42%", maxHeight: "44%", opacity: 0.86, scale: 1.12 },
   "Heart Percent": { maxWidth: "62%", maxHeight: "44%", opacity: 0.78 },
   "lilybyred": { maxWidth: "44%", maxHeight: "42%", opacity: 0.9 },
-  "unleashia": { maxWidth: "56%", maxHeight: "52%", opacity: 0.78 },
+  "unleashia": { maxWidth: "50%", maxHeight: "48%", opacity: 0.78, scale: 0.88 },
 
   // 중간 라인
   "GIVERNY": { maxWidth: "50%", maxHeight: "40%", opacity: 0.82 },
@@ -59,13 +59,13 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   // 여기부터 크기 조정 대상
   "PERIPERA": { maxWidth: "72%", maxHeight: "56%", scale: 1.9, opacity: 0.92 },
   "INNISFREE": { maxWidth: "72%", maxHeight: "54%", scale: 2.1 },
-  "TOOCOOLFORSCHOOL": { maxWidth: "100%", maxHeight: "100%", scale: 5.6 },
+  "TOOCOOLFORSCHOOL": { maxWidth: "100%", maxHeight: "100%", scale: 14.0 },
   "KEYBO": { maxWidth: "42%", maxHeight: "52%", scale: 1.25 },
   "TOOQ": { maxWidth: "46%", maxHeight: "60%", scale: 1.12, opacity: 0.88 },
   "ODDTYPE": {
   maxWidth: "100%",
   maxHeight: "100%",
-  scale: 1.25,
+  scale: 2.0,
   filter: "none",
   mixBlendMode: "multiply",
   opacity: 0.9,
@@ -74,7 +74,7 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
 "MERRYMOND": {
   maxWidth: "100%",
   maxHeight: "100%",
-  scale: 8.0,
+  scale: 14.0,
   filter: "none",
   mixBlendMode: "multiply",
   opacity: 0.9,
