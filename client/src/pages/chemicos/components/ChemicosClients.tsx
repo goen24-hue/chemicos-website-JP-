@@ -55,11 +55,12 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   "VIDIVICI": { maxWidth: "64%", maxHeight: "44%", scale: 1.85 },
   "COSNORI": { maxWidth: "58%", maxHeight: "44%", scale: 1.75 },
 
-  // 하단 로고 — 현재보다 크게
-  "too cool for school": { maxWidth: "34%", maxHeight: "76%", scale: 1.45 },
-  "tip toe": { maxWidth: "48%", maxHeight: "72%", scale: 1.25, opacity: 0.86 },
-  "keybo": { maxWidth: "42%", maxHeight: "54%", scale: 1.55 },
-  "tooq": { maxWidth: "52%", maxHeight: "72%", scale: 1.45, opacity: 0.88 },
+  // 여기부터 크기 조정 대상
+  "PERIPERA": { maxWidth: "72%", maxHeight: "56%", scale: 1.9, opacity: 0.92 },
+  "INNISFREE": { maxWidth: "72%", maxHeight: "54%", scale: 2.1 },
+  "TOOCOOLFORSCHOOL": { maxWidth: "46%", maxHeight: "88%", scale: 1.6 },
+  "KEYBO": { maxWidth: "54%", maxHeight: "66%", scale: 1.75 },
+  "TOOQ": { maxWidth: "66%", maxHeight: "84%", scale: 1.7, opacity: 0.88 },
 
   // 하트 아이콘
   "Heart": { maxWidth: "20%", maxHeight: "46%", opacity: 0.72, scale: 1.08 },
@@ -74,7 +75,6 @@ function ClientLogo({
   type: "global" | "domestic";
 }) {
   const [imgError, setImgError] = useState(false);
-
   const globalSize = GLOBAL_LOGO_SIZE_MAP[client.name] ?? {};
   const domesticStyle = DOMESTIC_LOGO_STYLE_MAP[client.name] ?? {};
 
