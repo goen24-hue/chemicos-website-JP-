@@ -10,6 +10,7 @@ type LogoStyle = {
   opacity?: number;
   scale?: number;
   filter?: string;
+  mixBlendMode?: "normal" | "multiply";
 };
 
 /**
@@ -61,9 +62,23 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   "TOOCOOLFORSCHOOL": { maxWidth: "70%", maxHeight: "98%", scale: 2.6 },
   "KEYBO": { maxWidth: "44%", maxHeight: "54%", scale: 1.35 },
   "TOOQ": { maxWidth: "54%", maxHeight: "68%", scale: 1.35, opacity: 0.88 },
+  "oddtype": {
+  maxWidth: "44%",
+  maxHeight: "46%",
+  scale: 1.2,
+  filter: "none",
+  mixBlendMode: "multiply",
+  opacity: 0.9,
+},
 
-  // 하트 아이콘
-  "ODDTYPE": { maxWidth: "20%", maxHeight: "46%", opacity: 0.72, scale: 1.08 },
+"merrymond": {
+  maxWidth: "48%",
+  maxHeight: "52%",
+  scale: 1.15,
+  filter: "none",
+  mixBlendMode: "multiply",
+  opacity: 0.9,
+},
 };
 
 function ClientLogo({
@@ -113,6 +128,8 @@ function ClientLogo({
               : domesticStyle.filter ?? "brightness(0) contrast(1.08)",
 
             opacity: isGlobal ? 1 : domesticStyle.opacity ?? 0.92,
+            
+            mixBlendMode: isGlobal ? "normal" : domesticStyle.mixBlendMode ?? "normal",
 
             transform: isGlobal
               ? "scale(1)"
