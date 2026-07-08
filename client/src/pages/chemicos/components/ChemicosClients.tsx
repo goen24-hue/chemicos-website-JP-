@@ -69,15 +69,15 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   filter: "none",
   mixBlendMode: "multiply",
   opacity: 0.9,
-},
 
-"MERRYMOND": {
+  "WAKEMAKE": {
   maxWidth: "100%",
   maxHeight: "100%",
-  scale: 14.0,
+  scale: 2.0,
   filter: "none",
   mixBlendMode: "multiply",
   opacity: 0.9,
+},
 },
 };
 
