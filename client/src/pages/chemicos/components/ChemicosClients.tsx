@@ -58,9 +58,9 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   // 여기부터 크기 조정 대상
   "PERIPERA": { maxWidth: "72%", maxHeight: "56%", scale: 1.9, opacity: 0.92 },
   "INNISFREE": { maxWidth: "72%", maxHeight: "54%", scale: 2.1 },
-  "TOOCOOLFORSCHOOL": { maxWidth: "46%", maxHeight: "88%", scale: 1.6 },
-  "KEYBO": { maxWidth: "54%", maxHeight: "66%", scale: 1.75 },
-  "TOOQ": { maxWidth: "66%", maxHeight: "84%", scale: 1.7, opacity: 0.88 },
+  "TOOCOOLFORSCHOOL": { maxWidth: "50%", maxHeight: "92%", scale: 1.8 },
+  "KEYBO": { maxWidth: "46%", maxHeight: "56%", scale: 1.45 },
+  "TOOQ": { maxWidth: "54%", maxHeight: "68%", scale: 1.35, opacity: 0.88 },
 
   // 하트 아이콘
   "Heart": { maxWidth: "20%", maxHeight: "46%", opacity: 0.72, scale: 1.08 },
