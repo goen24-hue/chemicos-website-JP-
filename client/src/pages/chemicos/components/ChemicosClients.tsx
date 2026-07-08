@@ -39,8 +39,8 @@ function ClientLogo({ client }: { client: { name: string; image: string; wide: b
             width: 'auto',
             height: 'auto',
             objectFit: 'contain',
-            filter: 'grayscale(1) contrast(1.05)',
-            opacity: 0.82,
+            filter: 'brightness(0) contrast(1.15)',
+            opacity: visualOverride.opacity ?? 1,
           }}
           className="group-hover:opacity-75 transition-opacity duration-300"
           onError={() => setImgError(true)}
