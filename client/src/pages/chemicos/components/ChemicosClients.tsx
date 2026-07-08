@@ -47,7 +47,7 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   "GIVERNY": { maxWidth: "50%", maxHeight: "40%", opacity: 0.82 },
   "MERZY": { maxWidth: "46%", maxHeight: "52%", opacity: 0.72, scale: 1.08 },
   "MERRY": { maxWidth: "46%", maxHeight: "52%", opacity: 0.72, scale: 1.08 },
-  "MERRYMOND": { maxWidth: "46%", maxHeight: "52%", opacity: 0.72, scale: 1.08 },
+  "WAKEMAKE": { maxWidth: "46%", maxHeight: "52%", opacity: 0.72, scale: 1.08 },
   "INNISFREE": { maxWidth: "58%", maxHeight: "44%", scale: 1.95 },
 
   // 너무 작게 보이는 로고들 — 확 키움

@@ -224,7 +224,7 @@ export const domesticClients = [
   { name: "TIP TOE", image: "https://tiptoe.kr/web/upload/category/logo/v2_0315bc921e22f871181730ab1aca6ffd_nwXrnK2D75_top.jpg", wide: true },
   { name: "KEYBO", image: "https://keybocosmetic.com/web/upload/appfiles/AIFBrluHGdhkEsW6ewuLoA/0a70cd121a490061faf880b3b73a485c.png", wide: true },
   { name: "TOOQ", image: "https://tooq.co.kr/web/upload/category/editor/2026/01/19/3b608324e69c3e83efbbe2929191404a.png", wide: true },
-  { name: "MERRYMOND", image: "https://drive.google.com/file/d/1J3_dWnzI3Ap6vzC4nV1Y_My5tA-GXbsC/view?usp=sharing", wide: true },
+  { name: "WAKEMAKE", image: "https://shoplineimg.com/603781ec4bf8b2001b5d7e64/6965b4b650a13d000c04d48c/1200x.png?", wide: true },
 ];
 
 export const contactInfo = {
