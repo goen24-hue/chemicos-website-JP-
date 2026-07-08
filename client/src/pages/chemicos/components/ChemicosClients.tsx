@@ -62,9 +62,9 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   "KEYBO": { maxWidth: "42%", maxHeight: "52%", scale: 1.25 },
   "TOOQ": { maxWidth: "46%", maxHeight: "60%", scale: 1.12, opacity: 0.88 },
   "ODDTYPE": {
-  maxWidth: "100%",
-  maxHeight: "100%",
-  scale: 2.0,
+  maxWidth: "80%",
+  maxHeight: "80%",
+  scale: 1.0,
   filter: "none",
   mixBlendMode: "multiply",
   opacity: 0.9,
