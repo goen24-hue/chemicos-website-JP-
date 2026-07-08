@@ -113,7 +113,7 @@ function ClientLogo({
           style={{
             display: "block",
 
-            width: !isGlobal && isWakemake ? "260%" : "auto",
+            width: !isGlobal && isWakemake ? "150%" : "auto",
             height: "auto",
             
             maxWidth: !isGlobal && isWakemake
