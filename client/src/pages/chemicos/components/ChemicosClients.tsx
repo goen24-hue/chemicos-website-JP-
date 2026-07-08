@@ -12,58 +12,73 @@ type LogoStyle = {
   filter?: string;
 };
 
-const LOGO_STYLE_MAP: Record<string, LogoStyle> = {
-  // Global
-  "r.e.m. beauty": { maxWidth: "58%", maxHeight: "46%" },
-  "KVD Vegan Beauty": { maxWidth: "52%", maxHeight: "52%" },
-  "Too Faced": { maxWidth: "58%", maxHeight: "46%" },
-  "Physicians Formula": { maxWidth: "58%", maxHeight: "46%" },
-  "Smashbox": { maxWidth: "58%", maxHeight: "42%" },
-  "Guerlain": { maxWidth: "64%", maxHeight: "36%" },
+/**
+ * 해외 고객사 로고용
+ * 기존 상태를 최대한 유지하는 맵
+ */
+const GLOBAL_LOGO_SIZE_MAP: Record<string, { maxWidth?: string; maxHeight?: string }> = {
+  "r.e.m. beauty": { maxWidth: "75%", maxHeight: "40%" },
+  "KVD Vegan Beauty": { maxWidth: "60%", maxHeight: "60%" },
+  "Too Faced": { maxWidth: "70%", maxHeight: "55%" },
+  "Physicians Formula": { maxWidth: "70%", maxHeight: "55%" },
+  "Smashbox": { maxWidth: "75%", maxHeight: "45%" },
+  "Guerlain": { maxWidth: "90%", maxHeight: "38%" },
+};
 
-  // Domestic - major
+/**
+ * 국내 고객사 로고용
+ * 국내 로고만 별도 조정
+ */
+const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
+  // 상단 주요 브랜드
   "AMORE PACIFIC": { maxWidth: "64%", maxHeight: "42%" },
-  "ETUDE": { maxWidth: "58%", maxHeight: "46%", scale: 1.2 },
-  "CLIO": { maxWidth: "42%", maxHeight: "38%" },
-  "peripera": { maxWidth: "42%", maxHeight: "38%", scale: 1.15 },
+  "ETUDE": { maxWidth: "62%", maxHeight: "48%", scale: 1.35 },
+  "CLIO": { maxWidth: "46%", maxHeight: "40%" },
+  "peripera": { maxWidth: "56%", maxHeight: "46%", scale: 1.55, opacity: 0.92 },
 
-  // Domestic - bold logos
-  "espoir": { maxWidth: "38%", maxHeight: "42%", opacity: 0.86 },
-  "Heart Percent": { maxWidth: "58%", maxHeight: "42%", opacity: 0.78 },
-  "lilybyred": { maxWidth: "40%", maxHeight: "40%", opacity: 0.9 },
-  "unleashia": { maxWidth: "52%", maxHeight: "50%", opacity: 0.78 },
+  // 굵고 강한 로고
+  "espoir": { maxWidth: "42%", maxHeight: "44%", opacity: 0.86, scale: 1.12 },
+  "Heart Percent": { maxWidth: "62%", maxHeight: "44%", opacity: 0.78 },
+  "lilybyred": { maxWidth: "44%", maxHeight: "42%", opacity: 0.9 },
+  "unleashia": { maxWidth: "56%", maxHeight: "52%", opacity: 0.78 },
 
-  // Domestic - middle row
-  "GIVERNY": { maxWidth: "46%", maxHeight: "38%", opacity: 0.82 },
-  "MERZY": { maxWidth: "42%", maxHeight: "48%", opacity: 0.72 },
-  "MERRY": { maxWidth: "42%", maxHeight: "48%", opacity: 0.72 },
-  "MERRYMOND": { maxWidth: "42%", maxHeight: "48%", opacity: 0.72 },
-  "INNISFREE": { maxWidth: "54%", maxHeight: "42%", scale: 1.45 },
+  // 중간 라인
+  "GIVERNY": { maxWidth: "50%", maxHeight: "40%", opacity: 0.82 },
+  "MERZY": { maxWidth: "46%", maxHeight: "52%", opacity: 0.72, scale: 1.08 },
+  "MERRY": { maxWidth: "46%", maxHeight: "52%", opacity: 0.72, scale: 1.08 },
+  "MERRYMOND": { maxWidth: "46%", maxHeight: "52%", opacity: 0.72, scale: 1.08 },
+  "INNISFREE": { maxWidth: "58%", maxHeight: "44%", scale: 1.75 },
 
-  // Domestic - small-looking logos
-  "MISSHA": { maxWidth: "56%", maxHeight: "40%", scale: 1.45, opacity: 0.9 },
-  "THE FACE SHOP": { maxWidth: "58%", maxHeight: "46%", scale: 1.35 },
-  "VIDIVICI": { maxWidth: "56%", maxHeight: "38%", scale: 1.45 },
-  "COSNORI": { maxWidth: "48%", maxHeight: "38%", scale: 1.45 },
+  // 너무 작게 보이는 로고들 — 확 키움
+  "MISSHA": { maxWidth: "64%", maxHeight: "46%", scale: 1.85, opacity: 0.92 },
+  "THE FACE SHOP": { maxWidth: "66%", maxHeight: "52%", scale: 1.65 },
+  "VIDIVICI": { maxWidth: "64%", maxHeight: "44%", scale: 1.85 },
+  "COSNORI": { maxWidth: "58%", maxHeight: "44%", scale: 1.75 },
 
-  // Domestic - lower row
-  "too cool for school": { maxWidth: "24%", maxHeight: "68%" },
-  "tip toe": { maxWidth: "38%", maxHeight: "62%", opacity: 0.82 },
-  "keybo": { maxWidth: "30%", maxHeight: "45%" },
-  "tooq": { maxWidth: "40%", maxHeight: "62%", opacity: 0.88 },
+  // 하단 로고 — 현재보다 크게
+  "too cool for school": { maxWidth: "34%", maxHeight: "76%", scale: 1.25 },
+  "tip toe": { maxWidth: "48%", maxHeight: "72%", scale: 1.25, opacity: 0.86 },
+  "keybo": { maxWidth: "42%", maxHeight: "54%", scale: 1.35 },
+  "tooq": { maxWidth: "52%", maxHeight: "72%", scale: 1.28, opacity: 0.88 },
 
-  // Heart icon brand - 실제 name 값에 맞춰 하나만 남겨도 됨
-  "Heart": { maxWidth: "18%", maxHeight: "42%", opacity: 0.72 },
-  "heart": { maxWidth: "18%", maxHeight: "42%", opacity: 0.72 },
+  // 하트 아이콘
+  "Heart": { maxWidth: "20%", maxHeight: "46%", opacity: 0.72, scale: 1.08 },
+  "heart": { maxWidth: "20%", maxHeight: "46%", opacity: 0.72, scale: 1.08 },
 };
 
 function ClientLogo({
   client,
+  type,
 }: {
   client: { name: string; image: string; wide: boolean };
+  type: "global" | "domestic";
 }) {
   const [imgError, setImgError] = useState(false);
-  const logoStyle = LOGO_STYLE_MAP[client.name] ?? {};
+
+  const globalSize = GLOBAL_LOGO_SIZE_MAP[client.name] ?? {};
+  const domesticStyle = DOMESTIC_LOGO_STYLE_MAP[client.name] ?? {};
+
+  const isGlobal = type === "global";
 
   return (
     <div
@@ -76,14 +91,31 @@ function ClientLogo({
           alt={client.name}
           style={{
             display: "block",
-            maxWidth: logoStyle.maxWidth ?? "56%",
-            maxHeight: logoStyle.maxHeight ?? "46%",
+
+            maxWidth: isGlobal
+              ? globalSize.maxWidth ?? "90%"
+              : domesticStyle.maxWidth ?? "56%",
+
+            maxHeight: isGlobal
+              ? globalSize.maxHeight ?? "80%"
+              : domesticStyle.maxHeight ?? "46%",
+
             width: "auto",
             height: "auto",
             objectFit: "contain",
-            filter: logoStyle.filter ?? "brightness(0) contrast(1.08)",
-            opacity: logoStyle.opacity ?? 0.92,
-            transform: `scale(${logoStyle.scale ?? 1})`,
+
+            filter: isGlobal
+              ? "brightness(0) contrast(1.4)"
+              : domesticStyle.filter ?? "brightness(0) contrast(1.08)",
+
+            opacity: isGlobal
+              ? 1
+              : domesticStyle.opacity ?? 0.92,
+
+            transform: isGlobal
+              ? "scale(1)"
+              : `scale(${domesticStyle.scale ?? 1})`,
+
             transformOrigin: "center",
           }}
           className="transition-opacity duration-300"
@@ -103,13 +135,15 @@ function ClientLogo({
 
 function ClientGrid({
   clients,
+  type,
 }: {
   clients: { name: string; image: string; wide: boolean }[];
+  type: "global" | "domestic";
 }) {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-0">
       {clients.map((client) => (
-        <ClientLogo key={client.name} client={client} />
+        <ClientLogo key={client.name} client={client} type={type} />
       ))}
     </div>
   );
@@ -169,7 +203,7 @@ export default function ChemicosClients() {
           <div className="flex-1 h-px bg-[#2c2c2c]/10"></div>
         </div>
 
-        <ClientGrid clients={globalClients} />
+        <ClientGrid clients={globalClients} type="global" />
       </div>
 
       {/* Domestic Partners */}
@@ -184,7 +218,7 @@ export default function ChemicosClients() {
           <div className="flex-1 h-px bg-[#2c2c2c]/10"></div>
         </div>
 
-        <ClientGrid clients={domesticClients} />
+        <ClientGrid clients={domesticClients} type="domestic" />
       </div>
     </section>
   );
