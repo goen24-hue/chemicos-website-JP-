@@ -69,7 +69,7 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   },
 
   "WAKEMAKE": {
-  maxWidth: "100",
+  maxWidth: "100%",
   maxHeight: "100%",
   scale: 1,
   clipPath: "inset(28% 0% 28% 0%)",
@@ -88,14 +88,23 @@ function ClientLogo({
 }) {
   const [imgError, setImgError] = useState(false);
 
-  const normalizedName = client.name.trim().toLowerCase();
-  const isWakemake = normalizedName.includes("wakemake");
+ const rawName = client.name.trim();
+const normalizedName = rawName.toLowerCase();
+const upperName = rawName.toUpperCase();
+const compactName = normalizedName.replace(/\s+/g, "");
+const compactUpperName = upperName.replace(/\s+/g, "");
 
-  const globalSize = GLOBAL_LOGO_SIZE_MAP[client.name] ?? {};
-  const domesticStyle =
-    DOMESTIC_LOGO_STYLE_MAP[normalizedName] ??
-    DOMESTIC_LOGO_STYLE_MAP[client.name] ??
-    {};
+const isWakemake = normalizedName.includes("wakemake");
+const isOddtype = normalizedName.includes("oddtype");
+
+const globalSize = GLOBAL_LOGO_SIZE_MAP[client.name] ?? {};
+const domesticStyle =
+  DOMESTIC_LOGO_STYLE_MAP[rawName] ??
+  DOMESTIC_LOGO_STYLE_MAP[normalizedName] ??
+  DOMESTIC_LOGO_STYLE_MAP[upperName] ??
+  DOMESTIC_LOGO_STYLE_MAP[compactName] ??
+  DOMESTIC_LOGO_STYLE_MAP[compactUpperName] ??
+  {};
 
   const isGlobal = type === "global";
 
@@ -111,25 +120,39 @@ function ClientLogo({
           style={{
   display: "block",
 
-  // WAKEMAKE만 width로 직접 조정
-  width: !isGlobal && isWakemake ? "55%" : "auto",
-  height: "auto",
+  width: !isGlobal && isWakemake
+  ? "55%"
+  : !isGlobal && isOddtype
+    ? "145%"
+    : "auto",
 
-  maxWidth: !isGlobal && isWakemake
-    ? "100%"
+height: "auto",
+
+maxWidth: !isGlobal && isWakemake
+  ? "100%"
+  : !isGlobal && isOddtype
+    ? "none"
     : isGlobal
       ? globalSize.maxWidth ?? "90%"
       : domesticStyle.maxWidth ?? "56%",
 
-  maxHeight: !isGlobal && isWakemake
-    ? "80%"
+maxHeight: !isGlobal && isWakemake
+  ? "100%"
+  : !isGlobal && isOddtype
+    ? "none"
     : isGlobal
       ? globalSize.maxHeight ?? "80%"
       : domesticStyle.maxHeight ?? "46%",
 
   objectFit: "contain",
 
-  clipPath: isGlobal ? "none" : domesticStyle.clipPath ?? "none",
+  clipPath: isGlobal
+  ? "none"
+  : isWakemake
+    ? "inset(18% 0% 0% 0%)"
+    : isOddtype
+      ? "none"
+      : domesticStyle.clipPath ?? "none",
 
   filter: isGlobal
     ? "brightness(0) contrast(1.4)"
@@ -141,12 +164,11 @@ function ClientLogo({
     ? "normal"
     : domesticStyle.mixBlendMode ?? "normal",
 
-  // 여기 중요: WAKEMAKE만 scale 고정, 나머지는 기존 scale 유지
   transform: isGlobal
+  ? "scale(1)"
+  : isWakemake || isOddtype
     ? "scale(1)"
-    : isWakemake
-      ? "scale(1)"
-      : `scale(${domesticStyle.scale ?? 1})`,
+    : `scale(${domesticStyle.scale ?? 1})`,
 
   transformOrigin: "center",
 }}
