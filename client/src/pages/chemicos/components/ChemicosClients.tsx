@@ -64,32 +64,6 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
 
   // 하트 아이콘
   "ODDTYPE": { maxWidth: "20%", maxHeight: "46%", opacity: 0.72, scale: 1.08 },
-
-  const TEXT_LOGO_MAP: Record<
-  string,
-  {
-    label: string;
-    fontSize: string;
-    fontWeight?: number;
-    letterSpacing?: string;
-    opacity?: number;
-  }
-> = {
-  "ODDTYPE": {
-    label: "ODDTYPE",
-    fontSize: "24px",
-    fontWeight: 700,
-    letterSpacing: "0.08em",
-    opacity: 0.86,
-  },
-  "MERRYMOND": {
-    label: "MERRYMOND",
-    fontSize: "23px",
-    fontWeight: 700,
-    letterSpacing: "0.04em",
-    opacity: 0.86,
-  },
-};
 };
 
 function ClientLogo({
