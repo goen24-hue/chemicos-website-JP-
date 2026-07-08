@@ -4,55 +4,57 @@ import { globalClients, domesticClients } from "@/mocks/chemicos";
 const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
 const JP_TITLE = { fontFamily: "'Cormorant Garamond', serif" };
 
-// 로고별 크기 조정
-const LOGO_SIZE_MAP: Record<string, { maxWidth?: string; maxHeight?: string }> = {
-  // Global
-  "r.e.m. beauty": { maxWidth: "75%", maxHeight: "40%" },
-  "KVD Vegan Beauty": { maxWidth: "60%", maxHeight: "60%" },
-  "Too Faced": { maxWidth: "70%", maxHeight: "55%" },
-  "Physicians Formula": { maxWidth: "70%", maxHeight: "55%" },
-  "Smashbox": { maxWidth: "75%", maxHeight: "45%" },
-  "Guerlain": { maxWidth: "90%", maxHeight: "38%" },
-
-  // Domestic
-  "AMORE PACIFIC": { maxWidth: "62%", maxHeight: "34%" },
-  "ETUDE": { maxWidth: "45%", maxHeight: "36%" },
-  "CLIO": { maxWidth: "36%", maxHeight: "30%" },
-  "INNISFREE": { maxWidth: "42%", maxHeight: "28%" },
-  "MISSHA": { maxWidth: "38%", maxHeight: "28%" },
-  "THE FACE SHOP": { maxWidth: "46%", maxHeight: "34%" },
-  "NATURE REPUBLIC": { maxWidth: "90%", maxHeight: "22%" },
-
-  // 추가 국내 브랜드
-  "espoir": { maxWidth: "42%", maxHeight: "48%" },
-  "Heart Percent": { maxWidth: "70%", maxHeight: "45%" },
-  "lilybyred": { maxWidth: "42%", maxHeight: "42%" },
-  "unleashia": { maxWidth: "62%", maxHeight: "58%" },
-  "GIVERNY": { maxWidth: "48%", maxHeight: "38%" },
-  "MERZY": { maxWidth: "46%", maxHeight: "55%" },
-  "MERRY": { maxWidth: "46%", maxHeight: "55%" },
-  "MERRYMOND": { maxWidth: "46%", maxHeight: "55%" },
-  "Seulmit": { maxWidth: "42%", maxHeight: "36%" },
-  "VIDIVICI": { maxWidth: "42%", maxHeight: "28%" },
-  "COSNORI": { maxWidth: "34%", maxHeight: "30%" },
-  "too cool for school": { maxWidth: "20%", maxHeight: "58%" },
-  "tip toe": { maxWidth: "36%", maxHeight: "60%" },
-  "keybo": { maxWidth: "28%", maxHeight: "42%" },
-  "tfIT": { maxWidth: "34%", maxHeight: "48%" },
-  "Tfit": { maxWidth: "34%", maxHeight: "48%" },
+type LogoStyle = {
+  maxWidth?: string;
+  maxHeight?: string;
+  opacity?: number;
+  scale?: number;
+  filter?: string;
 };
 
-// 로고별 시각 농도 조정
-// 기본 로고는 선명하게 두고, 너무 진한 로고만 opacity를 낮춤
-const LOGO_VISUAL_MAP: Record<string, { opacity?: number; filter?: string }> = {
-  "Heart Percent": { opacity: 0.76 },
-  "unleashia": { opacity: 0.78 },
-  "MERZY": { opacity: 0.74 },
-  "MERRY": { opacity: 0.74 },
-  "MERRYMOND": { opacity: 0.74 },
-  "GIVERNY": { opacity: 0.82 },
-  "lilybyred": { opacity: 0.86 },
-  "espoir": { opacity: 0.88 },
+const LOGO_STYLE_MAP: Record<string, LogoStyle> = {
+  // Global
+  "r.e.m. beauty": { maxWidth: "58%", maxHeight: "46%" },
+  "KVD Vegan Beauty": { maxWidth: "52%", maxHeight: "52%" },
+  "Too Faced": { maxWidth: "58%", maxHeight: "46%" },
+  "Physicians Formula": { maxWidth: "58%", maxHeight: "46%" },
+  "Smashbox": { maxWidth: "58%", maxHeight: "42%" },
+  "Guerlain": { maxWidth: "64%", maxHeight: "36%" },
+
+  // Domestic - major
+  "AMORE PACIFIC": { maxWidth: "64%", maxHeight: "42%" },
+  "ETUDE": { maxWidth: "58%", maxHeight: "46%", scale: 1.2 },
+  "CLIO": { maxWidth: "42%", maxHeight: "38%" },
+  "peripera": { maxWidth: "42%", maxHeight: "38%", scale: 1.15 },
+
+  // Domestic - bold logos
+  "espoir": { maxWidth: "38%", maxHeight: "42%", opacity: 0.86 },
+  "Heart Percent": { maxWidth: "58%", maxHeight: "42%", opacity: 0.78 },
+  "lilybyred": { maxWidth: "40%", maxHeight: "40%", opacity: 0.9 },
+  "unleashia": { maxWidth: "52%", maxHeight: "50%", opacity: 0.78 },
+
+  // Domestic - middle row
+  "GIVERNY": { maxWidth: "46%", maxHeight: "38%", opacity: 0.82 },
+  "MERZY": { maxWidth: "42%", maxHeight: "48%", opacity: 0.72 },
+  "MERRY": { maxWidth: "42%", maxHeight: "48%", opacity: 0.72 },
+  "MERRYMOND": { maxWidth: "42%", maxHeight: "48%", opacity: 0.72 },
+  "INNISFREE": { maxWidth: "54%", maxHeight: "42%", scale: 1.45 },
+
+  // Domestic - small-looking logos
+  "MISSHA": { maxWidth: "56%", maxHeight: "40%", scale: 1.45, opacity: 0.9 },
+  "THE FACE SHOP": { maxWidth: "58%", maxHeight: "46%", scale: 1.35 },
+  "VIDIVICI": { maxWidth: "56%", maxHeight: "38%", scale: 1.45 },
+  "COSNORI": { maxWidth: "48%", maxHeight: "38%", scale: 1.45 },
+
+  // Domestic - lower row
+  "too cool for school": { maxWidth: "24%", maxHeight: "68%" },
+  "tip toe": { maxWidth: "38%", maxHeight: "62%", opacity: 0.82 },
+  "keybo": { maxWidth: "30%", maxHeight: "45%" },
+  "tooq": { maxWidth: "40%", maxHeight: "62%", opacity: 0.88 },
+
+  // Heart icon brand - 실제 name 값에 맞춰 하나만 남겨도 됨
+  "Heart": { maxWidth: "18%", maxHeight: "42%", opacity: 0.72 },
+  "heart": { maxWidth: "18%", maxHeight: "42%", opacity: 0.72 },
 };
 
 function ClientLogo({
@@ -61,12 +63,11 @@ function ClientLogo({
   client: { name: string; image: string; wide: boolean };
 }) {
   const [imgError, setImgError] = useState(false);
-  const sizeOverride = LOGO_SIZE_MAP[client.name] ?? {};
-  const visualOverride = LOGO_VISUAL_MAP[client.name] ?? {};
+  const logoStyle = LOGO_STYLE_MAP[client.name] ?? {};
 
   return (
     <div
-      className="border border-[#2c2c2c]/10 group hover:bg-[#ede8df] transition-colors duration-300 flex items-center justify-center"
+      className="border border-[#2c2c2c]/10 group hover:bg-[#ede8df] transition-colors duration-300 flex items-center justify-center overflow-hidden"
       style={{ height: "100px", padding: "10px 14px" }}
     >
       {!imgError ? (
@@ -75,15 +76,17 @@ function ClientLogo({
           alt={client.name}
           style={{
             display: "block",
-            maxWidth: sizeOverride.maxWidth ?? "90%",
-            maxHeight: sizeOverride.maxHeight ?? "80%",
+            maxWidth: logoStyle.maxWidth ?? "56%",
+            maxHeight: logoStyle.maxHeight ?? "46%",
             width: "auto",
             height: "auto",
             objectFit: "contain",
-            filter: visualOverride.filter ?? "brightness(0) contrast(1.15)",
-            opacity: visualOverride.opacity ?? 1,
+            filter: logoStyle.filter ?? "brightness(0) contrast(1.08)",
+            opacity: logoStyle.opacity ?? 0.92,
+            transform: `scale(${logoStyle.scale ?? 1})`,
+            transformOrigin: "center",
           }}
-          className="transition-transform duration-300 group-hover:scale-[0.98]"
+          className="transition-opacity duration-300"
           onError={() => setImgError(true)}
         />
       ) : (
