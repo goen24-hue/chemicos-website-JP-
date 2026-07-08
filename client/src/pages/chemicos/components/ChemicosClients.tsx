@@ -58,12 +58,38 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   // 여기부터 크기 조정 대상
   "PERIPERA": { maxWidth: "72%", maxHeight: "56%", scale: 1.9, opacity: 0.92 },
   "INNISFREE": { maxWidth: "72%", maxHeight: "54%", scale: 2.1 },
-  "TOOCOOLFORSCHOOL": { maxWidth: "50%", maxHeight: "92%", scale: 1.8 },
-  "KEYBO": { maxWidth: "46%", maxHeight: "56%", scale: 1.45 },
+  "TOOCOOLFORSCHOOL": { maxWidth: "70%", maxHeight: "98%", scale: 2.6 },
+  "KEYBO": { maxWidth: "44%", maxHeight: "54%", scale: 1.35 },
   "TOOQ": { maxWidth: "54%", maxHeight: "68%", scale: 1.35, opacity: 0.88 },
 
   // 하트 아이콘
   "ODDTYPE": { maxWidth: "20%", maxHeight: "46%", opacity: 0.72, scale: 1.08 },
+
+  const TEXT_LOGO_MAP: Record<
+  string,
+  {
+    label: string;
+    fontSize: string;
+    fontWeight?: number;
+    letterSpacing?: string;
+    opacity?: number;
+  }
+> = {
+  "ODDTYPE": {
+    label: "ODDTYPE",
+    fontSize: "24px",
+    fontWeight: 700,
+    letterSpacing: "0.08em",
+    opacity: 0.86,
+  },
+  "MERRYMOND": {
+    label: "MERRYMOND",
+    fontSize: "23px",
+    fontWeight: 700,
+    letterSpacing: "0.04em",
+    opacity: 0.86,
+  },
+};
 };
 
 function ClientLogo({
@@ -74,17 +100,22 @@ function ClientLogo({
   type: "global" | "domestic";
 }) {
   const [imgError, setImgError] = useState(false);
+
+  const normalizedName = client.name.trim().toLowerCase();
+
   const globalSize = GLOBAL_LOGO_SIZE_MAP[client.name] ?? {};
-  const domesticStyle = DOMESTIC_LOGO_STYLE_MAP[client.name] ?? {};
+  const domesticStyle = DOMESTIC_LOGO_STYLE_MAP[normalizedName] ?? {};
+  const textLogo = TEXT_LOGO_MAP[normalizedName];
 
   const isGlobal = type === "global";
+  const shouldUseTextLogo = !isGlobal && !!textLogo;
 
   return (
     <div
       className="border border-[#2c2c2c]/10 group hover:bg-[#ede8df] transition-colors duration-300 flex items-center justify-center overflow-hidden"
       style={{ height: "100px", padding: "10px 14px" }}
     >
-      {!imgError ? (
+      {!imgError && !shouldUseTextLogo ? (
         <img
           src={client.image}
           alt={client.name}
@@ -107,9 +138,7 @@ function ClientLogo({
               ? "brightness(0) contrast(1.4)"
               : domesticStyle.filter ?? "brightness(0) contrast(1.08)",
 
-            opacity: isGlobal
-              ? 1
-              : domesticStyle.opacity ?? 0.92,
+            opacity: isGlobal ? 1 : domesticStyle.opacity ?? 0.92,
 
             transform: isGlobal
               ? "scale(1)"
@@ -122,10 +151,16 @@ function ClientLogo({
         />
       ) : (
         <span
-          className="text-[#2c2c2c] text-sm font-semibold tracking-[0.08em] text-center leading-tight uppercase"
-          style={JP_BODY}
+          className="text-[#2c2c2c] text-center leading-tight"
+          style={{
+            fontFamily: "'Jost', 'Pretendard', sans-serif",
+            fontSize: textLogo?.fontSize ?? "14px",
+            fontWeight: textLogo?.fontWeight ?? 600,
+            letterSpacing: textLogo?.letterSpacing ?? "0.08em",
+            opacity: textLogo?.opacity ?? 0.86,
+          }}
         >
-          {client.name}
+          {textLogo?.label ?? client.name}
         </span>
       )}
     </div>
