@@ -36,7 +36,6 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   "AMORE PACIFIC": { maxWidth: "64%", maxHeight: "42%" },
   "ETUDE": { maxWidth: "62%", maxHeight: "48%", scale: 1.35 },
   "CLIO": { maxWidth: "46%", maxHeight: "40%" },
-  "PERIPERA": { maxWidth: "56%", maxHeight: "46%", scale: 1.75, opacity: 0.92 },
 
   // 굵고 강한 로고
   "espoir": { maxWidth: "42%", maxHeight: "44%", opacity: 0.86, scale: 1.12 },
@@ -48,7 +47,6 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   "GIVERNY": { maxWidth: "50%", maxHeight: "40%", opacity: 0.82 },
   "MERZY": { maxWidth: "46%", maxHeight: "52%", opacity: 0.72, scale: 1.08 },
   "MERRY": { maxWidth: "46%", maxHeight: "52%", opacity: 0.72, scale: 1.08 },
-  "INNISFREE": { maxWidth: "58%", maxHeight: "44%", scale: 1.95 },
 
   // 너무 작게 보이는 로고들 — 확 키움
   "MISSHA": { maxWidth: "64%", maxHeight: "46%", scale: 1.85, opacity: 0.92 },
@@ -68,6 +66,7 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   filter: "none",
   mixBlendMode: "multiply",
   opacity: 0.9,
+  },
 
   "WAKEMAKE": {
   maxWidth: "100",
@@ -77,8 +76,7 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   filter: "none",
   mixBlendMode: "multiply",
   opacity: 0.92,
-},
-},
+  },
 };
 
 function ClientLogo({
