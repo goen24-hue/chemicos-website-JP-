@@ -22,6 +22,7 @@ const LOGO_SIZE_MAP: Record<string, { maxWidth?: string; maxHeight?: string }> =
 function ClientLogo({ client }: { client: { name: string; image: string; wide: boolean } }) {
   const [imgError, setImgError] = useState(false);
   const sizeOverride = LOGO_SIZE_MAP[client.name] ?? {};
+  const visualOverride = LOGO_VISUAL_MAP[client.name] ?? {};
 
   return (
     <div
