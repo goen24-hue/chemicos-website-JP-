@@ -62,7 +62,7 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   "ODDTYPE": {
   maxWidth: "100%",
   maxHeight: "100%",
-  scale: 5.0,
+  scale: 1.0,
   filter: "none",
   mixBlendMode: "multiply",
   opacity: 0.9,
@@ -123,7 +123,7 @@ const domesticStyle =
   width: !isGlobal && isWakemake
   ? "55%"
   : !isGlobal && isOddtype
-    ? "85%"
+    ? "70%"
     : "auto",
 
 height: "auto",
