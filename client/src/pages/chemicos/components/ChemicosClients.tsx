@@ -143,7 +143,7 @@ function ClientLogo({
             transform: isGlobal
               ? "scale(1)"
               : isWakemake
-                ? "scale(1.35)"
+                ? "scale(1.45)"
                 : `scale(${domesticStyle.scale ?? 1})`,
 
             transformOrigin: "center",
