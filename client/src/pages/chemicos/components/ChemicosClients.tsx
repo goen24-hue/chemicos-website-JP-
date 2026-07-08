@@ -11,6 +11,7 @@ type LogoStyle = {
   scale?: number;
   filter?: string;
   mixBlendMode?: "normal" | "multiply";
+  clipPath?: string;
 };
 
 /**
@@ -47,7 +48,6 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   "GIVERNY": { maxWidth: "50%", maxHeight: "40%", opacity: 0.82 },
   "MERZY": { maxWidth: "46%", maxHeight: "52%", opacity: 0.72, scale: 1.08 },
   "MERRY": { maxWidth: "46%", maxHeight: "52%", opacity: 0.72, scale: 1.08 },
-  "WAKEMAKE": { maxWidth: "46%", maxHeight: "52%", opacity: 0.72, scale: 1.08 },
   "INNISFREE": { maxWidth: "58%", maxHeight: "44%", scale: 1.95 },
 
   // 너무 작게 보이는 로고들 — 확 키움
@@ -72,7 +72,7 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   "WAKEMAKE": {
   maxWidth: "100",
   maxHeight: "100%",
-  scale: 4.5,
+  scale: 3,
   filter: "none",
   mixBlendMode: "multiply",
   opacity: 0.92,
@@ -122,6 +122,8 @@ function ClientLogo({
             width: "auto",
             height: "auto",
             objectFit: "contain",
+
+            clipPath: isGlobal ? "none" : domesticStyle.clipPath ?? "none",
 
             filter: isGlobal
               ? "brightness(0) contrast(1.4)"
