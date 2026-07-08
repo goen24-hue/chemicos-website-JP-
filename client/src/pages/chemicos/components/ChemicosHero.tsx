@@ -22,9 +22,8 @@ export default function ChemicosHero() {
           style={{ fontFamily: "'Cormorant Garamond', serif" }}
         >
           일본 제조 감각을 바탕으로,<br />
-          한국의 민첩한 개발 역량을 결합해,<br />
-          브랜드와의 만남을 장기적 가치로 연결하는<br />
-          <em className="not-italic text-[#d4c9b0]">파트너가 되겠습니다.</em>
+          한국의 민첩한 개발 역량을 결합해,<br />          
+          <em className="not-italic text-[#d4c9b0]">브랜드와의 만남을 장기적 가치로 연결하는<br />파트너가 되겠습니다.</em>
         </h1>
         <div>
           <a
