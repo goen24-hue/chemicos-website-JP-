@@ -72,7 +72,7 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   "WAKEMAKE": {
   maxWidth: "100",
   maxHeight: "100%",
-  scale: 14,
+  scale: 1,
   clipPath: "inset(36% 12% 36% 12%)",
   filter: "none",
   mixBlendMode: "multiply",
@@ -113,7 +113,7 @@ function ClientLogo({
           style={{
             display: "block",
 
-            width: !isGlobal && isWakemake ? "105%" : "auto",
+            width: !isGlobal && isWakemake ? "145%" : "auto",
             height: "auto",
             
             maxWidth: !isGlobal && isWakemake
@@ -123,7 +123,7 @@ function ClientLogo({
                   : domesticStyle.maxWidth ?? "56%",
 
             maxHeight: !isGlobal && isWakemake
-              ? "80%"
+              ? "none%"
               : isGlobal
                 ? globalSize.maxHeight ?? "80%"
                   : domesticStyle.maxHeight ?? "46%",
