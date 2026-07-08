@@ -65,7 +65,7 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
   "oddtype": {
   maxWidth: "100%",
   maxHeight: "100%",
-  scale: 6.5,
+  scale: 5.5,
   filter: "none",
   mixBlendMode: "multiply",
   opacity: 0.9,
@@ -74,7 +74,7 @@ const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
 "merrymond": {
   maxWidth: "100%",
   maxHeight: "100%",
-  scale: 3.8,
+  scale: 4.5,
   filter: "none",
   mixBlendMode: "multiply",
   opacity: 0.9,
