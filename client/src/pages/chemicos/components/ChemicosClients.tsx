@@ -123,7 +123,7 @@ const domesticStyle =
   width: !isGlobal && isWakemake
   ? "55%"
   : !isGlobal && isOddtype
-    ? "145%"
+    ? "85%"
     : "auto",
 
 height: "auto",
