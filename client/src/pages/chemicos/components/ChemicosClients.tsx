@@ -91,6 +91,7 @@ function ClientLogo({
   const [imgError, setImgError] = useState(false);
 
   const normalizedName = client.name.trim().toLowerCase();
+  const isWakemake = normalizedName.includes("wakemake");
 
   const globalSize = GLOBAL_LOGO_SIZE_MAP[client.name] ?? {};
   const domesticStyle =
@@ -112,17 +113,20 @@ function ClientLogo({
           style={{
             display: "block",
 
-            maxWidth: isGlobal
-              ? globalSize.maxWidth ?? "90%"
-              : domesticStyle.maxWidth ?? "56%",
-
-            maxHeight: isGlobal
-              ? globalSize.maxHeight ?? "80%"
-              : domesticStyle.maxHeight ?? "46%",
-
-            width: "auto",
+            width: !isGlobal && isWakemake ? "260%" : "auto",
             height: "auto",
-            objectFit: "contain",
+            
+            maxWidth: !isGlobal && isWakemake
+              ? "none"
+                : isGlobal
+                  ? globalSize.maxWidth ?? "90%"
+                  : domesticStyle.maxWidth ?? "56%",
+
+            maxHeight: !isGlobal && isWakemake
+              ? "none"
+              : isGlobal
+                ? globalSize.maxHeight ?? "80%"
+                  : domesticStyle.maxHeight ?? "46%",
 
             clipPath: isGlobal ? "none" : domesticStyle.clipPath ?? "none",
 
@@ -138,7 +142,9 @@ function ClientLogo({
 
             transform: isGlobal
               ? "scale(1)"
-              : `scale(${domesticStyle.scale ?? 1})`,
+              : isWakemake
+                ? "scale(1)"
+                : `scale(${domesticStyle.scale ?? 1})`,
 
             transformOrigin: "center",
           }}
