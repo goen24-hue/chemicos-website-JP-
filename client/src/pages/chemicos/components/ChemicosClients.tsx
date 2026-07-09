@@ -128,7 +128,7 @@ height: "auto",
 
 maxWidth: !isGlobal && isWakemake
   ? "100%"
-  : !isGlobal && isOddtype
+  : !isGlobal
     ? "none"
     : isGlobal
       ? globalSize.maxWidth ?? "90%"
@@ -136,7 +136,7 @@ maxWidth: !isGlobal && isWakemake
 
 maxHeight: !isGlobal && isWakemake
   ? "100%"
-  : !isGlobal && isOddtype
+  : !isGlobal
     ? "none"
     : isGlobal
       ? globalSize.maxHeight ?? "80%"
