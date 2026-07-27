@@ -47,7 +47,7 @@ export default function ChemicosExpertise() {
       {/* Full-width image */}
       <div className="relative overflow-hidden w-full" style={{ height: "480px" }}>
         <img
-          src="https://static.readdy.ai/image/91482352f3970615f9df82ae24dd1865/f01a1e61689b9d48df1857d21fb2aa4b.png"
+          src="https://i.pinimg.com/736x/57/5d/83/575d831f4a2dd63b463bb4a3e5397d00.jpg"
           alt="Precision Manufacturing"
           className="w-full h-full object-cover object-top"
         />
