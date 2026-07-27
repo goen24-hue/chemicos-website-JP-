@@ -49,7 +49,7 @@ export default function ChemicosExpertise() {
         <img
           src="https://i.pinimg.com/736x/57/5d/83/575d831f4a2dd63b463bb4a3e5397d00.jpg"
           alt="Precision Manufacturing"
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full object-cover object-bottom"
         />
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="absolute bottom-6 left-8">
