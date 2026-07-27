@@ -1,0 +1,43 @@
+{
+  "build_command": "pnpm run build",
+  "capabilities": [
+    "db",
+    "server",
+    "user"
+  ],
+  "dev_command": "pnpm run dev",
+  "env_vars": {
+    "DATABASE_URL": "mysql://3iUsD6iaYgifwBn.f765b6250117:sMNiJ998YkVmjiL1t4W0@gateway05.us-east-1.prod.aws.tidbcloud.com:4000/HfMGavFCXUqhQUEu25wfbz?ssl={\"rejectUnauthorized\":true}"
+  },
+  "experiments": null,
+  "git_remote": {
+    "repo_url": "s3://vida-prod-gitrepo/webdev-git/310519663558366883/HfMGavFCXUqhQUEu25wfbz",
+    "access_key_id": "ASIAZV3A2ECZCDEQJ5EN",
+    "secret_access_key": "jkkrDeqyg9ZpZO2nuWtTkgSGh1WeJRS8uEG7zHg/",
+    "session_token": "IQoJb3JpZ2luX2VjEH4aCXVzLWVhc3QtMSJGMEQCIAqzczDfL65PBB4xgyLRZqe8CX6y+UMMXz2UdIcfEqzSAiBlwEQjXJdrMi0F74+pqdLpo4JIvBmlEyKWxHKT24tE6yr2AwhGEAQaDDY2NTM4NjA5ODg2NiIM/Nuf1cxkIvBNC/d1KtMD7x+9V0h9vDL/gRmC/ci72DfneNsdIgYUZ03kBh3wlYBrZL1aewU2ApS4PsdvSUZsMpFCR0sgeDnmn1qB8jpw6MAoBKdoEtFBv4InX751j8rVCKgkLV+iCh8qqcwNdx5Ota8VQZhfcJjuYnTkfr6tXE6QkD1bOayrWLL+pvO1Wu78AF63BIHJEnjRP3vi7DiBjKCbndFLUPs4iMngas8SLWlNdJRwBHNIgIwGjsxuleeTRnzkLPj/Ib7ZOIqwbhWwtnBbjL+MvnT9mY2j0MjIhM/QnMkfqWZP8fFxHXliaRi2JbPuVYJA0WE0h+oJ13OKsc+9+3dIDwfOCGEcyY4GXeE1iPBWXKpfROUZo0h6iSUQQrfsBoKPUjKH9EdNNAiGT4QRXUdN4hQJPwrOriQhGw/di8jZFS5qKiz5qw+EQTLlthXhSrsl6hXXjuclgfylNhibMf58ps2LFDwD4i57eNYJ/RgUbdxlLCZtJjwH8jK1Kv0xdssCIvJgWq++q2BI/nRERyzRE+LiU06NqwbedYqPx7W9xsLvJKDAb7G3vNwWDv3GC8bw5/4PE6daOJn7NtLqCr+hslYkBSi7UqWh7nNixH0zrZuOJxxD8l9jywK5uJMwoNCb0wY6ngEX9gw3Y3adD4m6doNJ9Cc7CqkaKDJOdtLH7f0w5QAQ69cvWbmhkMkynMxuQ2hqRPKKH24wvjVm3CjbU7VPmu73mODfGG/lU4rOpWlazx7YoIjf1YVvenhQi4M7e9hvwmQA1gHSHligq2SHdbejwChjFXbiON2ZbhZNTLW+r2Qm8yfzjsbLwz+fbrx+C+0qwcROoeZFRqtPg6Ff/0GQ1g==",
+    "expiration": "2026-07-27T17:09:52.000Z",
+    "backend": "GIT_BACKEND_S3"
+  },
+  "name": "chemicos-website",
+  "path": "/home/ubuntu/chemicos-website",
+  "port": 3000,
+  "secrets": {
+    "BUILT_IN_FORGE_API_KEY": "WDowR8ftYjfVn2gxM3PT9F",
+    "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
+    "CONTACT_EMAIL": "info@chemicos.net",
+    "JWT_SECRET": "9LJHRYnXvFA2eQCC5LmDmx",
+    "OAUTH_SERVER_URL": "https://api.manus.im",
+    "OWNER_NAME": "goen24",
+    "OWNER_OPEN_ID": "QWhH4JSTDUnqNmpMLyf8N2",
+    "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
+    "VITE_ANALYTICS_WEBSITE_ID": "d92dd7b9-d713-457d-8eed-b08d373b45fb",
+    "VITE_APP_ID": "HfMGavFCXUqhQUEu25wfbz",
+    "VITE_APP_LOGO": "https://files.manuscdn.com/user_upload_by_module/web_dev_logo/310519663558366883/qfdxUjuOlZLauhkH.png",
+    "VITE_APP_TITLE": "Chemicos | Trusted by global leaders for high-precision color development.",
+    "VITE_FRONTEND_FORGE_API_KEY": "mgALXGNCghAudvFvqqscXu",
+    "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",
+    "VITE_OAUTH_PORTAL_URL": "https://manus.im"
+  },
+  "template_id": "web-db-user",
+  "test_command": "pnpm test"
+}

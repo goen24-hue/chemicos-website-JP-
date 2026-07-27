@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
+const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
 
 export default function ChemicosCTA() {
   const [open, setOpen] = useState(false);
@@ -49,7 +49,7 @@ export default function ChemicosCTA() {
           className="absolute inset-0 w-full h-full object-cover"
           style={{ filter: "brightness(0.75)" }}
         >
-          <source src="/videos/nature.mp4" type="video/mp4" />
+          <source src="/manus-storage/cta-nature-bg_11e5a4ac.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/20" />
 
@@ -60,13 +60,13 @@ export default function ChemicosCTA() {
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-light leading-[1.3] text-[#f5f0e8] mb-10"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
-            오래, 깊게,<br />함께 성장하는 파트너로
+            長く、深く、<br />共に歩むパートナーへ
           </h2>
 
           <p className="text-[#f5f0e8]/80 leading-[2.0] text-lg mb-14 max-w-xl mx-auto font-light" style={JP_BODY}>
-            하나의 만남을 신중하게 발전시키며 장기적인 신뢰 관계를 만들어갑니다.<br />
-            그 가치를 안정적인 제조 역량으로 뒷받침하겠습니다.<br />
-            편하게 상담해 주세요.
+            一つひとつの出会いを丁寧に育て、長期的な信頼関係を築いていく。<br />
+            その価値を、確かなものづくりで支えていきます。<br />
+            ぜひご相談ください。
           </p>
 
           <button
@@ -74,7 +74,7 @@ export default function ChemicosCTA() {
             className="btn-chemicos inline-flex items-center gap-3 text-sm tracking-[0.2em] uppercase border border-[#f5f0e8]/70 px-8 py-3.5 text-[#f5f0e8] hover:bg-[#f5f0e8] hover:text-[#2c2c2c] font-light cursor-pointer whitespace-nowrap"
             style={JP_BODY}
           >
-            문의
+            お問い合わせ
             <i className="ri-arrow-right-line text-sm"></i>
           </button>
 
@@ -100,10 +100,10 @@ export default function ChemicosCTA() {
             {submitted ? (
               <div className="text-center py-10">
                 <p className="font-serif text-2xl text-[#2c2c2c] font-light mb-3" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                  감사합니다
+                  ありがとうございます
                 </p>
                 <p className="text-[#6b6055] text-base font-light" style={JP_BODY}>
-                  문의가 접수되었습니다.<br />빠른 시일 내에 연락드리겠습니다.
+                  お問い合わせを受け付けました。<br />近日中にご連絡いたします。
                 </p>
               </div>
             ) : (
@@ -115,7 +115,7 @@ export default function ChemicosCTA() {
                   className="font-serif text-2xl text-[#2c2c2c] font-light mb-8"
                   style={{ fontFamily: "'Cormorant Garamond', serif" }}
                 >
-                  문의
+                  お問い合わせ
                 </h3>
                 <form
                   data-readdy-form
@@ -124,7 +124,7 @@ export default function ChemicosCTA() {
                 >
                   <div>
                     <label className="block text-sm tracking-[0.2em] uppercase text-[#6b6055] mb-2 font-light" style={JP_BODY}>
-                      이름
+                      お名前
                     </label>
                     <input
                       type="text"
@@ -134,12 +134,12 @@ export default function ChemicosCTA() {
                       required
                       className="w-full bg-transparent border-b border-[#2c2c2c]/25 pb-2 text-base text-[#2c2c2c] font-light outline-none focus:border-[#2c2c2c] transition-colors placeholder-[#8a7e6e]/50"
                       style={JP_BODY}
-                      placeholder="홍길동"
+                      placeholder="山田 太郎"
                     />
                   </div>
                   <div>
                     <label className="block text-sm tracking-[0.2em] uppercase text-[#6b6055] mb-2 font-light" style={JP_BODY}>
-                      이메일 주소
+                      メールアドレス
                     </label>
                     <input
                       type="email"
@@ -153,7 +153,7 @@ export default function ChemicosCTA() {
                   </div>
                   <div>
                     <label className="block text-sm tracking-[0.2em] uppercase text-[#6b6055] mb-2 font-light" style={JP_BODY}>
-                      문의 내용
+                      メッセージ
                     </label>
                     <textarea
                       name="message"
@@ -163,7 +163,7 @@ export default function ChemicosCTA() {
                       rows={4}
                       className="w-full bg-transparent border-b border-[#2c2c2c]/25 pb-2 text-base text-[#2c2c2c] font-light outline-none focus:border-[#2c2c2c] transition-colors resize-none placeholder-[#8a7e6e]/50"
                       style={JP_BODY}
-                      placeholder="상담 내용을 입력해 주세요"
+                      placeholder="ご相談内容をご記入ください"
                     />
                     <p className={`text-right text-sm mt-1 font-light ${charCount >= 500 ? "text-red-400" : "text-[#8a7e6e]/60"}`} style={JP_BODY}>
                       {charCount}/500
@@ -174,7 +174,7 @@ export default function ChemicosCTA() {
                     className="w-full py-3.5 text-sm tracking-[0.2em] uppercase border border-[#2c2c2c] text-[#2c2c2c] hover:bg-[#2c2c2c] hover:text-[#f5f0e8] transition-all duration-300 font-light cursor-pointer whitespace-nowrap"
                     style={JP_BODY}
                   >
-                    보내기
+                    送信する
                   </button>
                 </form>
               </>

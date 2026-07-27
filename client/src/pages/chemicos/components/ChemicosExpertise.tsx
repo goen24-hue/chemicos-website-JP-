@@ -1,6 +1,6 @@
 import { expertiseItems } from "@/mocks/chemicos";
 
-const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
+const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
 
 export default function ChemicosExpertise() {
   return (
@@ -10,14 +10,14 @@ export default function ChemicosExpertise() {
         <div className="flex items-center gap-4 mb-12">
           <div className="w-8 h-px bg-[#f5f0e8]/40"></div>
           <span className="text-sm tracking-[0.28em] uppercase font-light text-[#d4c9b0]/80" style={JP_BODY}>
-            기술
+            技
           </span>
         </div>
         <h2
           className="font-serif text-4xl md:text-5xl lg:text-6xl font-light leading-[1.3] text-[#f5f0e8]"
           style={{ fontFamily: "'Cormorant Garamond', serif" }}
         >
-          아이메이크업<br />기술을 정교화합니다
+          アイメイクの<br />技を極める
         </h2>
       </div>
 
@@ -47,14 +47,14 @@ export default function ChemicosExpertise() {
       {/* Full-width image */}
       <div className="relative overflow-hidden w-full" style={{ height: "480px" }}>
         <img
-          src="https://i.pinimg.com/736x/0a/7b/f2/0a7bf2624def90d2b03c2109fac4a0aa.jpg"
+          src="https://static.readdy.ai/image/91482352f3970615f9df82ae24dd1865/f01a1e61689b9d48df1857d21fb2aa4b.png"
           alt="Precision Manufacturing"
           className="w-full h-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="absolute bottom-6 left-8">
           <span className="text-sm tracking-[0.28em] uppercase font-light text-[#f5f0e8]/70" style={JP_BODY}>
-            기술과 미감의 결합
+            技と美の融合
           </span>
         </div>
       </div>

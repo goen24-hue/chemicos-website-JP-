@@ -1,178 +1,47 @@
 import { useState } from "react";
 import { globalClients, domesticClients } from "@/mocks/chemicos";
 
-const JP_BODY = { fontFamily: "'Noto Serif KR', serif" };
+const JP_BODY = { fontFamily: "'Noto Serif JP', serif" };
 const JP_TITLE = { fontFamily: "'Cormorant Garamond', serif" };
 
-type LogoStyle = {
-  maxWidth?: string;
-  maxHeight?: string;
-  opacity?: number;
-  scale?: number;
-  filter?: string;
-  mixBlendMode?: "normal" | "multiply";
-  clipPath?: string;
+// 로고별 비율에 따른 크기 조정 맵
+// ratio > 5 (극단적 가로): maxHeight를 높여서 더 크게 표시
+// ratio ~1 (정사각형): maxWidth를 제한해서 너무 크지 않게
+const LOGO_SIZE_MAP: Record<string, { maxWidth?: string; maxHeight?: string }> = {
+  'r.e.m. beauty':       { maxWidth: '75%',  maxHeight: '40%' },  // 1:1 정사각형 → 크게
+  'KVD Vegan Beauty':    { maxWidth: '60%',  maxHeight: '60%' },  // 아이콘형
+  'Too Faced':           { maxWidth: '70%',  maxHeight: '55%' },  // 4.2:1 가로
+  'Physicians Formula':  { maxWidth: '70%',  maxHeight: '55%' },  // 3.4:1 가로
+  'Smashbox':            { maxWidth: '75%',  maxHeight: '45%' },  // 4.5:1 가로
+  'Guerlain':            { maxWidth: '90%',  maxHeight: '38%' },  // 7.9:1 극가로
+  'AMORE PACIFIC':       { maxWidth: '90%',  maxHeight: '30%' },  // 10:1 극가로
+  'CLIO':                { maxWidth: '90%',  maxHeight: '25%' },  // 11:1 극가로
+  'NATURE REPUBLIC':     { maxWidth: '90%',  maxHeight: '22%' },  // 12:1 극가로
 };
 
-/**
- * 해외 고객사 로고용
- * 기존 상태를 최대한 유지하는 맵
- */
-const GLOBAL_LOGO_SIZE_MAP: Record<string, { maxWidth?: string; maxHeight?: string }> = {
-  "r.e.m. beauty": { maxWidth: "75%", maxHeight: "40%" },
-  "KVD Vegan Beauty": { maxWidth: "60%", maxHeight: "60%" },
-  "Too Faced": { maxWidth: "70%", maxHeight: "55%" },
-  "Physicians Formula": { maxWidth: "70%", maxHeight: "55%" },
-  "Smashbox": { maxWidth: "75%", maxHeight: "45%" },
-  "Guerlain": { maxWidth: "90%", maxHeight: "38%" },
-};
-
-/**
- * 국내 고객사 로고용
- * 국내 로고만 별도 조정
- */
-const DOMESTIC_LOGO_STYLE_MAP: Record<string, LogoStyle> = {
-  // 상단 주요 브랜드
-  "AMORE PACIFIC": { maxWidth: "64%", maxHeight: "42%" },
-  "ETUDE": { maxWidth: "62%", maxHeight: "48%", scale: 1.35 },
-  "CLIO": { maxWidth: "46%", maxHeight: "40%" },
-
-  // 굵고 강한 로고
-  "espoir": { maxWidth: "42%", maxHeight: "44%", opacity: 0.86, scale: 1.12 },
-  "Heart Percent": { maxWidth: "62%", maxHeight: "44%", opacity: 0.78 },
-  "lilybyred": { maxWidth: "44%", maxHeight: "42%", opacity: 0.9 },
-  "unleashia": { maxWidth: "50%", maxHeight: "48%", opacity: 0.78, scale: 0.88 },
-
-  // 중간 라인
-  "GIVERNY": { maxWidth: "50%", maxHeight: "40%", opacity: 0.82 },
-  "MERZY": { maxWidth: "46%", maxHeight: "52%", opacity: 0.72, scale: 1.08 },
-  "MERRY": { maxWidth: "46%", maxHeight: "52%", opacity: 0.72, scale: 1.08 },
-
-  // 너무 작게 보이는 로고들 — 확 키움
-  "MISSHA": { maxWidth: "64%", maxHeight: "46%", scale: 1.85, opacity: 0.92 },
-  "THE FACE SHOP": { maxWidth: "66%", maxHeight: "52%", scale: 1.65 },
-  "VIDIVICI": { maxWidth: "64%", maxHeight: "44%", scale: 1.85 },
-  "COSNORI": { maxWidth: "58%", maxHeight: "44%", scale: 1.75 },
-
-  // 여기부터 크기 조정 대상
-  "PERIPERA": { maxWidth: "72%", maxHeight: "56%", scale: 1.9, opacity: 0.92 },
-  "INNISFREE": { maxWidth: "72%", maxHeight: "54%", scale: 2.1 },
-  "KEYBO": { maxWidth: "42%", maxHeight: "52%", scale: 1.25 },
-  "TOOQ": { maxWidth: "46%", maxHeight: "60%", scale: 1.12, opacity: 0.88 },
-  "ODDTYPE": {
-  maxWidth: "100%",
-  maxHeight: "100%",
-  scale: 1,
-  filter: "none",
-  mixBlendMode: "multiply",
-  opacity: 0.9,
-  },
-
-  "WAKEMAKE": {
-  maxWidth: "100%",
-  maxHeight: "100%",
-  scale: 1,
-  clipPath: "inset(28% 0% 28% 0%)",
-  filter: "none",
-  mixBlendMode: "multiply",
-  opacity: 0.92,
-  },
-};
-
-function ClientLogo({
-  client,
-  type,
-}: {
-  client: { name: string; image: string; wide: boolean };
-  type: "global" | "domestic";
-}) {
+function ClientLogo({ client }: { client: { name: string; image: string; wide: boolean } }) {
   const [imgError, setImgError] = useState(false);
-
- const rawName = client.name.trim();
-const normalizedName = rawName.toLowerCase();
-const upperName = rawName.toUpperCase();
-const compactName = normalizedName.replace(/\s+/g, "");
-const compactUpperName = upperName.replace(/\s+/g, "");
-
-const isWakemake = normalizedName.includes("wakemake");
-const isOddtype = normalizedName.includes("oddtype");
-
-const globalSize = GLOBAL_LOGO_SIZE_MAP[client.name] ?? {};
-const domesticStyle =
-  DOMESTIC_LOGO_STYLE_MAP[rawName] ??
-  DOMESTIC_LOGO_STYLE_MAP[normalizedName] ??
-  DOMESTIC_LOGO_STYLE_MAP[upperName] ??
-  DOMESTIC_LOGO_STYLE_MAP[compactName] ??
-  DOMESTIC_LOGO_STYLE_MAP[compactUpperName] ??
-  {};
-
-  const isGlobal = type === "global";
+  const sizeOverride = LOGO_SIZE_MAP[client.name] ?? {};
 
   return (
     <div
-      className="border border-[#2c2c2c]/10 group hover:bg-[#ede8df] transition-colors duration-300 flex items-center justify-center overflow-hidden"
-      style={{ height: "100px", padding: "10px 14px" }}
+      className="border border-[#2c2c2c]/10 group hover:bg-[#ede8df] transition-colors duration-300 flex items-center justify-center"
+      style={{ height: '100px', padding: '10px 14px' }}
     >
       {!imgError ? (
         <img
           src={client.image}
           alt={client.name}
           style={{
-  display: "block",
-
-  width: !isGlobal && isWakemake
-  ? "55%"
-  : !isGlobal && isOddtype
-    ? "50%"
-    : "auto",
-
-height: "auto",
-
-maxWidth: !isGlobal && isWakemake
-  ? "100%"
-  : !isGlobal && isOddtype
-    ? "none"
-    : isGlobal
-      ? globalSize.maxWidth ?? "90%"
-      : domesticStyle.maxWidth ?? "56%",
-
-maxHeight: !isGlobal && isWakemake
-  ? "100%"
-  : !isGlobal && isOddtype
-    ? "none"
-    : isGlobal
-      ? globalSize.maxHeight ?? "80%"
-      : domesticStyle.maxHeight ?? "46%",
-
-  objectFit: "contain",
-
-  clipPath: isGlobal
-  ? "none"
-  : isWakemake
-    ? "inset(18% 0% 0% 0%)"
-    : isOddtype
-      ? "none"
-      : domesticStyle.clipPath ?? "none",
-
-  filter: isGlobal
-    ? "brightness(0) contrast(1.4)"
-    : domesticStyle.filter ?? "brightness(0) contrast(1.08)",
-
-  opacity: isGlobal ? 1 : domesticStyle.opacity ?? 0.92,
-
-  mixBlendMode: isGlobal
-    ? "normal"
-    : domesticStyle.mixBlendMode ?? "normal",
-
-  transform: isGlobal
-  ? "scale(1)"
-  : isWakemake || isOddtype
-    ? "scale(1)"
-    : `scale(${domesticStyle.scale ?? 1})`,
-
-  transformOrigin: "center",
-}}
-          className="transition-opacity duration-300"
+            display: 'block',
+            maxWidth: sizeOverride.maxWidth ?? '90%',
+            maxHeight: sizeOverride.maxHeight ?? '80%',
+            width: 'auto',
+            height: 'auto',
+            objectFit: 'contain',
+            filter: 'brightness(0) contrast(1.4)',
+          }}
+          className="group-hover:opacity-75 transition-opacity duration-300"
           onError={() => setImgError(true)}
         />
       ) : (
@@ -187,17 +56,11 @@ maxHeight: !isGlobal && isWakemake
   );
 }
 
-function ClientGrid({
-  clients,
-  type,
-}: {
-  clients: { name: string; image: string; wide: boolean }[];
-  type: "global" | "domestic";
-}) {
+function ClientGrid({ clients }: { clients: { name: string; image: string; wide: boolean }[] }) {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-0">
       {clients.map((client) => (
-        <ClientLogo key={client.name} client={client} type={type} />
+        <ClientLogo key={client.name} client={client} />
       ))}
     </div>
   );
@@ -205,42 +68,27 @@ function ClientGrid({
 
 export default function ChemicosClients() {
   return (
-    <section
-      id="clients"
-      className="bg-[#f5f0e8] min-h-screen flex flex-col justify-center py-20 px-8 md:px-14 lg:px-20"
-      style={{ scrollMarginTop: "64px" }}
-    >
+    <section id="clients" className="bg-[#f5f0e8] min-h-screen flex flex-col justify-center py-20 px-8 md:px-14 lg:px-20" style={{ scrollMarginTop: "64px" }}>
       {/* Header */}
       <div className="mb-16">
         <div className="flex items-center gap-4 mb-10">
           <div className="w-8 h-px bg-[#2c2c2c]/35"></div>
-          <span
-            className="text-sm tracking-[0.28em] uppercase font-light text-[#6b6055]"
-            style={JP_BODY}
-          >
-            거래 실적
+          <span className="text-sm tracking-[0.28em] uppercase font-light text-[#6b6055]" style={JP_BODY}>
+            取引実績
           </span>
         </div>
-
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <h2
             className="font-serif text-4xl md:text-5xl font-light leading-[1.3] text-[#2c2c2c]"
             style={JP_TITLE}
           >
-            브랜드와 함께,
-            <br />
-            가치를 제품으로 구현합니다.
+            ブランドとともに、<br />
+            価値をかたちに。
           </h2>
-
-          <p
-            className="text-[#4a4035] text-lg font-light max-w-sm leading-[1.9]"
-            style={JP_BODY}
-          >
-            글로벌 브랜드부터 국내 주요 브랜드까지,
-            <br />
-            각국의 브랜드와 협업하며,
-            <br />
-            프리미엄 영역의 제품 개발을 수행해 왔습니다.
+          <p className="text-[#4a4035] text-lg font-light max-w-sm leading-[1.9]" style={JP_BODY}>
+            グローバルブランドから国内大手まで、<br />
+            各国のブランドと協業し、<br />
+            プレミアム領域の製品開発を担っています。
           </p>
         </div>
       </div>
@@ -256,8 +104,7 @@ export default function ChemicosClients() {
           </span>
           <div className="flex-1 h-px bg-[#2c2c2c]/10"></div>
         </div>
-
-        <ClientGrid clients={globalClients} type="global" />
+        <ClientGrid clients={globalClients} />
       </div>
 
       {/* Domestic Partners */}
@@ -271,8 +118,7 @@ export default function ChemicosClients() {
           </span>
           <div className="flex-1 h-px bg-[#2c2c2c]/10"></div>
         </div>
-
-        <ClientGrid clients={domesticClients} type="domestic" />
+        <ClientGrid clients={domesticClients} />
       </div>
     </section>
   );
