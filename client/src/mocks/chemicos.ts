@@ -179,22 +179,86 @@ export const companyStats = [
 ];
 
 export const globalClients = [
-  { name: "KVD Vegan Beauty", image: "https://public.readdy.ai/ai/img_res/a8534265-0001-43a3-95a9-211a6ed798bc.png", wide: false },
-  { name: "Fenty Beauty", image: "https://public.readdy.ai/ai/img_res/0ddb1d84-b7df-4aea-8722-bbceb456d818.png", wide: true },
-  { name: "Dior Beauty", image: "https://public.readdy.ai/ai/img_res/a37c350b-0683-42b6-842d-03977c8c0ae0.png", wide: true },
-  { name: "Stila", image: "https://public.readdy.ai/ai/img_res/5bdc35d5-7ae4-4697-8ef4-112a9dea594a.png", wide: true },
-  { name: "Too Faced", image: "https://public.readdy.ai/ai/img_res/f0ab3d4c-8d12-4cb4-85a3-bdf8f5f91c32.png", wide: true },
-  { name: "ColourPop", image: "https://public.readdy.ai/ai/img_res/dd3eb7b1-68e3-428a-b27b-ffc6b1416f05.png", wide: true },
-  { name: "SEPHORA", image: "https://public.readdy.ai/ai/img_res/f8039413-a479-4c68-9bd9-731c06d1cc6e.png", wide: true },
-  { name: "LORAC", image: "https://public.readdy.ai/ai/img_res/c205b427-7ae0-4a12-884a-13d2966625f6.png", wide: true },
-  { name: "Smashbox", image: "https://public.readdy.ai/ai/img_res/b6463046-f418-410e-8d74-e0c71f4ab08d.png", wide: true },
-  { name: "HOURGLASS", image: "https://public.readdy.ai/ai/img_res/6518ff02-b67d-4342-82f9-e3b018f11cb1.png", wide: true },
-  { name: "ARTDECO", image: "https://public.readdy.ai/ai/img_res/8120b642-d6e5-47eb-8ca9-e7ebbf7eaff5.png", wide: true },
-  { name: "Urban Decay", image: "https://public.readdy.ai/ai/img_res/de9930a2-4ad9-4a94-8164-346358675ed8.png", wide: true },
-  { name: "Physicians Formula", image: "https://images.squarespace-cdn.com/content/v1/5702b156f699bbaade5f6c2d/1586357789074-DEB2IWW1ZYS251A3KCKM/Physicians_Formula_Logo-01.png", wide: true },
-  { name: "r.e.m. beauty", image: "https://www.ulta.com/innovation/rem-beauty/imagesdream/logo.png", wide: true },
-  { name: "Jeffree Star Cosmetics", image: "https://upload.wikimedia.org/wikipedia/commons/d/d0/Jeffree_Star_Cosmetics_Logo.png", wide: true },
-  { name: "Guerlain", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Guerlain_logo_%282015%E2%80%932022%29.svg/1280px-Guerlain_logo_%282015%E2%80%932022%29.svg.png", wide: true },
+  {
+    name: "KVD Vegan Beauty",
+    image: "https://public.readdy.ai/ai/img_res/a8534265-0001-43a3-95a9-211a6ed798bc.png",
+    wide: false,
+  },
+  {
+    name: "Fenty Beauty",
+    image: "https://public.readdy.ai/ai/img_res/0ddb1d84-b7df-4aea-8722-bbceb456d818.png",
+    wide: true,
+  },
+  {
+    name: "Dior Beauty",
+    image: "https://public.readdy.ai/ai/img_res/a37c350b-0683-42b6-842d-03977c8c0ae0.png",
+    wide: true,
+  },
+  {
+    name: "Stila",
+    image: "https://public.readdy.ai/ai/img_res/5bdc35d5-7ae4-4697-8ef4-112a9dea594a.png",
+    wide: true,
+  },
+  {
+    name: "Too Faced",
+    image: "https://public.readdy.ai/ai/img_res/f0ab3d4c-8d12-4cb4-85a3-bdf8f5f91c32.png",
+    wide: true,
+  },
+  {
+    name: "ColourPop",
+    image: "https://public.readdy.ai/ai/img_res/dd3eb7b1-68e3-428a-b27b-ffc6b1416f05.png",
+    wide: true,
+  },
+  {
+    name: "SEPHORA",
+    image: "https://public.readdy.ai/ai/img_res/f8039413-a479-4c68-9bd9-731c06d1cc6e.png",
+    wide: true,
+  },
+  {
+    name: "LORAC",
+    image: "https://public.readdy.ai/ai/img_res/c205b427-7ae0-4a12-884a-13d2966625f6.png",
+    wide: true,
+  },
+  {
+    name: "Smashbox",
+    image: "https://public.readdy.ai/ai/img_res/b6463046-f418-410e-8d74-e0c71f4ab08d.png",
+    wide: true,
+  },
+  {
+    name: "HOURGLASS",
+    image: "https://public.readdy.ai/ai/img_res/6518ff02-b67d-4342-82f9-e3b018f11cb1.png",
+    wide: true,
+  },
+  {
+    name: "ARTDECO",
+    image: "https://public.readdy.ai/ai/img_res/8120b642-d6e5-47eb-8ca9-e7ebbf7eaff5.png",
+    wide: true,
+  },
+  {
+    name: "Urban Decay",
+    image: "https://public.readdy.ai/ai/img_res/de9930a2-4ad9-4a94-8164-346358675ed8.png",
+    wide: true,
+  },
+  {
+    name: "Physicians Formula",
+    image: "https://images.squarespace-cdn.com/content/v1/5702b156f699bbaade5f6c2d/1586357789074-DEB2IWW1ZYS251A3KCKM/Physicians_Formula_Logo-01.png",
+    wide: true,
+  },
+  {
+    name: "r.e.m. beauty",
+    image: "https://www.ulta.com/innovation/rem-beauty/imagesdream/logo.png",
+    wide: true,
+  },
+  {
+    name: "Jeffree Star Cosmetics",
+    image: "https://upload.wikimedia.org/wikipedia/commons/d/d0/Jeffree_Star_Cosmetics_Logo.png",
+    wide: true,
+  },
+  {
+    name: "Guerlain",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Guerlain_logo_%282015%E2%80%932022%29.svg/1280px-Guerlain_logo_%282015%E2%80%932022%29.svg.png",
+    wide: true,
+  },
 ];
 
 const LOGO_SIZE_MAP: Record<string, { maxWidth?: string; maxHeight?: string }> = {
@@ -206,26 +270,106 @@ const LOGO_SIZE_MAP: Record<string, { maxWidth?: string; maxHeight?: string }> =
 };
 
 export const domesticClients = [
-  { name: "ETUDE", image: "https://public.readdy.ai/ai/img_res/7ca47fde-4d47-491d-9dd8-f1a3e6ab79cc.png", wide: false },
-  { name: "CLIO", image: "https://product-image.kurly.com/product/brand/4e2703d6-a528-4664-882e-04b6daede1b4.png", wide: false },
-  { name: "PERIPERA", image: "https://1000logos.net/wp-content/uploads/2023/11/PeriPera-Logo.png", wide: false },
-  { name: "ESPOIR", image: "https://www.planeton.kr/planeton/resources/images/work/espoir/work_logo.png", wide: false },
-  { name: "HEART PERCENT", image: "https://m.heartpercent.co.kr/web/img/logo_p.png", wide: false },
-  { name: "LILYBYRED", image: "https://lilybyred.co.kr/web/upload/NNEditor/20220616/dce45e83e8b4ee5d6260ff502db4bc68.png", wide: true },
-  { name: "UNLEASHIA", image: "https://unleashiacosmetics.com/web/upload/category/editor/2021/11/02/24de4a1e629d7502a66f266f480e3493.png", wide: false },
-  { name: "ODDTYPE", image: "https://theoddtype.com/wp-content/uploads/2025/10/logo.png", wide: true },
-  { name: "GIVERNY", image: "https://cdn-pro-web-250-115.cdn-nhncommerce.com/bnh20202_godomall_com/data/skin/front/kaimen_bnh_1028/img/banner/slider_446814572/6f714615ef85ebc82cee5c678dda8df6_12156.png", wide: true },
-  { name: "MERZY", image: "https://m.merzy.co.kr/web_img/MERZY_BI_180717.png", wide: false },
-  { name: "INNISFREE", image: "https://public.readdy.ai/ai/img_res/6158b6ac-5932-4e15-a6e9-45d6377f259b.png", wide: true },
-  { name: "MISSHA", image: "https://public.readdy.ai/ai/img_res/36bb0243-4ae9-490d-88f4-7357a5950b53.png", wide: true },
-  { name: "THE FACE SHOP", image: "https://static.readdy.ai/image/91482352f3970615f9df82ae24dd1865/66d3a217b14e03bb7aca816a0a65f195.png", wide: true },
-  { name: "VIDIVICI", image: "https://img.ssgdfs.com/upload/C00001/dspl/banner/batch/614301/614301_black.png", wide: true },
-  { name: "COSNORI", image: "https://cosnori.cafe24.com/test/logo_mobile.png", wide: true },
-  { name: "TOO COOL FOR SCHOOL", image: "https://toocoolforschool.com/web/upload/appfiles/ZaReJam3QiELznoZeGGkMG/3643a35b6a2fbe017d7bc955e4fee45c.png", wide: true },
-  { name: "TIP TOE", image: "https://tiptoe.kr/web/upload/category/logo/v2_0315bc921e22f871181730ab1aca6ffd_nwXrnK2D75_top.jpg", wide: true },
-  { name: "KEYBO", image: "https://keybocosmetic.com/web/upload/appfiles/AIFBrluHGdhkEsW6ewuLoA/0a70cd121a490061faf880b3b73a485c.png", wide: true },
-  { name: "TOOQ", image: "https://tooq.co.kr/web/upload/category/editor/2026/01/19/3b608324e69c3e83efbbe2929191404a.png", wide: true },
-  { name: "WAKEMAKE", image: "https://shoplineimg.com/603781ec4bf8b2001b5d7e64/6965b4b650a13d000c04d48c/1200x.png?", wide: true },
+  {
+    name: "ETUDE",
+    image: "https://public.readdy.ai/ai/img_res/7ca47fde-4d47-491d-9dd8-f1a3e6ab79cc.png",
+    wide: false,
+  },
+  {
+    name: "CLIO",
+    image: "https://product-image.kurly.com/product/brand/4e2703d6-a528-4664-882e-04b6daede1b4.png",
+    wide: false,
+  },
+  {
+    name: "PERIPERA",
+    image: "https://1000logos.net/wp-content/uploads/2023/11/PeriPera-Logo.png",
+    wide: false,
+  },
+  {
+    name: "ESPOIR",
+    image: "https://www.planeton.kr/planeton/resources/images/work/espoir/work_logo.png",
+    wide: false,
+  },
+  {
+    name: "HEART PERCENT",
+    image: "https://m.heartpercent.co.kr/web/img/logo_p.png",
+    wide: false,
+  },
+  {
+    name: "LILYBYRED",
+    image: "https://lilybyred.co.kr/web/upload/NNEditor/20220616/dce45e83e8b4ee5d6260ff502db4bc68.png",
+    wide: true,
+  },
+  {
+    name: "UNLEASHIA",
+    image: "https://unleashiacosmetics.com/web/upload/category/editor/2021/11/02/24de4a1e629d7502a66f266f480e3493.png",
+    wide: false,
+  },
+  {
+    name: "ODDTYPE",
+    image: "https://theoddtype.com/wp-content/uploads/2025/10/logo.png",
+    wide: true,
+  },
+  {
+    name: "GIVERNY",
+    image: "https://cdn-pro-web-250-115.cdn-nhncommerce.com/bnh20202_godomall_com/data/skin/front/kaimen_bnh_1028/img/banner/slider_446814572/6f714615ef85ebc82cee5c678dda8df6_12156.png",
+    wide: true,
+  },
+  {
+    name: "MERZY",
+    image: "https://m.merzy.co.kr/web_img/MERZY_BI_180717.png",
+    wide: false,
+  },
+  {
+    name: "INNISFREE",
+    image: "https://public.readdy.ai/ai/img_res/6158b6ac-5932-4e15-a6e9-45d6377f259b.png",
+    wide: true,
+  },
+  {
+    name: "MISSHA",
+    image: "https://public.readdy.ai/ai/img_res/36bb0243-4ae9-490d-88f4-7357a5950b53.png",
+    wide: true,
+  },
+  {
+    name: "THE FACE SHOP",
+    image: "https://static.readdy.ai/image/91482352f3970615f9df82ae24dd1865/66d3a217b14e03bb7aca816a0a65f195.png",
+    wide: true,
+  },
+  {
+    name: "VIDIVICI",
+    image: "https://img.ssgdfs.com/upload/C00001/dspl/banner/batch/614301/614301_black.png",
+    wide: true,
+  },
+  {
+    name: "COSNORI",
+    image: "https://cosnori.cafe24.com/test/logo_mobile.png",
+    wide: true,
+  },
+  {
+    name: "TOO COOL FOR SCHOOL",
+    image: "https://toocoolforschool.com/web/upload/appfiles/ZaReJam3QiELznoZeGGkMG/3643a35b6a2fbe017d7bc955e4fee45c.png",
+    wide: true,
+  },
+  {
+    name: "TIP TOE",
+    image: "https://tiptoe.kr/web/upload/category/logo/v2_0315bc921e22f871181730ab1aca6ffd_nwXrnK2D75_top.jpg",
+    wide: true,
+  },
+  {
+    name: "KEYBO",
+    image: "https://keybocosmetic.com/web/upload/appfiles/AIFBrluHGdhkEsW6ewuLoA/0a70cd121a490061faf880b3b73a485c.png",
+    wide: true,
+  },
+  {
+    name: "TOOQ",
+    image: "https://tooq.co.kr/web/upload/category/editor/2026/01/19/3b608324e69c3e83efbbe2929191404a.png",
+    wide: true,
+  },
+  {
+    name: "WAKEMAKE",
+    image: "https://shoplineimg.com/603781ec4bf8b2001b5d7e64/6965b4b650a13d000c04d48c/1200x.png?",
+    wide: true,
+  },
 ];
 
 export const contactInfo = {
