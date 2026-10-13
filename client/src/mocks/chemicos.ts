@@ -261,14 +261,6 @@ export const globalClients = [
   },
 ];
 
-const LOGO_SIZE_MAP: Record<string, { maxWidth?: string; maxHeight?: string }> = {
-  // Domestic / Large corporate
-  'ESPOIR':              { maxWidth: '42%', maxHeight: '48%' },
-  'HEART PERCENT':       { maxWidth: '70%', maxHeight: '45%' },
-  'UNLEASHIA':           { maxWidth: '62%', maxHeight: '58%' },
-  'MERZY':               { maxWidth: '70%', maxHeight: '45%' },
-};
-
 export const domesticClients = [
   {
     name: "ETUDE",
