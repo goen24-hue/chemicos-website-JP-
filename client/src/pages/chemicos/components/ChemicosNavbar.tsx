@@ -176,7 +176,7 @@ export default function ChemicosNavbar() {
           className="flex items-center flex-shrink-0"
         >
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663558366883/RwrPSixCXsPHjaa2u7osqn/chemicos-logo_a5d1b5b8.webp"
+            src="/chemicos-logo.png"
             alt="CHEMICOS"
             className={`h-5 w-auto transition-all duration-500 ${
               scrolled ? "" : "brightness-0 invert"

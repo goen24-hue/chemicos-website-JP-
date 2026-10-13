@@ -4,7 +4,7 @@ export default function ChemicosHero() {
       {/* Background */}
       <div className="absolute inset-0 overflow-hidden">
         <img
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663558366883/RwrPSixCXsPHjaa2u7osqn/hero-dark-L9QF7CtYDW8wFYosJSjPiJ.webp"
+          src="/hero-bg.png"
           alt=""
           className="w-full h-full object-cover object-top"
         />
